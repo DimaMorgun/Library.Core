@@ -1,0 +1,11 @@
+C:\Users\Anuitex-52\source\repos\Library.Core\Library.Core.Web\bin\Debug\netcoreapp2.0\Library.Core.Web.deps.json
+C:\Users\Anuitex-52\source\repos\Library.Core\Library.Core.Web\bin\Debug\netcoreapp2.0\Library.Core.Web.runtimeconfig.json
+C:\Users\Anuitex-52\source\repos\Library.Core\Library.Core.Web\bin\Debug\netcoreapp2.0\Library.Core.Web.runtimeconfig.dev.json
+C:\Users\Anuitex-52\source\repos\Library.Core\Library.Core.Web\bin\Debug\netcoreapp2.0\Library.Core.Web.dll
+C:\Users\Anuitex-52\source\repos\Library.Core\Library.Core.Web\bin\Debug\netcoreapp2.0\Library.Core.Web.pdb
+C:\Users\Anuitex-52\source\repos\Library.Core\Library.Core.Web\obj\Debug\netcoreapp2.0\Library.Core.Web.csproj.CoreCompileInputs.cache
+C:\Users\Anuitex-52\source\repos\Library.Core\Library.Core.Web\obj\Debug\netcoreapp2.0\Library.Core.Web.AssemblyInfoInputs.cache
+C:\Users\Anuitex-52\source\repos\Library.Core\Library.Core.Web\obj\Debug\netcoreapp2.0\Library.Core.Web.AssemblyInfo.cs
+C:\Users\Anuitex-52\source\repos\Library.Core\Library.Core.Web\obj\Debug\netcoreapp2.0\Library.Core.Web.dll
+C:\Users\Anuitex-52\source\repos\Library.Core\Library.Core.Web\obj\Debug\netcoreapp2.0\Library.Core.Web.pdb
+C:\Users\Anuitex-52\source\repos\Library.Core\Library.Core.Web\obj\Debug\netcoreapp2.0\Library.Core.Web.csprojResolveAssemblyReference.cache
