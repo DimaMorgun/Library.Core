@@ -6,16 +6,19 @@ import { AppComponent } from './app.component';
 
 
 import { FormsModule } from '@angular/forms';
+import { LibraryComponent } from './library/library.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    LibraryComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpClientModule  ],
+    HttpClientModule
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })

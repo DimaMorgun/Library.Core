@@ -1,11 +1,53 @@
-\<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-</div>
-<h1>Book controller.</h1>
-<ul>
-  <li>{{bookJson}}</li>
-</ul>
+<h1>Список моделей</h1>
+<input type="button" value="Добавить" class="btn btn-default" (click)="add()" />
+<table *ngIf="tableMode; else create" class="table table-striped">
+  <thead>
+    <tr>
+      <td>Name</td>
+      <td>Year of publishing</td>
+      <td></td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let b of books">
+      <ng-template [ngIf]="book?.bookId != b.bookId" [ngIfElse]="edit">
+        <td>{{b?.name}}</td>
+        <td>{{b?.yearOfPublishing}}</td>
+        <td>
+          <button class="btn btn-sm btn-primary" (click)="editBook(b)">Update</button>
+          <button class="btn btn-sm btn-danger" (click)="delete(b)">Delete</button>
+        </td>
+      </ng-template>
+    </tr>
+  </tbody>
+</table>
+
+<!--шаблон для редактирования-->
+<ng-template #edit>
+  <td>
+    <input type="text" [(ngModel)]="book.name" class="form-control" />
+  </td>
+  <td>
+    <input type="text" [(ngModel)]="book.yearOfPublishing" class="form-control" />
+  </td>
+  <td>
+    <input type="button" value="Сохранить" (click)="save()" class="btn btn-sm btn-success" />
+    <input type="button" value="Отмена" (click)="cancel()" class="btn btn-sm btn-warning" />
+  </td>
+</ng-template>
+
+<!--шаблон для добавления-->
+<ng-template #create>
+  <div class="form-group">
+    <label>Name</label>
+    <input type="text" [(ngModel)]="book.name" class="form-control" />
+  </div>
+  <div class="form-group">
+    <label>Year of publishing</label>
+    <input type="text" [(ngModel)]="book.yearOfPublishing" class="form-control" />
+  </div>
+  <div>
+    <input type="button" value="Сохранить" (click)="save()" class="btn btn-success" />
+    <input type="button" value="Отмена" (click)="cancel()" class="btn btn-warning" />
+  </div>
+</ng-template>

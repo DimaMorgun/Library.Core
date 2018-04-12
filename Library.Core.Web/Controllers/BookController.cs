@@ -3,7 +3,6 @@ using System.Linq;
 using Library.Core.DataAccessLayer.Contexts;
 using Library.Core.EntityModelLayer.Models;
 using Microsoft.AspNetCore.Mvc;
-using Newtonsoft.Json;
 
 namespace Library.Core.Web.Controllers
 {
@@ -29,32 +28,54 @@ namespace Library.Core.Web.Controllers
     [HttpGet]
     public IEnumerable<Book> Get()
     {
-      return _context.Books;
+      return _context.Books.ToList();
     }
 
     // GET: api/Book/5
     [HttpGet("{id}", Name = "Get")]
-    public string Get(int id)
+    public Book Get(int id)
     {
-      return "value";
+      Book book = _context.Books.FirstOrDefault(x => x.BookId == id);
+      return book;
     }
 
     // POST: api/Book
     [HttpPost]
-    public void Post([FromBody]string value)
+    public IActionResult Post([FromBody]Book book)
     {
+      if (ModelState.IsValid)
+      {
+        _context.Books.Add(book);
+        _context.SaveChanges();
+        return Ok(book);
+      }
+      return BadRequest(ModelState);
     }
 
     // PUT: api/Book/5
     [HttpPut("{id}")]
-    public void Put(int id, [FromBody]string value)
+    public IActionResult Put(int id, [FromBody]Book book)
     {
+      if (ModelState.IsValid)
+      {
+        _context.Update(book);
+        _context.SaveChanges();
+        return Ok(book);
+      }
+      return BadRequest(ModelState);
     }
 
     // DELETE: api/ApiWithActions/5
     [HttpDelete("{id}")]
-    public void Delete(int id)
+    public IActionResult Delete(int id)
     {
+      Book book = _context.Books.FirstOrDefault(x => x.BookId == id);
+      if (book != null)
+      {
+        _context.Books.Remove(book);
+        _context.SaveChanges();
+      }
+      return Ok(book);
     }
   }
 }
