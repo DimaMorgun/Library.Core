@@ -1,20 +1,22 @@
 import { Component, OnInit } from '@angular/core';
-import { Http } from '@angular/http'
+import { HttpClient } from '@angular/common/http'
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
+
+
 export class AppComponent implements OnInit {
-  constructor(private _httpService: Http) { }
-  apiValues: string[] = [];
-  defaultValues: string[] = [];
+  constructor(private _httpService: HttpClient) { }
+  bookJson: Book[];
   ngOnInit() {
-    this._httpService.get('/api/values').subscribe(values => {
-      this.apiValues = values.json() as string[];
-    });
-    this._httpService.get('/api/default').subscribe(values => {
-      this.defaultValues = values.json() as string[];
+    this._httpService.get('/api/book').subscribe((book: Book[]) => {
+      this.bookJson = book;
+      console.log(book);
     });
   }
+}
+class Book {
+
 }
