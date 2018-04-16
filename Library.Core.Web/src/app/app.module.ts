@@ -1,12 +1,11 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { Routes, RouterModule } from "@angular/router";
+import { GridModule } from '@progress/kendo-angular-grid';
 
 import { AppComponent } from './app.component';
-
-
 
 import { BookComponent } from './book/book.component';
 import { AuthorComponent } from './author/author.component';
@@ -28,7 +27,8 @@ const routes: Routes = [
     BrowserModule,
     FormsModule,
     HttpClientModule,
-    RouterModule.forRoot(routes, { useHash: true })
+    RouterModule.forRoot(routes, { useHash: true }),
+    GridModule
   ],
   providers: [],
   bootstrap: [AppComponent]

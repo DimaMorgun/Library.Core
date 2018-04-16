@@ -3,7 +3,7 @@ webpackJsonp(["styles"],{
 /***/ "./node_modules/raw-loader/index.js!./node_modules/postcss-loader/lib/index.js??embedded!./src/styles.css":
 /***/ (function(module, exports) {
 
-module.exports = "/* You can add global styles to this file, and also import other style files */\r\n"
+module.exports = "app-root > .k-icon.k-i-loading {\r\n  font-size: 250px;\r\n  margin: 20% calc(50% - 125px);\r\n}\r\n\r\n.k-grid-content{\r\n  outline: none;\r\n}\r\n"
 
 /***/ }),
 

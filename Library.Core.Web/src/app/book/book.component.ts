@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BookService } from '../services/book';
 import { Book } from '../entities/book';
+import { products } from './products';
 
 @Component({
   selector: 'app-book',
@@ -8,12 +9,14 @@ import { Book } from '../entities/book';
   styleUrls: ['./book.component.css'],
   providers: [BookService]
 })
+
 export class BookComponent implements OnInit {
 
   constructor(private _bookService: BookService) { }
   book: Book = new Book();
   books: Book[];
   tableMode: boolean = true;
+  public gridData: any[] = products;
 
   ngOnInit() {
     this.loadBooks();

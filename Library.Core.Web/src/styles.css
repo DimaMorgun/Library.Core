@@ -1,1 +1,8 @@
-/* You can add global styles to this file, and also import other style files */
+app-root > .k-icon.k-i-loading {
+  font-size: 250px;
+  margin: 20% calc(50% - 125px);
+}
+
+.k-grid-content{
+  outline: none;
+}
