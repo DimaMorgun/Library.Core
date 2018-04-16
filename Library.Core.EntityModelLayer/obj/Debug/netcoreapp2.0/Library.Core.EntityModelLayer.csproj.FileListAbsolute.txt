@@ -1,9 +1,9 @@
 C:\Users\Anuitex-52\source\repos\Library.Core\Library.Core.EntityModelLayer\bin\Debug\netcoreapp2.0\Library.Core.EntityModelLayer.deps.json
 C:\Users\Anuitex-52\source\repos\Library.Core\Library.Core.EntityModelLayer\bin\Debug\netcoreapp2.0\Library.Core.EntityModelLayer.dll
-C:\Users\Anuitex-52\source\repos\Library.Core\Library.Core.EntityModelLayer\obj\Debug\netcoreapp2.0\Library.Core.EntityModelLayer.csprojResolveAssemblyReference.cache
 C:\Users\Anuitex-52\source\repos\Library.Core\Library.Core.EntityModelLayer\obj\Debug\netcoreapp2.0\Library.Core.EntityModelLayer.csproj.CoreCompileInputs.cache
 C:\Users\Anuitex-52\source\repos\Library.Core\Library.Core.EntityModelLayer\obj\Debug\netcoreapp2.0\Library.Core.EntityModelLayer.AssemblyInfoInputs.cache
 C:\Users\Anuitex-52\source\repos\Library.Core\Library.Core.EntityModelLayer\obj\Debug\netcoreapp2.0\Library.Core.EntityModelLayer.AssemblyInfo.cs
 C:\Users\Anuitex-52\source\repos\Library.Core\Library.Core.EntityModelLayer\bin\Debug\netcoreapp2.0\Library.Core.EntityModelLayer.pdb
 C:\Users\Anuitex-52\source\repos\Library.Core\Library.Core.EntityModelLayer\obj\Debug\netcoreapp2.0\Library.Core.EntityModelLayer.dll
 C:\Users\Anuitex-52\source\repos\Library.Core\Library.Core.EntityModelLayer\obj\Debug\netcoreapp2.0\Library.Core.EntityModelLayer.pdb
+C:\Users\Anuitex-52\source\repos\Library.Core\Library.Core.EntityModelLayer\obj\Debug\netcoreapp2.0\Library.Core.EntityModelLayer.csprojResolveAssemblyReference.cache

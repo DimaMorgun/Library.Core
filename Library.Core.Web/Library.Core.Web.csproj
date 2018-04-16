@@ -7,7 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="src\app\models\book.ts" />
+    <None Remove="src\app\entities\book.ts" />
     <None Remove="src\app\services\book.ts" />
   </ItemGroup>
 
@@ -27,7 +27,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <TypeScriptCompile Include="src\app\models\book.ts" />
+    <TypeScriptCompile Include="src\app\entities\book.ts" />
     <TypeScriptCompile Include="src\app\services\book.ts" />
   </ItemGroup>
 
