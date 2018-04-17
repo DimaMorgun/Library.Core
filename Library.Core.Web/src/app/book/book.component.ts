@@ -1,60 +1,85 @@
-import { Component, OnInit } from '@angular/core';
-import { BookService } from '../services/book';
+import { Observable } from 'rxjs/Observable';
+import { Component, OnInit, Inject } from '@angular/core';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+
+import { GridDataResult } from '@progress/kendo-angular-grid';
+import { State, process } from '@progress/kendo-data-query';
+
 import { Book } from '../entities/book';
-import { products } from './products';
+import { map } from 'rxjs/operators/map';
+import { BookService } from '../services/book';
+import { debug } from 'util';
 
 @Component({
   selector: 'app-book',
   templateUrl: './book.component.html',
-  styleUrls: ['./book.component.css'],
-  providers: [BookService]
+  styleUrls: ['./book.component.css']
 })
-
 export class BookComponent implements OnInit {
+  public view: Observable<GridDataResult>;
+  public gridState: State = {
+    sort: [],
+    skip: 0,
+    take: 10
+  };
 
-  constructor(private _bookService: BookService) { }
-  book: Book = new Book();
-  books: Book[];
-  tableMode: boolean = true;
-  public gridData: any[] = products;
+  private bookService: BookService;
+  private editedRowIndex: number;
+  private editedBook: Book;
 
-  ngOnInit() {
-    this.loadBooks();
+  constructor( @Inject(BookService) editServiceFactory: any) {
+    this.bookService = editServiceFactory();
   }
 
-  loadBooks() {
-    this._bookService.getBook()
-      .subscribe((data: Book[]) => this.books = data);
+  public ngOnInit(): void {
+    this.view = this.bookService.pipe(map(data => process(data, this.gridState)));
+
+    this.bookService.read();
   }
 
-  save() {
-    if (this.book.bookId == null) {
-      this._bookService.createBook(this.book)
-        .subscribe((data: Book) => this.books.push(data));
-    } else {
-      this._bookService.updateBook(this.book)
-        .subscribe(data => this.loadBooks());
-    }
-    this.cancel();
+  public onStateChange(state: State) {
+    this.gridState = state;
+
+    this.bookService.read();
   }
 
-  editBook(book: Book) {
-    this.book = book;
+  public addHandler({ sender }, formInstance) {
+    formInstance.reset();
+    this.closeEditor(sender);
+
+    sender.addRow(new Book());
   }
 
-  cancel() {
-    this.book = new Book();
-    this.tableMode = true;
+  public editHandler({ sender, rowIndex, dataItem }) {
+    this.closeEditor(sender);
+
+    this.editedRowIndex = rowIndex;
+    this.bookService = Object.assign({}, dataItem);
+
+    sender.editRow(rowIndex);
   }
 
-  delete(book: Book) {
-    this._bookService.deleteBook(book.bookId)
-      .subscribe(data => this.loadBooks());
+  public cancelHandler({ sender, rowIndex }) {
+    this.closeEditor(sender, rowIndex);
   }
 
-  add() {
-    this.cancel();
-    this.tableMode = false;
+  public saveHandler({ sender, rowIndex, dataItem, isNew }) {
+    this.bookService.save(dataItem, isNew);
+
+    sender.closeRow(rowIndex);
+
+    this.editedRowIndex = undefined;
+    this.bookService = undefined;
   }
 
+  public removeHandler({ dataItem }) {
+    this.bookService.remove(dataItem);
+  }
+
+  private closeEditor(grid, rowIndex = this.editedRowIndex) {
+    grid.closeRow(rowIndex);
+    this.bookService.resetItem(this.editedBook);
+    this.editedRowIndex = undefined;
+    this.bookService = undefined;
+  }
 }

@@ -1,28 +1,79 @@
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs/Observable';
 import { HttpClient } from '@angular/common/http';
-import { Book } from '../entities/book';
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+
+import { tap } from 'rxjs/operators/tap';
+import { map } from 'rxjs/operators/map';
+
+const CREATE_ACTION = 'create';
+const UPDATE_ACTION = 'update';
+const REMOVE_ACTION = 'destroy';
 
 @Injectable()
-export class BookService {
-
-  private url = "/api/book";
-
+export class BookService extends BehaviorSubject<any[]> {
   constructor(private http: HttpClient) {
+    super([]);
   }
 
-  getBook() {
-    return this.http.get(this.url);
+  private data: any[] = [];
+
+  public read() {
+    if (this.data.length) {
+      return super.next(this.data);
+    }
+
+    this.fetch()
+      .pipe(
+      tap(data => {
+        this.data = data;
+      })
+      )
+      .subscribe(data => {
+        super.next(data);
+      });
   }
 
-  createBook(book: Book) {
-    return this.http.post(this.url, book);
+  public save(data: any, isNew?: boolean) {
+    const action = isNew ? CREATE_ACTION : UPDATE_ACTION;
+
+    this.reset();
+
+    this.fetch(action, data)
+      .subscribe(() => this.read(), () => this.read());
   }
 
-  updateBook(book: Book) {
-    return this.http.put(this.url + '/' + book.bookId, book);
+  public remove(data: any) {
+    this.reset();
+
+    this.fetch(REMOVE_ACTION, data)
+      .subscribe(() => this.read(), () => this.read());
   }
 
-  deleteBook(id: number) {
-    return this.http.delete(this.url + '/' + id);
+  public resetItem(dataItem: any) {
+    if (!dataItem) { return; }
+
+    // find orignal data item
+    const originalDataItem = this.data.find(item => item.ProductID === dataItem.ProductID);
+
+    // revert changes
+    Object.assign(originalDataItem, dataItem);
+
+    super.next(this.data);
+  }
+
+  private reset() {
+    this.data = [];
+  }
+
+  private fetch(action: string = '', data?: any): Observable<any[]> {
+    return this.http.get('http://localhost:57534/api/book').pipe(map(res => <any[]>res));
+    //return this.http
+    //  .jsonp(`https://demos.telerik.com/kendo-ui/service/Products/${action}?${this.serializeModels(data)}`, 'callback')
+    //  .pipe(map(res => <any[]>res));
+  }
+
+  private serializeModels(data?: any): string {
+    return data ? `&models=${JSON.stringify([data])}` : '';
   }
 }

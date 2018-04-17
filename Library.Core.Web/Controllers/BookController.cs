@@ -28,7 +28,8 @@ namespace Library.Core.Web.Controllers
     [HttpGet]
     public IEnumerable<Book> Get()
     {
-      return _context.Books.ToList();
+      var bookList = _context.Books.ToList();
+      return bookList;
     }
 
     // GET: api/Book/5
