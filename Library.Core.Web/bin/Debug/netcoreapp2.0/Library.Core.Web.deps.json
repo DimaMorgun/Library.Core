@@ -24,6 +24,7 @@
       "Library.Core.Web/1.0.0": {
         "dependencies": {
           "Library.Core.DataAccessLayer": "1.0.0",
+          "Library.Core.ViewModelLayer": "1.0.0",
           "Microsoft.AspNetCore.All": "2.0.6",
           "Microsoft.AspNetCore.Mvc": "2.0.3",
           "Microsoft.AspNetCore.StaticFiles": "2.0.2",
@@ -4034,6 +4035,14 @@
           "Library.Core.EntityModelLayer.dll": {}
         }
       },
+      "Library.Core.ViewModelLayer/1.0.0": {
+        "runtime": {
+          "Library.Core.ViewModelLayer.dll": {}
+        },
+        "compile": {
+          "Library.Core.ViewModelLayer.dll": {}
+        }
+      },
       "Microsoft.NETCore.App/2.0.0": {
         "dependencies": {
           "Microsoft.NETCore.DotNetHostPolicy": "2.0.0",
@@ -6338,6 +6347,11 @@
       "sha512": ""
     },
     "Library.Core.EntityModelLayer/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Library.Core.ViewModelLayer/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

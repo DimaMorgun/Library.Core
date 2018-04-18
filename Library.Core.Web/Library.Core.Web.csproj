@@ -26,12 +26,12 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Library.Core.DataAccessLayer\Library.Core.DataAccessLayer.csproj" />
+    <ProjectReference Include="..\Library.Core.ViewModelLayer\Library.Core.ViewModelLayer.csproj" />
   </ItemGroup>
 
   <ItemGroup>
     <TypeScriptCompile Include="src\app\entities\book.ts" />
     <TypeScriptCompile Include="src\app\services\book.ts" />
-    <TypeScriptCompile Include="src\app\book\products.ts" />
   </ItemGroup>
 
 </Project>

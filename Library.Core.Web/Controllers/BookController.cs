@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Library.Core.DataAccessLayer.Contexts;
 using Library.Core.EntityModelLayer.Models;
+using Library.Core.ViewModelLayer.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Library.Core.Web.Controllers
@@ -42,11 +43,11 @@ namespace Library.Core.Web.Controllers
 
     // POST: api/Book
     [HttpPost]
-    public IActionResult Post([FromBody]Book book)
+    public IActionResult Post([FromBody]BookViewModel book)
     {
       if (ModelState.IsValid)
       {
-        _context.Books.Add(book);
+        //_context.Books.Add(book);
         _context.SaveChanges();
         return Ok(book);
       }
@@ -55,11 +56,11 @@ namespace Library.Core.Web.Controllers
 
     // PUT: api/Book/5
     [HttpPut("{id}")]
-    public IActionResult Put(int id, [FromBody]Book book)
+    public IActionResult Put(int id, [FromBody]BookViewModel book)
     {
       if (ModelState.IsValid)
       {
-        _context.Update(book);
+        //_context.Update(book);
         _context.SaveChanges();
         return Ok(book);
       }

@@ -14,3 +14,5 @@ C:\Users\Anuitex-52\source\repos\Library.Core\Library.Core.Web\bin\Debug\netcore
 C:\Users\Anuitex-52\source\repos\Library.Core\Library.Core.Web\bin\Debug\netcoreapp2.0\Library.Core.EntityModelLayer.pdb
 C:\Users\Anuitex-52\source\repos\Library.Core\Library.Core.Web\obj\Debug\netcoreapp2.0\Library.Core.Web.csprojResolveAssemblyReference.cache
 C:\Users\Anuitex-52\source\repos\Library.Core\Library.Core.Web\obj\Debug\netcoreapp2.0\Library.Core.Web.csproj.CopyComplete
+C:\Users\Anuitex-52\source\repos\Library.Core\Library.Core.Web\bin\Debug\netcoreapp2.0\Library.Core.ViewModelLayer.dll
+C:\Users\Anuitex-52\source\repos\Library.Core\Library.Core.Web\bin\Debug\netcoreapp2.0\Library.Core.ViewModelLayer.pdb

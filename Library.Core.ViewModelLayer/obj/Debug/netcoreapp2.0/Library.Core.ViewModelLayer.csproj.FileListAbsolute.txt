@@ -1,0 +1,9 @@
+C:\Users\Anuitex-52\source\repos\Library.Core\Library.Core.ViewModelLayer\bin\Debug\netcoreapp2.0\Library.Core.ViewModelLayer.deps.json
+C:\Users\Anuitex-52\source\repos\Library.Core\Library.Core.ViewModelLayer\bin\Debug\netcoreapp2.0\Library.Core.ViewModelLayer.dll
+C:\Users\Anuitex-52\source\repos\Library.Core\Library.Core.ViewModelLayer\bin\Debug\netcoreapp2.0\Library.Core.ViewModelLayer.pdb
+C:\Users\Anuitex-52\source\repos\Library.Core\Library.Core.ViewModelLayer\obj\Debug\netcoreapp2.0\Library.Core.ViewModelLayer.csprojResolveAssemblyReference.cache
+C:\Users\Anuitex-52\source\repos\Library.Core\Library.Core.ViewModelLayer\obj\Debug\netcoreapp2.0\Library.Core.ViewModelLayer.csproj.CoreCompileInputs.cache
+C:\Users\Anuitex-52\source\repos\Library.Core\Library.Core.ViewModelLayer\obj\Debug\netcoreapp2.0\Library.Core.ViewModelLayer.AssemblyInfoInputs.cache
+C:\Users\Anuitex-52\source\repos\Library.Core\Library.Core.ViewModelLayer\obj\Debug\netcoreapp2.0\Library.Core.ViewModelLayer.AssemblyInfo.cs
+C:\Users\Anuitex-52\source\repos\Library.Core\Library.Core.ViewModelLayer\obj\Debug\netcoreapp2.0\Library.Core.ViewModelLayer.dll
+C:\Users\Anuitex-52\source\repos\Library.Core\Library.Core.ViewModelLayer\obj\Debug\netcoreapp2.0\Library.Core.ViewModelLayer.pdb

@@ -22,6 +22,12 @@ export class BookComponent implements OnInit {
     skip: 0,
     take: 10
   };
+  public authors: Array<{ text: string, value: number }> = [
+    { text: "First Author", value: 1 },
+    { text: "Second Author", value: 2 },
+    { text: "Leo Tolstoy", value: 3 }
+  ];
+  public selectedAuthors = [2];
 
   private bookService: BookService;
   private editedRowIndex: number;
@@ -54,7 +60,7 @@ export class BookComponent implements OnInit {
     this.closeEditor(sender);
 
     this.editedRowIndex = rowIndex;
-    this.bookService = Object.assign({}, dataItem);
+    this.editedBook = Object.assign({}, dataItem);
 
     sender.editRow(rowIndex);
   }
@@ -69,17 +75,19 @@ export class BookComponent implements OnInit {
     sender.closeRow(rowIndex);
 
     this.editedRowIndex = undefined;
-    this.bookService = undefined;
+    this.editedBook = undefined;
   }
 
   public removeHandler({ dataItem }) {
-    this.bookService.remove(dataItem);
+    var book = new Book();
+    book.bookId = dataItem.bookId;
+    this.bookService.remove(book);
   }
 
   private closeEditor(grid, rowIndex = this.editedRowIndex) {
     grid.closeRow(rowIndex);
     this.bookService.resetItem(this.editedBook);
     this.editedRowIndex = undefined;
-    this.bookService = undefined;
+    this.editedBook = undefined;
   }
 }

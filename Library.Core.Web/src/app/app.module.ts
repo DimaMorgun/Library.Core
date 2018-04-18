@@ -1,9 +1,11 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClient, HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { Routes, RouterModule } from "@angular/router";
 import { GridModule } from '@progress/kendo-angular-grid';
+import { DropDownsModule } from '@progress/kendo-angular-dropdowns';
 
 import { AppComponent } from './app.component';
 
@@ -26,11 +28,13 @@ const routes: Routes = [
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     FormsModule,
     HttpClientModule,
     HttpClientJsonpModule,
     RouterModule.forRoot(routes, { useHash: true }),
-    GridModule
+    GridModule,
+    DropDownsModule
   ],
   providers: [
     {
