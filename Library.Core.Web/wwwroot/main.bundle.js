@@ -206,7 +206,7 @@ module.exports = ""
 /***/ "./src/app/book/book.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<form novalidate #myForm=\"ngForm\">\r\n  <kendo-grid [data]=\"view | async\"\r\n              [height]=\"533\"\r\n              [pageSize]=\"gridState.take\" [skip]=\"gridState.skip\" [sort]=\"gridState.sort\"\r\n              [pageable]=\"true\" [sortable]=\"true\"\r\n              (dataStateChange)=\"onStateChange($event)\"\r\n              (edit)=\"editHandler($event)\" (cancel)=\"cancelHandler($event)\"\r\n              (save)=\"saveHandler($event)\" (remove)=\"removeHandler($event)\"\r\n              (add)=\"addHandler($event, myForm)\"\r\n              [navigable]=\"true\">\r\n    <ng-template kendoGridToolbarTemplate>\r\n      <button kendoGridAddCommand type=\"button\">Add new</button>\r\n      <div class=\"example-config\">\r\n        The selected authors are <strong>{{ selectedAuthors | json }}</strong>\r\n      </div>\r\n    </ng-template>\r\n    <kendo-grid-column field=\"name\" title=\"Name\">\r\n      <ng-template kendoGridEditTemplate let-dataItem=\"dataItem\">\r\n        <input [(ngModel)]=\"dataItem.name\" kendoGridFocusable name=\"name\" class=\"k-textbox\" required />\r\n      </ng-template>\r\n    </kendo-grid-column>\r\n    <kendo-grid-column field=\"yearOfPublishing\" title=\"Year of publishing\">\r\n      <ng-template kendoGridEditTemplate let-dataItem=\"dataItem\">\r\n        <input [(ngModel)]=\"dataItem.yearOfPublishing\" kendoGridFocusable name=\"yearOfPublishing\" class=\"k-textbox\" type=\"number\" required />\r\n      </ng-template>\r\n    </kendo-grid-column>\r\n    <kendo-grid-command-column title=\"\">\r\n      <ng-template kendoGridCellTemplate let-isNew=\"isNew\">\r\n        <button kendoGridEditCommand type=\"button\" class=\"k-primary\">Edit</button>\r\n        <button kendoGridRemoveCommand type=\"button\">Remove</button>\r\n        <button kendoGridSaveCommand type=\"button\"\r\n                [disabled]=\"myForm.invalid || myForm.pristine\">\r\n          {{ isNew ? 'Add' : 'Update' }}\r\n        </button>\r\n        <button kendoGridCancelCommand type=\"button\">{{ isNew ? 'Discard changes' : 'Cancel' }}</button>\r\n      </ng-template>\r\n    </kendo-grid-command-column>\r\n  </kendo-grid>\r\n  <kendo-multiselect name=\"selectedAuthors\"\r\n                     [data]=\"authors\"\r\n                     [textField]=\"'text'\"\r\n                     [valueField]=\"'value'\"\r\n                     [valuePrimitive]=\"true\"\r\n                     [(ngModel)]=\"selectedAuthors\">\r\n  </kendo-multiselect>\r\n</form>\r\n"
+module.exports = "<form novalidate #myForm=\"ngForm\">\r\n  <kendo-grid [data]=\"view | async\"\r\n              [height]=\"533\"\r\n              [pageSize]=\"gridState.take\" [skip]=\"gridState.skip\" [sort]=\"gridState.sort\"\r\n              [pageable]=\"true\" [sortable]=\"true\"\r\n              (dataStateChange)=\"onStateChange($event)\"\r\n              (edit)=\"editHandler($event)\" (cancel)=\"cancelHandler($event)\"\r\n              (save)=\"saveHandler($event)\" (remove)=\"removeHandler($event)\"\r\n              (add)=\"addHandler($event, myForm)\"\r\n              [navigable]=\"true\">\r\n    <ng-template kendoGridToolbarTemplate>\r\n      <button kendoGridAddCommand type=\"button\">Add new</button>\r\n    </ng-template>\r\n    <kendo-grid-column field=\"name\" title=\"Name\">\r\n      <ng-template kendoGridEditTemplate let-dataItem=\"dataItem\">\r\n        <input [(ngModel)]=\"dataItem.name\" kendoGridFocusable name=\"name\" class=\"k-textbox\" required />\r\n      </ng-template>\r\n    </kendo-grid-column>\r\n    <kendo-grid-column field=\"yearOfPublishing\" title=\"Year of publishing\">\r\n      <ng-template kendoGridEditTemplate let-dataItem=\"dataItem\">\r\n        <input [(ngModel)]=\"dataItem.yearOfPublishing\" kendoGridFocusable name=\"yearOfPublishing\" class=\"k-textbox\" type=\"number\" required />\r\n      </ng-template>\r\n    </kendo-grid-column>\r\n    <kendo-grid-column field=\"authors\" title=\"Authors\">\r\n      <ng-template kendoGridEditTemplate let-dataItem=\"dataItem\">\r\n        <kendo-multiselect name=\"dataItem.selectedAuthors\"\r\n                           [data]=\"dataItem.allAuthors\"\r\n                           [textField]=\"'name'\"\r\n                           [valueField]=\"'authorId'\"\r\n                           [valuePrimitive]=\"true\"\r\n                           [(ngModel)]=\"dataItem.selectedAuthors\">\r\n        </kendo-multiselect>\r\n      </ng-template>\r\n    </kendo-grid-column>\r\n    <kendo-grid-command-column title=\"\">\r\n      <ng-template kendoGridCellTemplate let-isNew=\"isNew\">\r\n        <button kendoGridEditCommand type=\"button\" class=\"k-primary\">Edit</button>\r\n        <button kendoGridRemoveCommand type=\"button\">Remove</button>\r\n        <button kendoGridSaveCommand type=\"button\"\r\n                [disabled]=\"myForm.invalid || myForm.pristine\">\r\n          {{ isNew ? 'Add' : 'Update' }}\r\n        </button>\r\n        <button kendoGridCancelCommand type=\"button\">{{ isNew ? 'Discard changes' : 'Cancel' }}</button>\r\n      </ng-template>\r\n    </kendo-grid-command-column>\r\n  </kendo-grid>\r\n</form>\r\n"
 
 /***/ }),
 
@@ -244,12 +244,6 @@ var BookComponent = /** @class */ (function () {
             skip: 0,
             take: 10
         };
-        this.authors = [
-            { text: "First Author", value: 1 },
-            { text: "Second Author", value: 2 },
-            { text: "Leo Tolstoy", value: 3 }
-        ];
-        this.selectedAuthors = [2];
         this.bookService = editServiceFactory();
     }
     BookComponent.prototype.ngOnInit = function () {
@@ -320,10 +314,13 @@ var BookComponent = /** @class */ (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Book; });
 var Book = /** @class */ (function () {
-    function Book(bookId, name, yearOfPublishing, selectedAuthors, selectedPublicationHouses) {
+    function Book(bookId, name, yearOfPublishing, authors, selectedAuthors, selectedPublicationHouses) {
+        if (bookId === void 0) { bookId = 0; }
+        if (yearOfPublishing === void 0) { yearOfPublishing = 0; }
         this.bookId = bookId;
         this.name = name;
         this.yearOfPublishing = yearOfPublishing;
+        this.authors = authors;
         this.selectedAuthors = selectedAuthors;
         this.selectedPublicationHouses = selectedPublicationHouses;
     }
@@ -440,8 +437,22 @@ var BookService = /** @class */ (function (_super) {
             _this.data = data;
         }))
             .subscribe(function (data) {
+            _this.setCheckedItems(data);
             _super.prototype.next.call(_this, data);
         });
+    };
+    BookService.prototype.setCheckedItems = function (data) {
+        // To find which author contain current book
+        data.forEach(function (book) {
+            book.allAuthors.forEach(function (genericAuthor) {
+                book.authors.forEach(function (currentAuthor) {
+                    if (genericAuthor.authorId === currentAuthor.authorId) {
+                        book.selectedAuthors.push(currentAuthor.authorId);
+                    }
+                });
+            });
+        });
+        console.log(data);
     };
     BookService.prototype.save = function (data, isNew) {
         var _this = this;
@@ -482,7 +493,6 @@ var BookService = /** @class */ (function (_super) {
                 pipe(Object(__WEBPACK_IMPORTED_MODULE_4_rxjs_operators_map__["a" /* map */])(function (res) { return res; }));
         }
         if (action === UPDATE_ACTION) {
-            console.log(this.url + "/" + data.bookId);
             return this.http
                 .put(this.url + "/" + data.bookId, data)
                 .pipe(Object(__WEBPACK_IMPORTED_MODULE_4_rxjs_operators_map__["a" /* map */])(function (res) { return res; }));
@@ -494,6 +504,8 @@ var BookService = /** @class */ (function (_super) {
         }
     };
     BookService.prototype.serializeModels = function (data) {
+        var x = data ? "&models=" + JSON.stringify([data]) : '';
+        debugger;
         return data ? "&models=" + JSON.stringify([data]) : '';
     };
     BookService = __decorate([

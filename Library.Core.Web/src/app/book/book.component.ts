@@ -17,21 +17,15 @@ import { debug } from 'util';
 })
 export class BookComponent implements OnInit {
   public view: Observable<GridDataResult>;
+  private bookService: BookService;
+  private editedRowIndex: number;
+  private editedBook: Book;
+
   public gridState: State = {
     sort: [],
     skip: 0,
     take: 10
   };
-  public authors: Array<{ text: string, value: number }> = [
-    { text: "First Author", value: 1 },
-    { text: "Second Author", value: 2 },
-    { text: "Leo Tolstoy", value: 3 }
-  ];
-  public selectedAuthors = [2];
-
-  private bookService: BookService;
-  private editedRowIndex: number;
-  private editedBook: Book;
 
   constructor( @Inject(BookService) editServiceFactory: any) {
     this.bookService = editServiceFactory();

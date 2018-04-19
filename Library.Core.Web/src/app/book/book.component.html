@@ -10,9 +10,6 @@
               [navigable]="true">
     <ng-template kendoGridToolbarTemplate>
       <button kendoGridAddCommand type="button">Add new</button>
-      <div class="example-config">
-        The selected authors are <strong>{{ selectedAuthors | json }}</strong>
-      </div>
     </ng-template>
     <kendo-grid-column field="name" title="Name">
       <ng-template kendoGridEditTemplate let-dataItem="dataItem">
@@ -22,6 +19,17 @@
     <kendo-grid-column field="yearOfPublishing" title="Year of publishing">
       <ng-template kendoGridEditTemplate let-dataItem="dataItem">
         <input [(ngModel)]="dataItem.yearOfPublishing" kendoGridFocusable name="yearOfPublishing" class="k-textbox" type="number" required />
+      </ng-template>
+    </kendo-grid-column>
+    <kendo-grid-column field="authors" title="Authors">
+      <ng-template kendoGridEditTemplate let-dataItem="dataItem">
+        <kendo-multiselect name="dataItem.selectedAuthors"
+                           [data]="dataItem.allAuthors"
+                           [textField]="'name'"
+                           [valueField]="'authorId'"
+                           [valuePrimitive]="true"
+                           [(ngModel)]="dataItem.selectedAuthors">
+        </kendo-multiselect>
       </ng-template>
     </kendo-grid-column>
     <kendo-grid-command-column title="">
@@ -36,11 +44,4 @@
       </ng-template>
     </kendo-grid-command-column>
   </kendo-grid>
-  <kendo-multiselect name="selectedAuthors"
-                     [data]="authors"
-                     [textField]="'text'"
-                     [valueField]="'value'"
-                     [valuePrimitive]="true"
-                     [(ngModel)]="selectedAuthors">
-  </kendo-multiselect>
 </form>

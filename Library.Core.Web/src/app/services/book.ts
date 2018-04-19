@@ -7,6 +7,8 @@ import { tap } from 'rxjs/operators/tap';
 import { map } from 'rxjs/operators/map';
 
 import { Book } from '../entities/book';
+import { Author } from '../entities/author';
+import { forEach } from '@angular/router/src/utils/collection';
 
 const CREATE_ACTION = 'create';
 const UPDATE_ACTION = 'update';
@@ -16,7 +18,7 @@ const REMOVE_ACTION = 'destroy';
 export class BookService extends BehaviorSubject<any[]> {
 
   url = "/api/book"
-  private data: Book[] = [];
+  public data: any[] = [];
 
   constructor(private http: HttpClient) {
     super([]);
@@ -34,11 +36,26 @@ export class BookService extends BehaviorSubject<any[]> {
       })
       )
       .subscribe(data => {
+        this.setCheckedItems(data);
         super.next(data);
       });
   }
 
-  public save(data: Book, isNew?: boolean) {
+  public setCheckedItems(data: any) {
+    // To find which author contain current book
+    data.forEach(function (book) {
+      book.allAuthors.forEach(function (genericAuthor) {
+        book.authors.forEach(function (currentAuthor) {
+          if (genericAuthor.authorId === currentAuthor.authorId) {
+            book.selectedAuthors.push(currentAuthor.authorId);
+          }
+        });
+      });
+    });
+    console.log(data);
+  }
+
+  public save(data: any, isNew?: boolean) {
     const action = isNew ? CREATE_ACTION : UPDATE_ACTION;
 
     this.reset();
@@ -47,14 +64,14 @@ export class BookService extends BehaviorSubject<any[]> {
       .subscribe(() => this.read(), () => this.read());
   }
 
-  public remove(data: Book) {
+  public remove(data: any) {
     this.reset();
 
     this.fetch(REMOVE_ACTION, data)
       .subscribe(() => this.read(), () => this.read());
   }
 
-  public resetItem(dataItem: Book) {
+  public resetItem(dataItem: any) {
     if (!dataItem) { return; }
 
     // find orignal data item
@@ -70,7 +87,7 @@ export class BookService extends BehaviorSubject<any[]> {
     this.data = [];
   }
 
-  private fetch(action: string = '', data?: Book): Observable<any[]> {
+  private fetch(action: string = '', data?: any): Observable<any[]> {
     if (action === CREATE_ACTION) {
       return this.http
         .post(this.url, data)
@@ -82,7 +99,6 @@ export class BookService extends BehaviorSubject<any[]> {
         pipe(map(res => <any[]>res));
     }
     if (action === UPDATE_ACTION) {
-      console.log(`${this.url}/${data.bookId}`);
       return this.http
         .put(`${this.url}/${data.bookId}`, data)
         .pipe(map(res => <any[]>res));
@@ -94,7 +110,9 @@ export class BookService extends BehaviorSubject<any[]> {
     }
   }
 
-  private serializeModels(data?: Book): string {
+  private serializeModels(data?: any): string {
+    var x = data ? `&models=${JSON.stringify([data])}` : '';
+    debugger;
     return data ? `&models=${JSON.stringify([data])}` : '';
   }
 }

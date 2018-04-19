@@ -1,4 +1,5 @@
 using System.IO;
+using Library.Core.BysinessLogicLayer.AutoMapperConfig;
 using Library.Core.DataAccessLayer.Contexts;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -17,6 +18,8 @@ namespace Library.Core.Web
         options.UseSqlServer(@"Server=(localdb)\MSSQLLocalDB;Database=LibraryCore;Trusted_Connection=True;"));
 
       services.AddMvc();
+
+      AutoMapperConfig.Initialize();
     }
 
     // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -1,0 +1,16 @@
+C:\Users\Anuitex-52\source\repos\Library.Core\Library.Core.BysinessLogicLayer\bin\Debug\netcoreapp2.0\Library.Core.BysinessLogicLayer.deps.json
+C:\Users\Anuitex-52\source\repos\Library.Core\Library.Core.BysinessLogicLayer\bin\Debug\netcoreapp2.0\Library.Core.BysinessLogicLayer.dll
+C:\Users\Anuitex-52\source\repos\Library.Core\Library.Core.BysinessLogicLayer\obj\Debug\netcoreapp2.0\Library.Core.BysinessLogicLayer.csproj.CoreCompileInputs.cache
+C:\Users\Anuitex-52\source\repos\Library.Core\Library.Core.BysinessLogicLayer\obj\Debug\netcoreapp2.0\Library.Core.BysinessLogicLayer.AssemblyInfoInputs.cache
+C:\Users\Anuitex-52\source\repos\Library.Core\Library.Core.BysinessLogicLayer\obj\Debug\netcoreapp2.0\Library.Core.BysinessLogicLayer.AssemblyInfo.cs
+C:\Users\Anuitex-52\source\repos\Library.Core\Library.Core.BysinessLogicLayer\bin\Debug\netcoreapp2.0\Library.Core.BysinessLogicLayer.pdb
+C:\Users\Anuitex-52\source\repos\Library.Core\Library.Core.BysinessLogicLayer\bin\Debug\netcoreapp2.0\Library.Core.EntityModelLayer.dll
+C:\Users\Anuitex-52\source\repos\Library.Core\Library.Core.BysinessLogicLayer\bin\Debug\netcoreapp2.0\Library.Core.ViewModelLayer.dll
+C:\Users\Anuitex-52\source\repos\Library.Core\Library.Core.BysinessLogicLayer\bin\Debug\netcoreapp2.0\Library.Core.EntityModelLayer.pdb
+C:\Users\Anuitex-52\source\repos\Library.Core\Library.Core.BysinessLogicLayer\bin\Debug\netcoreapp2.0\Library.Core.ViewModelLayer.pdb
+C:\Users\Anuitex-52\source\repos\Library.Core\Library.Core.BysinessLogicLayer\obj\Debug\netcoreapp2.0\Library.Core.BysinessLogicLayer.csprojResolveAssemblyReference.cache
+C:\Users\Anuitex-52\source\repos\Library.Core\Library.Core.BysinessLogicLayer\obj\Debug\netcoreapp2.0\Library.Core.BysinessLogicLayer.csproj.CopyComplete
+C:\Users\Anuitex-52\source\repos\Library.Core\Library.Core.BysinessLogicLayer\obj\Debug\netcoreapp2.0\Library.Core.BysinessLogicLayer.dll
+C:\Users\Anuitex-52\source\repos\Library.Core\Library.Core.BysinessLogicLayer\obj\Debug\netcoreapp2.0\Library.Core.BysinessLogicLayer.pdb
+C:\Users\Anuitex-52\source\repos\Library.Core\Library.Core.BysinessLogicLayer\bin\Debug\netcoreapp2.0\Library.Core.DataAccessLayer.dll
+C:\Users\Anuitex-52\source\repos\Library.Core\Library.Core.BysinessLogicLayer\bin\Debug\netcoreapp2.0\Library.Core.DataAccessLayer.pdb

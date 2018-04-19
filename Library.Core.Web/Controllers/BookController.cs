@@ -1,7 +1,5 @@
 using System.Collections.Generic;
-using System.Linq;
-using Library.Core.DataAccessLayer.Contexts;
-using Library.Core.EntityModelLayer.Models;
+using Library.Core.BysinessLogicLayer.Services;
 using Library.Core.ViewModelLayer.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 
@@ -11,34 +9,20 @@ namespace Library.Core.Web.Controllers
   [Route("api/Book")]
   public class BookController : Controller
   {
-    LibraryCoreContext _context;
+    private BookService _bookService;
 
-    public BookController(LibraryCoreContext context)
+    public BookController()
     {
-      _context = context;
-
-      if (!_context.Books.Any())
-      {
-        _context.Books.Add(new Book { Name = "Book sample", YearOfPublishing = 2018 });
-        _context.Books.Add(new Book { Name = "Test book", YearOfPublishing = 1997 });
-        _context.SaveChanges();
-      }
+      _bookService = new BookService();
     }
 
     // GET: api/Book
     [HttpGet]
-    public IEnumerable<Book> Get()
+    public IEnumerable<BookViewModel> Get()
     {
-      var bookList = _context.Books.ToList();
-      return bookList;
-    }
+      List<BookViewModel> allBooks = _bookService.GetAll();
 
-    // GET: api/Book/5
-    [HttpGet("{id}", Name = "Get")]
-    public Book Get(int id)
-    {
-      Book book = _context.Books.FirstOrDefault(x => x.BookId == id);
-      return book;
+      return allBooks;
     }
 
     // POST: api/Book
@@ -47,8 +31,7 @@ namespace Library.Core.Web.Controllers
     {
       if (ModelState.IsValid)
       {
-        //_context.Books.Add(book);
-        _context.SaveChanges();
+        _bookService.Insert(book);
         return Ok(book);
       }
       return BadRequest(ModelState);
@@ -60,8 +43,7 @@ namespace Library.Core.Web.Controllers
     {
       if (ModelState.IsValid)
       {
-        //_context.Update(book);
-        _context.SaveChanges();
+        _bookService.Update(book);
         return Ok(book);
       }
       return BadRequest(ModelState);
@@ -71,13 +53,11 @@ namespace Library.Core.Web.Controllers
     [HttpDelete("{id}")]
     public IActionResult Delete(int id)
     {
-      Book book = _context.Books.FirstOrDefault(x => x.BookId == id);
-      if (book != null)
+      if (id != 0)
       {
-        _context.Books.Remove(book);
-        _context.SaveChanges();
+        _bookService.Delete(id);
       }
-      return Ok(book);
+      return Ok(id);
     }
   }
 }

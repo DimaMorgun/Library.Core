@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Library.Core.DataAccessLaye
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Library.Core.EntityModelLayer", "Library.Core.EntityModelLayer\Library.Core.EntityModelLayer.csproj", "{608CDC96-6313-42B6-A623-382B48A6F6C4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Library.Core.ViewModelLayer", "Library.Core.ViewModelLayer\Library.Core.ViewModelLayer.csproj", "{FD92C064-E736-4167-884A-A9400F7864F5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Library.Core.ViewModelLayer", "Library.Core.ViewModelLayer\Library.Core.ViewModelLayer.csproj", "{FD92C064-E736-4167-884A-A9400F7864F5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Library.Core.BysinessLogicLayer", "Library.Core.BysinessLogicLayer\Library.Core.BysinessLogicLayer.csproj", "{8844EE8B-7AB9-4E2C-AEBD-FEB6DD22ED26}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{FD92C064-E736-4167-884A-A9400F7864F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FD92C064-E736-4167-884A-A9400F7864F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FD92C064-E736-4167-884A-A9400F7864F5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8844EE8B-7AB9-4E2C-AEBD-FEB6DD22ED26}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8844EE8B-7AB9-4E2C-AEBD-FEB6DD22ED26}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8844EE8B-7AB9-4E2C-AEBD-FEB6DD22ED26}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8844EE8B-7AB9-4E2C-AEBD-FEB6DD22ED26}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

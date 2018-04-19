@@ -20,6 +20,22 @@ namespace Library.Core.DataAccessLayer.Migrations
                 .HasAnnotation("ProductVersion", "2.0.2-rtm-10011")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+            modelBuilder.Entity("Library.Core.EntityModelLayer.Models.Author", b =>
+                {
+                    b.Property<int>("AuthorId")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<int?>("Birthday");
+
+                    b.Property<int?>("Deathday");
+
+                    b.Property<string>("Name");
+
+                    b.HasKey("AuthorId");
+
+                    b.ToTable("Authors");
+                });
+
             modelBuilder.Entity("Library.Core.EntityModelLayer.Models.Book", b =>
                 {
                     b.Property<int>("BookId")
@@ -32,6 +48,82 @@ namespace Library.Core.DataAccessLayer.Migrations
                     b.HasKey("BookId");
 
                     b.ToTable("Books");
+                });
+
+            modelBuilder.Entity("Library.Core.EntityModelLayer.Models.BookAuthor", b =>
+                {
+                    b.Property<int>("BookAuthorId")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<int>("AuthorId");
+
+                    b.Property<int>("BookId");
+
+                    b.HasKey("BookAuthorId");
+
+                    b.HasIndex("AuthorId");
+
+                    b.HasIndex("BookId");
+
+                    b.ToTable("BookAuthors");
+                });
+
+            modelBuilder.Entity("Library.Core.EntityModelLayer.Models.BookPublicationHouse", b =>
+                {
+                    b.Property<int>("BookPublicationHouseId")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<int>("BookId");
+
+                    b.Property<int>("PublicationHouseId");
+
+                    b.HasKey("BookPublicationHouseId");
+
+                    b.HasIndex("BookId");
+
+                    b.HasIndex("PublicationHouseId");
+
+                    b.ToTable("BookPublicationHouses");
+                });
+
+            modelBuilder.Entity("Library.Core.EntityModelLayer.Models.PublicationHouse", b =>
+                {
+                    b.Property<int>("PublicationHouseId")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Adress");
+
+                    b.Property<string>("Name");
+
+                    b.HasKey("PublicationHouseId");
+
+                    b.ToTable("PublicationHouses");
+                });
+
+            modelBuilder.Entity("Library.Core.EntityModelLayer.Models.BookAuthor", b =>
+                {
+                    b.HasOne("Library.Core.EntityModelLayer.Models.Author", "Author")
+                        .WithMany()
+                        .HasForeignKey("AuthorId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("Library.Core.EntityModelLayer.Models.Book", "Book")
+                        .WithMany()
+                        .HasForeignKey("BookId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("Library.Core.EntityModelLayer.Models.BookPublicationHouse", b =>
+                {
+                    b.HasOne("Library.Core.EntityModelLayer.Models.Book", "Book")
+                        .WithMany()
+                        .HasForeignKey("BookId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("Library.Core.EntityModelLayer.Models.PublicationHouse", "PublicationHouse")
+                        .WithMany()
+                        .HasForeignKey("PublicationHouseId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618
         }
