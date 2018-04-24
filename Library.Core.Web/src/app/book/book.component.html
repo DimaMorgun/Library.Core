@@ -24,7 +24,7 @@
     <kendo-grid-column field="selectedAuthorsNames" title="Authors">
       <ng-template kendoGridEditTemplate let-dataItem="dataItem">
         <kendo-multiselect name="dataItem.selectedAuthors"
-                           [data]="dataItem.allAuthors"
+                           [data]="allAuthors"
                            [textField]="'name'"
                            [valueField]="'authorId'"
                            [valuePrimitive]="true"
@@ -35,7 +35,7 @@
     <kendo-grid-column field="selectedPublicationHousesNames" title="Publication houses">
       <ng-template kendoGridEditTemplate let-dataItem="dataItem">
         <kendo-multiselect name="dataItem.selectedPublicationHouses"
-                           [data]="dataItem.allPublicationHouses"
+                           [data]="allPublicationHouses"
                            [textField]="'name'"
                            [valueField]="'publicationHouseId'"
                            [valuePrimitive]="true"

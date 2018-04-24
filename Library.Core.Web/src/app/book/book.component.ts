@@ -9,6 +9,8 @@ import { Book } from '../entities/book';
 import { map } from 'rxjs/operators/map';
 import { BookService } from '../services/book.service';
 import { debug } from 'util';
+import { Author } from '../entities/author';
+import { PublicationHouse } from '../entities/publicationHouse';
 
 @Component({
   selector: 'app-book',
@@ -20,6 +22,9 @@ export class BookComponent implements OnInit {
   private bookService: BookService;
   private editedRowIndex: number;
   private editedBook: Book;
+
+  private allAuthors: Author[] = [];
+  private allPublicationHouses: PublicationHouse[] = [];
 
   public gridState: State = {
     sort: [],
@@ -44,6 +49,9 @@ export class BookComponent implements OnInit {
   }
 
   public addHandler({ sender }, formInstance) {
+    this.allAuthors = this.bookService.allAuthors;
+    this.allPublicationHouses = this.bookService.allPublicationHouses;
+
     formInstance.reset();
     this.closeEditor(sender);
 
@@ -51,6 +59,9 @@ export class BookComponent implements OnInit {
   }
 
   public editHandler({ sender, rowIndex, dataItem }) {
+    this.allAuthors = this.bookService.allAuthors;
+    this.allPublicationHouses = this.bookService.allPublicationHouses;
+
     this.closeEditor(sender);
 
     this.editedRowIndex = rowIndex;

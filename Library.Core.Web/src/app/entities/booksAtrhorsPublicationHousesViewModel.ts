@@ -4,7 +4,7 @@ import { PublicationHouse } from "./publicationHouse";
 
 export class BookAuthorsPublicationHousesViewModel {
   constructor(
-    public book: Book[],
+    public books: Book[],
     public allAuthors: Author[],
     public allPublicationHouses: PublicationHouse[]
   ) { }

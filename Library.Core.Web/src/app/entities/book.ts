@@ -6,10 +6,10 @@ export class Book {
     public bookId: number = 0,
     public name?: string,
     public yearOfPublishing: number = 0,
-    public authors?: Author[],
+    //public authors?: Author[],
     public selectedAuthors?: number[],
     public selectedAuthorsNames?: string,
-    public publicationHouses?: PublicationHouse[],
+    //public publicationHouses?: PublicationHouse[],
     public selectedPublicationHouses?: number[],
     public selectedPublicationHousesNames?: string
   ) { }
