@@ -36,6 +36,10 @@ namespace Library.Core.Web
           await next();
         }
       });
+      using (var scope = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope())
+      {
+        scope.ServiceProvider.GetService<LibraryCoreContext>().Database.Migrate();
+      }
       app.UseMvcWithDefaultRoute();
       app.UseDefaultFiles();
       app.UseStaticFiles();

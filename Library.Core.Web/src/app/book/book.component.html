@@ -1,5 +1,5 @@
 <form novalidate #myForm="ngForm">
-  <kendo-grid [data]="view | async"
+  <kendo-grid [kendoGridBinding]="books"
               [height]="533"
               [pageSize]="gridState.take" [skip]="gridState.skip" [sort]="gridState.sort"
               [pageable]="true" [sortable]="true"

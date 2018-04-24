@@ -26,7 +26,9 @@ export class BookService extends BehaviorSubject<any> {
   constructor(private http: HttpClient) {
     super([]);
   }
-
+  getBooks(): Observable<BookAuthorsPublicationHousesViewModel> {
+    return this.http.get<BookAuthorsPublicationHousesViewModel>(this.url);
+  }
   public read() {
     if (this.data) {
       return super.next(this.data);

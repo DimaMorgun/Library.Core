@@ -22,7 +22,7 @@ export class BookComponent implements OnInit {
   private bookService: BookService;
   private editedRowIndex: number;
   private editedBook: Book;
-
+  public books: Book[];
   private allAuthors: Author[] = [];
   private allPublicationHouses: PublicationHouse[] = [];
 
@@ -34,11 +34,14 @@ export class BookComponent implements OnInit {
 
   constructor( @Inject(BookService) editServiceFactory: any) {
     this.bookService = editServiceFactory();
+    this.books = new Array();
   }
 
   public ngOnInit(): void {
     this.view = this.bookService.pipe(map(data => process(data, this.gridState)));
-
+    this.bookService.getBooks().subscribe(data => {
+      this.books = data.books;
+    })
     this.bookService.read();
   }
 
