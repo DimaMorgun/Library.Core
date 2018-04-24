@@ -10,7 +10,7 @@ import { DropDownsModule } from '@progress/kendo-angular-dropdowns';
 import { AppComponent } from './app.component';
 
 import { BookComponent } from './book/book.component';
-import { BookService } from './services/book';
+import { BookService } from './services/book.service';
 import { AuthorComponent } from './author/author.component';
 import { PublicationHouseComponent } from './publication-house/publication-house.component';
 

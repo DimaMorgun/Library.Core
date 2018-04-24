@@ -1,4 +1,5 @@
 import { Author } from "./author";
+import { PublicationHouse } from "./publicationHouse";
 
 export class Book {
   constructor(
@@ -7,6 +8,9 @@ export class Book {
     public yearOfPublishing: number = 0,
     public authors?: Author[],
     public selectedAuthors?: number[],
-    public selectedPublicationHouses?: number[]
+    public selectedAuthorsNames?: string,
+    public publicationHouses?: PublicationHouse[],
+    public selectedPublicationHouses?: number[],
+    public selectedPublicationHousesNames?: string
   ) { }
 }

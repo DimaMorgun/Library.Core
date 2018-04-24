@@ -7,7 +7,7 @@ import { State, process } from '@progress/kendo-data-query';
 
 import { Book } from '../entities/book';
 import { map } from 'rxjs/operators/map';
-import { BookService } from '../services/book';
+import { BookService } from '../services/book.service';
 import { debug } from 'util';
 
 @Component({

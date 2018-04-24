@@ -18,9 +18,9 @@ namespace Library.Core.Web.Controllers
 
     // GET: api/Book
     [HttpGet]
-    public IEnumerable<BookViewModel> Get()
+    public BooksAuthorsPublicationHousesViewModel Get()
     {
-      List<BookViewModel> allBooks = _bookService.GetAll();
+      BooksAuthorsPublicationHousesViewModel allBooks = _bookService.GetAll();
 
       return allBooks;
     }

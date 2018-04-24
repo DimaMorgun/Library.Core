@@ -5,14 +5,14 @@ namespace Library.Core.ViewModelLayer.ViewModels
     public class BooksAuthorsPublicationHousesViewModel
     {
         public ICollection<BookViewModel> Books { get; set; }
-        public ICollection<AuthorViewModel> Authors { get; set; }
-        public ICollection<PublicationHouseViewModel> PublicationHouses { get; set; }
+        public ICollection<AuthorViewModel> AllAuthors { get; set; }
+        public ICollection<PublicationHouseViewModel> AllPublicationHouses { get; set; }
 
         public BooksAuthorsPublicationHousesViewModel()
         {
             Books = new List<BookViewModel>();
-            Authors = new List<AuthorViewModel>();
-            PublicationHouses = new List<PublicationHouseViewModel>();
+            AllAuthors = new List<AuthorViewModel>();
+            AllPublicationHouses = new List<PublicationHouseViewModel>();
         }
     }
 }

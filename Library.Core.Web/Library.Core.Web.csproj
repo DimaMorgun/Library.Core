@@ -9,7 +9,9 @@
   <ItemGroup>
     <None Remove="src\app\entities\author.ts" />
     <None Remove="src\app\entities\book.ts" />
-    <None Remove="src\app\services\book.ts" />
+    <None Remove="src\app\entities\booksAtrhorsPublicationHousesViewModel.ts" />
+    <None Remove="src\app\entities\publicationHouse.ts" />
+    <None Remove="src\app\services\book.service.ts" />
     <None Remove="src\products.ts" />
   </ItemGroup>
 
@@ -34,7 +36,9 @@
   <ItemGroup>
     <TypeScriptCompile Include="src\app\entities\author.ts" />
     <TypeScriptCompile Include="src\app\entities\book.ts" />
-    <TypeScriptCompile Include="src\app\services\book.ts" />
+    <TypeScriptCompile Include="src\app\entities\booksAtrhorsPublicationHousesViewModel.ts" />
+    <TypeScriptCompile Include="src\app\entities\publicationHouse.ts" />
+    <TypeScriptCompile Include="src\app\services\book.service.ts" />
   </ItemGroup>
 
 </Project>
