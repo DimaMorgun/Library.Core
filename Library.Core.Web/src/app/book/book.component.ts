@@ -40,8 +40,6 @@ export class BookComponent implements OnInit {
 
   public onStateChange(state: State) {
     this.gridState = state;
-
-    this.bookService.getBooks();
   }
 
   public addHandler({ sender }, formInstance) {

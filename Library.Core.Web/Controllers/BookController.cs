@@ -15,16 +15,14 @@ namespace Library.Core.Web.Controllers
       _bookService = new BookService();
     }
 
-    // GET: api/Book
     [HttpGet]
     public BooksAuthorsPublicationHousesViewModel Get()
     {
-      BooksAuthorsPublicationHousesViewModel allBooks = _bookService.GetAll();
+      BooksAuthorsPublicationHousesViewModel booksAuthorsPublicationHousesViewModel = _bookService.GetAll();
 
-      return allBooks;
+      return booksAuthorsPublicationHousesViewModel;
     }
 
-    // POST: api/Book
     [HttpPost]
     public IActionResult Post([FromBody]BookViewModel book)
     {
@@ -36,7 +34,7 @@ namespace Library.Core.Web.Controllers
       return BadRequest(ModelState);
     }
 
-    // PUT: api/Book/5
+
     [HttpPut("{id}")]
     public IActionResult Put(int id, [FromBody]BookViewModel book)
     {
@@ -48,7 +46,6 @@ namespace Library.Core.Web.Controllers
       return BadRequest(ModelState);
     }
 
-    // DELETE: api/ApiWithActions/5
     [HttpDelete("{id}")]
     public IActionResult Delete(int id)
     {

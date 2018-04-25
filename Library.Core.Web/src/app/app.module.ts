@@ -8,13 +8,13 @@ import { GridModule } from '@progress/kendo-angular-grid';
 import { DropDownsModule } from '@progress/kendo-angular-dropdowns';
 
 import { AppComponent } from './app.component';
-
 import { HomeComponent } from './home/home.component';
 import { BookComponent } from './book/book.component';
-import { BookService } from './services/book.service';
 import { AuthorComponent } from './author/author.component';
 import { PublicationHouseComponent } from './publication-house/publication-house.component';
 
+import { BookService } from './services/book.service';
+import { AuthorService } from './services/author.service';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -45,6 +45,11 @@ const routes: Routes = [
       deps: [HttpClient],
       provide: BookService,
       useFactory: (jsonp: HttpClient) => () => new BookService(jsonp)
+    },
+    {
+      deps: [HttpClient],
+      provide: AuthorService,
+      useFactory: (jsonp: HttpClient) => () => new AuthorService(jsonp)
     }
   ],
   bootstrap: [AppComponent]

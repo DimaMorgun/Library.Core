@@ -21,25 +21,29 @@
         <input [(ngModel)]="dataItem.yearOfPublishing" kendoGridFocusable name="yearOfPublishing" class="k-textbox" type="number" required />
       </ng-template>
     </kendo-grid-column>
-    <kendo-grid-column field="selectedAuthorsNames" title="Authors">
+    <kendo-grid-column title="Authors">
+      <ng-template kendoGridCellTemplate let-dataItem="dataItem">
+        <span *ngFor="let author of dataItem.authors">{{author.name}}. </span>
+      </ng-template>
       <ng-template kendoGridEditTemplate let-dataItem="dataItem">
-        <kendo-multiselect name="dataItem.selectedAuthors"
+        <kendo-multiselect name="dataItem.authors"
                            [data]="allAuthors"
-                           [textField]="'name'"
-                           [valueField]="'authorId'"
-                           [valuePrimitive]="true"
-                           [(ngModel)]="dataItem.selectedAuthors">
+                           textField="name"
+                           valueField="authorId"
+                           [(ngModel)]="dataItem.authors">
         </kendo-multiselect>
       </ng-template>
     </kendo-grid-column>
-    <kendo-grid-column field="selectedPublicationHousesNames" title="Publication houses">
+    <kendo-grid-column title="Publication houses">
+      <ng-template kendoGridCellTemplate let-dataItem="dataItem">
+        <span *ngFor="let publicationHouse of dataItem.publicationHouses">{{publicationHouse.name}}. </span>
+      </ng-template>
       <ng-template kendoGridEditTemplate let-dataItem="dataItem">
-        <kendo-multiselect name="dataItem.selectedPublicationHouses"
+        <kendo-multiselect name="dataItem.publicationHouses"
                            [data]="allPublicationHouses"
-                           [textField]="'name'"
-                           [valueField]="'publicationHouseId'"
-                           [valuePrimitive]="true"
-                           [(ngModel)]="dataItem.selectedPublicationHouses">
+                           textField="name"
+                           valueField="publicationHouseId"
+                           [(ngModel)]="dataItem.publicationHouses">
         </kendo-multiselect>
       </ng-template>
     </kendo-grid-column>

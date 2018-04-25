@@ -9,13 +9,16 @@ namespace Library.Core.ViewModelLayer.ViewModels
         public int Birthday { get; set; }
         public int Deathday { get; set; }
 
-        public virtual ICollection<BookViewModel> Books { get; set; }
+        public ICollection<BookViewModel> Books { get; set; }
+        //TODO: DELETE BELOW
         public ICollection<int> SelectedBooks { get; set; }
+        public ICollection<string> SelectedBooksNames { get; set; }
 
         public AuthorViewModel()
         {
             Books = new List<BookViewModel>();
             SelectedBooks = new List<int>();
+            SelectedBooksNames = new List<string>();
         }
     }
 }
