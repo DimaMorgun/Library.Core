@@ -2,13 +2,11 @@ import { Observable } from 'rxjs/Observable';
 import { Component, OnInit, Inject } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
-import { GridDataResult } from '@progress/kendo-angular-grid';
 import { State, process } from '@progress/kendo-data-query';
 
-import { Book } from '../entities/book';
-import { map } from 'rxjs/operators/map';
 import { BookService } from '../services/book.service';
-import { debug } from 'util';
+
+import { Book } from '../entities/book';
 import { Author } from '../entities/author';
 import { PublicationHouse } from '../entities/publicationHouse';
 
@@ -18,11 +16,11 @@ import { PublicationHouse } from '../entities/publicationHouse';
   styleUrls: ['./book.component.css']
 })
 export class BookComponent implements OnInit {
-  public view: Observable<GridDataResult>;
   private bookService: BookService;
   private editedRowIndex: number;
   private editedBook: Book;
-  public books: Book[];
+
+  public books: Book[] = [];
   private allAuthors: Author[] = [];
   private allPublicationHouses: PublicationHouse[] = [];
 
@@ -34,27 +32,19 @@ export class BookComponent implements OnInit {
 
   constructor( @Inject(BookService) editServiceFactory: any) {
     this.bookService = editServiceFactory();
-    this.books = new Array();
   }
 
   public ngOnInit(): void {
-    this.view = this.bookService.pipe(map(data => process(data, this.gridState)));
-    this.bookService.getBooks().subscribe(data => {
-      this.books = data.books;
-    })
-    this.bookService.read();
+    this.refresh();
   }
 
   public onStateChange(state: State) {
     this.gridState = state;
 
-    this.bookService.read();
+    this.bookService.getBooks();
   }
 
   public addHandler({ sender }, formInstance) {
-    this.allAuthors = this.bookService.allAuthors;
-    this.allPublicationHouses = this.bookService.allPublicationHouses;
-
     formInstance.reset();
     this.closeEditor(sender);
 
@@ -62,9 +52,6 @@ export class BookComponent implements OnInit {
   }
 
   public editHandler({ sender, rowIndex, dataItem }) {
-    this.allAuthors = this.bookService.allAuthors;
-    this.allPublicationHouses = this.bookService.allPublicationHouses;
-
     this.closeEditor(sender);
 
     this.editedRowIndex = rowIndex;
@@ -78,7 +65,12 @@ export class BookComponent implements OnInit {
   }
 
   public saveHandler({ sender, rowIndex, dataItem, isNew }) {
-    this.bookService.save(dataItem, isNew);
+    if (isNew) {
+      this.bookService.createBook(dataItem).subscribe(data => this.refresh());
+    }
+    if (!isNew) {
+      this.bookService.updateBook(dataItem).subscribe(data => this.refresh());
+    }
 
     sender.closeRow(rowIndex);
 
@@ -87,15 +79,22 @@ export class BookComponent implements OnInit {
   }
 
   public removeHandler({ dataItem }) {
-    var book = new Book();
-    book.bookId = dataItem.bookId;
-    this.bookService.remove(book);
+    this.bookService.deleteBook(dataItem.bookId).subscribe(data => this.refresh());
   }
 
   private closeEditor(grid, rowIndex = this.editedRowIndex) {
     grid.closeRow(rowIndex);
-    this.bookService.resetItem(this.editedBook);
+
+    this.refresh();
     this.editedRowIndex = undefined;
     this.editedBook = undefined;
+  }
+
+  private refresh() {
+    this.bookService.getBooks().subscribe(data => {
+      this.books = data.books;
+      this.allAuthors = data.allAuthors;
+      this.allPublicationHouses = data.allPublicationHouses;
+    });
   }
 }

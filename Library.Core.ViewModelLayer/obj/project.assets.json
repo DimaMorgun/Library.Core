@@ -664,27 +664,27 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Tom\\.nuget\\packages\\": {},
+    "C:\\Users\\Anuitex-52\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
-    "restoreSettings": {
-      "hideWarningsAndErrors": true
-    },
     "restore": {
-      "projectUniqueName": "C:\\Users\\Tom\\Source\\Repos\\Library.Core\\Library.Core.ViewModelLayer\\Library.Core.ViewModelLayer.csproj",
+      "projectUniqueName": "C:\\Users\\Anuitex-52\\source\\repos\\Library.Core\\Library.Core.ViewModelLayer\\Library.Core.ViewModelLayer.csproj",
       "projectName": "Library.Core.ViewModelLayer",
-      "projectPath": "C:\\Users\\Tom\\Source\\Repos\\Library.Core\\Library.Core.ViewModelLayer\\Library.Core.ViewModelLayer.csproj",
-      "packagesPath": "C:\\Users\\Tom\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Tom\\Source\\Repos\\Library.Core\\Library.Core.ViewModelLayer\\obj\\",
+      "projectPath": "C:\\Users\\Anuitex-52\\source\\repos\\Library.Core\\Library.Core.ViewModelLayer\\Library.Core.ViewModelLayer.csproj",
+      "packagesPath": "C:\\Users\\Anuitex-52\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Anuitex-52\\source\\repos\\Library.Core\\Library.Core.ViewModelLayer\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback\\",
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\Tom\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\Anuitex-52\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.Fallback.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp2.0"
