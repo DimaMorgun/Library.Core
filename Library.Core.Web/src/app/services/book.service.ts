@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { HttpClient } from '@angular/common/http';
-
-import { Book } from '../entities/book';
-import { BookAuthorsPublicationHousesViewModel } from '../entities/booksAtrhorsPublicationHousesViewModel';
+import { GetBookView } from '../view-models/Book/getBookView';
+import { PostBookView } from '../view-models/Book/postBookView';
+import { PutBookView } from '../view-models/Book/putBookView';
 
 @Injectable()
 export class BookService {
@@ -11,16 +11,16 @@ export class BookService {
 
   constructor(private http: HttpClient) { }
 
-  createBook(book: Book): Observable<Book> {
-    return this.http.post<Book>(this.url, book);
+  getBooks(): Observable<GetBookView> {
+    return this.http.get<GetBookView>(this.url);
   }
-  getBooks(): Observable<BookAuthorsPublicationHousesViewModel> {
-    return this.http.get<BookAuthorsPublicationHousesViewModel>(this.url);
+  postBook(book: PostBookView): Observable<PostBookView> {
+    return this.http.post<PostBookView>(this.url, book);
   }
-  updateBook(book: Book): Observable<Book> {
-    return this.http.put<Book>(`${this.url}/${book.bookId}`, book);
+  putBook(book: PutBookView): Observable<PutBookView> {
+    return this.http.put<PutBookView>(`${this.url}/${book.bookId}`, book);
   }
-  deleteBook(id: number): Observable<Book> {
-    return this.http.delete<Book>(`${this.url}/${id}`);
+  deleteBook(id: number) {
+    return this.http.delete(`${this.url}/${id}`);
   }
 }

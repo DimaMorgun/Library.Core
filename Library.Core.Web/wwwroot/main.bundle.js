@@ -73,20 +73,11 @@ var AppComponent = /** @class */ (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__ = __webpack_require__("./node_modules/@angular/platform-browser/esm5/platform-browser.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_platform_browser_animations__ = __webpack_require__("./node_modules/@angular/platform-browser/esm5/animations.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_common_http__ = __webpack_require__("./node_modules/@angular/common/esm5/http.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_forms__ = __webpack_require__("./node_modules/@angular/forms/esm5/forms.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_router__ = __webpack_require__("./node_modules/@angular/router/esm5/router.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__progress_kendo_angular_grid__ = __webpack_require__("./node_modules/@progress/kendo-angular-grid/dist/es/index.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__progress_kendo_angular_dropdowns__ = __webpack_require__("./node_modules/@progress/kendo-angular-dropdowns/dist/es/index.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__app_component__ = __webpack_require__("./src/app/app.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__home_home_component__ = __webpack_require__("./src/app/home/home.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__book_book_component__ = __webpack_require__("./src/app/book/book.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__author_author_component__ = __webpack_require__("./src/app/author/author.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__publication_house_publication_house_component__ = __webpack_require__("./src/app/publication-house/publication-house.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__services_book_service__ = __webpack_require__("./src/app/services/book.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__services_author_service__ = __webpack_require__("./src/app/services/author.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common_http__ = __webpack_require__("./node_modules/@angular/common/esm5/http.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app_routing__ = __webpack_require__("./src/app/app.routing.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__book_book_module__ = __webpack_require__("./src/app/book/book.module.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__app_component__ = __webpack_require__("./src/app/app.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__home_home_component__ = __webpack_require__("./src/app/home/home.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -99,47 +90,21 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-
-
-
-
-
-
-
-
-
-var routes = [
-    { path: '', component: __WEBPACK_IMPORTED_MODULE_9__home_home_component__["a" /* HomeComponent */] },
-    { path: 'book', component: __WEBPACK_IMPORTED_MODULE_10__book_book_component__["a" /* BookComponent */] },
-    { path: 'author', component: __WEBPACK_IMPORTED_MODULE_11__author_author_component__["a" /* AuthorComponent */] }
-];
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
     AppModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* NgModule */])({
-            declarations: [
-                __WEBPACK_IMPORTED_MODULE_8__app_component__["a" /* AppComponent */],
-                __WEBPACK_IMPORTED_MODULE_9__home_home_component__["a" /* HomeComponent */],
-                __WEBPACK_IMPORTED_MODULE_10__book_book_component__["a" /* BookComponent */],
-                __WEBPACK_IMPORTED_MODULE_11__author_author_component__["a" /* AuthorComponent */],
-                __WEBPACK_IMPORTED_MODULE_12__publication_house_publication_house_component__["a" /* PublicationHouseComponent */]
-            ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__["a" /* BrowserModule */],
-                __WEBPACK_IMPORTED_MODULE_2__angular_platform_browser_animations__["a" /* BrowserAnimationsModule */],
-                __WEBPACK_IMPORTED_MODULE_3__angular_common_http__["c" /* HttpClientModule */],
-                __WEBPACK_IMPORTED_MODULE_3__angular_common_http__["b" /* HttpClientJsonpModule */],
-                __WEBPACK_IMPORTED_MODULE_4__angular_forms__["c" /* FormsModule */],
-                __WEBPACK_IMPORTED_MODULE_5__angular_router__["a" /* RouterModule */].forRoot(routes, { useHash: true }),
-                __WEBPACK_IMPORTED_MODULE_6__progress_kendo_angular_grid__["a" /* GridModule */],
-                __WEBPACK_IMPORTED_MODULE_7__progress_kendo_angular_dropdowns__["c" /* DropDownsModule */]
+                __WEBPACK_IMPORTED_MODULE_1__angular_common_http__["b" /* HttpClientModule */],
+                __WEBPACK_IMPORTED_MODULE_2__app_routing__["a" /* RoutingModule */],
+                __WEBPACK_IMPORTED_MODULE_3__book_book_module__["a" /* BookModule */],
             ],
-            providers: [
-                __WEBPACK_IMPORTED_MODULE_13__services_book_service__["a" /* BookService */],
-                __WEBPACK_IMPORTED_MODULE_14__services_author_service__["a" /* AuthorService */]
+            declarations: [
+                __WEBPACK_IMPORTED_MODULE_4__app_component__["a" /* AppComponent */],
+                __WEBPACK_IMPORTED_MODULE_5__home_home_component__["a" /* HomeComponent */]
             ],
-            bootstrap: [__WEBPACK_IMPORTED_MODULE_8__app_component__["a" /* AppComponent */]]
+            bootstrap: [__WEBPACK_IMPORTED_MODULE_4__app_component__["a" /* AppComponent */]]
         })
     ], AppModule);
     return AppModule;
@@ -149,119 +114,39 @@ var AppModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "./src/app/author/author.component.css":
-/***/ (function(module, exports) {
-
-module.exports = ""
-
-/***/ }),
-
-/***/ "./src/app/author/author.component.html":
-/***/ (function(module, exports) {
-
-module.exports = "<form novalidate #myForm=\"ngForm\">\r\n  <kendo-grid [kendoGridBinding]=\"authors\"\r\n              [height]=\"533\"\r\n              [pageSize]=\"gridState.take\" [skip]=\"gridState.skip\" [sort]=\"gridState.sort\"\r\n              [pageable]=\"true\" [sortable]=\"true\"\r\n              (dataStateChange)=\"onStateChange($event)\"\r\n              (edit)=\"editHandler($event)\" (cancel)=\"cancelHandler($event)\"\r\n              (save)=\"saveHandler($event)\" (remove)=\"removeHandler($event)\"\r\n              (add)=\"addHandler($event, myForm)\"\r\n              [navigable]=\"true\">\r\n    <ng-template kendoGridToolbarTemplate>\r\n      <button kendoGridAddCommand type=\"button\">Add new</button>\r\n    </ng-template>\r\n    <kendo-grid-column field=\"name\" title=\"Name\">\r\n      <ng-template kendoGridEditTemplate let-dataItem=\"dataItem\">\r\n        <input [(ngModel)]=\"dataItem.name\" kendoGridFocusable name=\"name\" class=\"k-textbox\" required />\r\n      </ng-template>\r\n    </kendo-grid-column>\r\n    <kendo-grid-column field=\"birthday\" title=\"Birthday\">\r\n      <ng-template kendoGridEditTemplate let-dataItem=\"dataItem\">\r\n        <input [(ngModel)]=\"dataItem.birthday\" kendoGridFocusable name=\"birthday\" class=\"k-textbox\" type=\"number\" required />\r\n      </ng-template>\r\n    </kendo-grid-column>\r\n    <kendo-grid-column field=\"deathday\" title=\"Deathday\">\r\n      <ng-template kendoGridEditTemplate let-dataItem=\"dataItem\">\r\n        <input [(ngModel)]=\"dataItem.deathday\" kendoGridFocusable name=\"deathday\" class=\"k-textbox\" type=\"number\" required />\r\n      </ng-template>\r\n    </kendo-grid-column>\r\n    <kendo-grid-column field=\"selectedBooksNames\" title=\"Books\">\r\n      <ng-template kendoGridEditTemplate let-dataItem=\"dataItem\">\r\n        <kendo-multiselect name=\"dataItem.selectedBooks\"\r\n                           [data]=\"allBooks\"\r\n                           [textField]=\"'name'\"\r\n                           [valueField]=\"'bookId'\"\r\n                           [valuePrimitive]=\"true\"\r\n                           [(ngModel)]=\"dataItem.selectedBooks\">\r\n        </kendo-multiselect>\r\n      </ng-template>\r\n    </kendo-grid-column>\r\n    <kendo-grid-command-column title=\"\">\r\n      <ng-template kendoGridCellTemplate let-isNew=\"isNew\">\r\n        <button kendoGridEditCommand type=\"button\" class=\"k-primary\">Edit</button>\r\n        <button kendoGridRemoveCommand type=\"button\">Remove</button>\r\n        <button kendoGridSaveCommand type=\"button\"\r\n                [disabled]=\"myForm.invalid || myForm.pristine\">\r\n          {{ isNew ? 'Add' : 'Update' }}\r\n        </button>\r\n        <button kendoGridCancelCommand type=\"button\">{{ isNew ? 'Discard changes' : 'Cancel' }}</button>\r\n      </ng-template>\r\n    </kendo-grid-command-column>\r\n  </kendo-grid>\r\n</form>\r\n"
-
-/***/ }),
-
-/***/ "./src/app/author/author.component.ts":
+/***/ "./src/app/app.routing.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AuthorComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return RoutingModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_author_service__ = __webpack_require__("./src/app/services/author.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__entities_author__ = __webpack_require__("./src/app/entities/author.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("./node_modules/@angular/router/esm5/router.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__home_home_component__ = __webpack_require__("./src/app/home/home.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__book_book_component__ = __webpack_require__("./src/app/book/book.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-var __param = (this && this.__param) || function (paramIndex, decorator) {
-    return function (target, key) { decorator(target, key, paramIndex); }
-};
 
 
 
-var AuthorComponent = /** @class */ (function () {
-    function AuthorComponent(editServiceFactory) {
-        this.authors = [];
-        this.allBooks = [];
-        this.gridState = {
-            sort: [],
-            skip: 0,
-            take: 10
-        };
-        this.athorService = editServiceFactory();
+
+var routes = [
+    { path: '', component: __WEBPACK_IMPORTED_MODULE_2__home_home_component__["a" /* HomeComponent */] },
+    { path: 'book', component: __WEBPACK_IMPORTED_MODULE_3__book_book_component__["a" /* BookComponent */] }
+];
+var RoutingModule = /** @class */ (function () {
+    function RoutingModule() {
     }
-    AuthorComponent.prototype.ngOnInit = function () {
-        this.refresh();
-    };
-    AuthorComponent.prototype.onStateChange = function (state) {
-        this.gridState = state;
-    };
-    AuthorComponent.prototype.addHandler = function (_a, formInstance) {
-        var sender = _a.sender;
-        formInstance.reset();
-        this.closeEditor(sender);
-        sender.addRow(new __WEBPACK_IMPORTED_MODULE_2__entities_author__["a" /* Author */]());
-    };
-    AuthorComponent.prototype.editHandler = function (_a) {
-        var sender = _a.sender, rowIndex = _a.rowIndex, dataItem = _a.dataItem;
-        this.closeEditor(sender);
-        this.editedRowIndex = rowIndex;
-        this.editedAutor = Object.assign({}, dataItem);
-        sender.editRow(rowIndex);
-    };
-    AuthorComponent.prototype.cancelHandler = function (_a) {
-        var sender = _a.sender, rowIndex = _a.rowIndex;
-        this.closeEditor(sender, rowIndex);
-    };
-    AuthorComponent.prototype.saveHandler = function (_a) {
-        var _this = this;
-        var sender = _a.sender, rowIndex = _a.rowIndex, dataItem = _a.dataItem, isNew = _a.isNew;
-        if (isNew) {
-            this.athorService.createAuthor(dataItem).subscribe(function (data) { return _this.refresh(); });
-        }
-        if (!isNew) {
-            this.athorService.updateAuthor(dataItem).subscribe(function (data) { return _this.refresh(); });
-        }
-        sender.closeRow(rowIndex);
-        this.editedRowIndex = undefined;
-        this.editedAutor = undefined;
-    };
-    AuthorComponent.prototype.removeHandler = function (_a) {
-        var _this = this;
-        var dataItem = _a.dataItem;
-        this.athorService.deleteAuthor(dataItem.authorId).subscribe(function (data) { return _this.refresh(); });
-    };
-    AuthorComponent.prototype.closeEditor = function (grid, rowIndex) {
-        if (rowIndex === void 0) { rowIndex = this.editedRowIndex; }
-        grid.closeRow(rowIndex);
-        this.refresh();
-        this.editedRowIndex = undefined;
-        this.editedAutor = undefined;
-    };
-    AuthorComponent.prototype.refresh = function () {
-        var _this = this;
-        this.athorService.getAuthors().subscribe(function (data) {
-            _this.authors = data.authors;
-            _this.allBooks = data.allBooks;
-        });
-    };
-    AuthorComponent = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-            selector: 'app-author',
-            template: __webpack_require__("./src/app/author/author.component.html"),
-            styles: [__webpack_require__("./src/app/author/author.component.css")]
-        }),
-        __param(0, Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Inject */])(__WEBPACK_IMPORTED_MODULE_1__services_author_service__["a" /* AuthorService */])),
-        __metadata("design:paramtypes", [Object])
-    ], AuthorComponent);
-    return AuthorComponent;
+    RoutingModule = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* NgModule */])({
+            imports: [__WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* RouterModule */].forRoot(routes, { useHash: true })],
+            exports: [__WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* RouterModule */]]
+        })
+    ], RoutingModule);
+    return RoutingModule;
 }());
 
 
@@ -341,10 +226,10 @@ var BookComponent = /** @class */ (function () {
         var _this = this;
         var sender = _a.sender, rowIndex = _a.rowIndex, dataItem = _a.dataItem, isNew = _a.isNew;
         if (isNew) {
-            this.bookService.createBook(dataItem).subscribe(function (data) { return _this.refresh(); });
+            this.bookService.postBook(dataItem).subscribe(function (data) { return _this.refresh(); });
         }
         if (!isNew) {
-            this.bookService.updateBook(dataItem).subscribe(function (data) { return _this.refresh(); });
+            this.bookService.putBook(dataItem).subscribe(function (data) { return _this.refresh(); });
         }
         sender.closeRow(rowIndex);
         this.editedRowIndex = undefined;
@@ -385,23 +270,56 @@ var BookComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "./src/app/entities/author.ts":
+/***/ "./src/app/book/book.module.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Author; });
-var Author = /** @class */ (function () {
-    function Author(authorId, name, birthday, deathday) {
-        if (authorId === void 0) { authorId = 0; }
-        if (birthday === void 0) { birthday = 0; }
-        if (deathday === void 0) { deathday = 0; }
-        this.authorId = authorId;
-        this.name = name;
-        this.birthday = birthday;
-        this.deathday = deathday;
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return BookModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common__ = __webpack_require__("./node_modules/@angular/common/esm5/common.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_platform_browser__ = __webpack_require__("./node_modules/@angular/platform-browser/esm5/platform-browser.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_forms__ = __webpack_require__("./node_modules/@angular/forms/esm5/forms.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_platform_browser_animations__ = __webpack_require__("./node_modules/@angular/platform-browser/esm5/animations.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__progress_kendo_angular_grid__ = __webpack_require__("./node_modules/@progress/kendo-angular-grid/dist/es/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__progress_kendo_angular_dropdowns__ = __webpack_require__("./node_modules/@progress/kendo-angular-dropdowns/dist/es/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__services_book_service__ = __webpack_require__("./src/app/services/book.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__book_book_component__ = __webpack_require__("./src/app/book/book.component.ts");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+
+
+
+
+
+
+
+var BookModule = /** @class */ (function () {
+    function BookModule() {
     }
-    ;
-    return Author;
+    BookModule = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* NgModule */])({
+            declarations: [
+                __WEBPACK_IMPORTED_MODULE_8__book_book_component__["a" /* BookComponent */],
+            ],
+            imports: [
+                __WEBPACK_IMPORTED_MODULE_1__angular_common__["b" /* CommonModule */],
+                __WEBPACK_IMPORTED_MODULE_2__angular_platform_browser__["a" /* BrowserModule */],
+                __WEBPACK_IMPORTED_MODULE_3__angular_forms__["c" /* FormsModule */],
+                __WEBPACK_IMPORTED_MODULE_4__angular_platform_browser_animations__["a" /* BrowserAnimationsModule */],
+                __WEBPACK_IMPORTED_MODULE_5__progress_kendo_angular_grid__["a" /* GridModule */],
+                __WEBPACK_IMPORTED_MODULE_6__progress_kendo_angular_dropdowns__["c" /* DropDownsModule */]
+            ],
+            providers: [__WEBPACK_IMPORTED_MODULE_7__services_book_service__["a" /* BookService */]],
+            bootstrap: [__WEBPACK_IMPORTED_MODULE_8__book_book_component__["a" /* BookComponent */]]
+        })
+    ], BookModule);
+    return BookModule;
 }());
 
 
@@ -480,102 +398,6 @@ var HomeComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "./src/app/publication-house/publication-house.component.css":
-/***/ (function(module, exports) {
-
-module.exports = ""
-
-/***/ }),
-
-/***/ "./src/app/publication-house/publication-house.component.html":
-/***/ (function(module, exports) {
-
-module.exports = "<p>\r\n  publication-house works!\r\n</p>\r\n"
-
-/***/ }),
-
-/***/ "./src/app/publication-house/publication-house.component.ts":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PublicationHouseComponent; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-var PublicationHouseComponent = /** @class */ (function () {
-    function PublicationHouseComponent() {
-    }
-    PublicationHouseComponent.prototype.ngOnInit = function () {
-    };
-    PublicationHouseComponent = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-            selector: 'app-publication-house',
-            template: __webpack_require__("./src/app/publication-house/publication-house.component.html"),
-            styles: [__webpack_require__("./src/app/publication-house/publication-house.component.css")]
-        }),
-        __metadata("design:paramtypes", [])
-    ], PublicationHouseComponent);
-    return PublicationHouseComponent;
-}());
-
-
-
-/***/ }),
-
-/***/ "./src/app/services/author.service.ts":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AuthorService; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common_http__ = __webpack_require__("./node_modules/@angular/common/esm5/http.js");
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-var AuthorService = /** @class */ (function () {
-    function AuthorService(http) {
-        this.http = http;
-        this.url = "/api/author";
-    }
-    AuthorService.prototype.createAuthor = function (author) {
-        return this.http.post(this.url, author);
-    };
-    AuthorService.prototype.getAuthors = function () {
-        return this.http.get(this.url);
-    };
-    AuthorService.prototype.updateAuthor = function (author) {
-        return this.http.put(this.url + "/" + author.authorId, author);
-    };
-    AuthorService.prototype.deleteAuthor = function (id) {
-        return this.http.delete(this.url + "/" + id);
-    };
-    AuthorService = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["B" /* Injectable */])(),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_common_http__["a" /* HttpClient */]])
-    ], AuthorService);
-    return AuthorService;
-}());
-
-
-
-/***/ }),
-
 /***/ "./src/app/services/book.service.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -599,13 +421,13 @@ var BookService = /** @class */ (function () {
         this.http = http;
         this.url = "/api/book";
     }
-    BookService.prototype.createBook = function (book) {
-        return this.http.post(this.url, book);
-    };
     BookService.prototype.getBooks = function () {
         return this.http.get(this.url);
     };
-    BookService.prototype.updateBook = function (book) {
+    BookService.prototype.postBook = function (book) {
+        return this.http.post(this.url, book);
+    };
+    BookService.prototype.putBook = function (book) {
         return this.http.put(this.url + "/" + book.bookId, book);
     };
     BookService.prototype.deleteBook = function (id) {

@@ -4,5 +4,5 @@ export class Author {
     public name?: string,
     public birthday: number = 0,
     public deathday: number = 0
-  ) { };
+  ) { }
 }

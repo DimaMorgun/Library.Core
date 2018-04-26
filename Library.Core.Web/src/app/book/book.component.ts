@@ -62,10 +62,10 @@ export class BookComponent implements OnInit {
 
   public saveHandler({ sender, rowIndex, dataItem, isNew }) {
     if (isNew) {
-      this.bookService.createBook(dataItem).subscribe(data => this.refresh());
+      this.bookService.postBook(dataItem).subscribe(data => this.refresh());
     }
     if (!isNew) {
-      this.bookService.updateBook(dataItem).subscribe(data => this.refresh());
+      this.bookService.putBook(dataItem).subscribe(data => this.refresh());
     }
 
     sender.closeRow(rowIndex);

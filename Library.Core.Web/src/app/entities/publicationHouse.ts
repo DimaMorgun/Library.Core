@@ -3,5 +3,5 @@ export class PublicationHouse {
     public publicationHouseId: number = 0,
     public name?: string,
     public adress?: string
-  ) { };
+  ) { }
 }
