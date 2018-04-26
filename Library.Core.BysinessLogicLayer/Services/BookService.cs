@@ -2,7 +2,7 @@
 using Library.Core.DataAccessLayer.Connection;
 using Library.Core.DataAccessLayer.UnitOfWork;
 using Library.Core.EntityModelLayer.Models;
-using Library.Core.ViewModelLayer.ViewModels;
+using Library.Core.ViewModelLayer.ViewModels.Book;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -17,9 +17,51 @@ namespace Library.Core.BysinessLogicLayer.Services
             _unitOfWork = new UnitOfWork(MSSQLConnection.ConnectionString);
         }
 
-        public void Insert(BookViewModel book)
+        public GetBookView GetAll()
         {
-            var bookModel = Mapper.Map<BookViewModel, Book>(book);
+            var allBooksAuthorsPublicationHousesViewModel = new GetBookView();
+
+            List<Book> allBooksModel = _unitOfWork.Books.GetAll();
+            List<BookGetBookViewItem> allBooksViewModel = Mapper.Map<List<Book>, List<BookGetBookViewItem>>(allBooksModel);
+
+            List<Author> allAuthorsModel = _unitOfWork.Authors.GetAll();
+            List<AuthorGetBookViewItem> allAuthorsViewModel = Mapper.Map<List<Author>, List<AuthorGetBookViewItem>>(allAuthorsModel);
+
+            List<PublicationHouse> allPublicationHousesModel = _unitOfWork.PublicationHouses.GetAll();
+            List<PublicationHouseGetBookViewItem> allPublicationHousesViewModel = Mapper.Map<List<PublicationHouse>, List<PublicationHouseGetBookViewItem>>(allPublicationHousesModel);
+            foreach (var book in allBooksViewModel)
+            {
+                List<BookAuthor> bookAuthors = _unitOfWork.BookAuthors.GetAllByBookId(book.BookId);
+                var authors = new List<AuthorGetBookViewItem>();
+                foreach (var bookAuthor in bookAuthors)
+                {
+                    if (bookAuthor.Author != null)
+                    {
+                        authors.Add(Mapper.Map<Author, AuthorGetBookViewItem>(bookAuthor.Author));
+                    }
+                }
+                List<BookPublicationHouse> bookPublicationHouses = _unitOfWork.BookPublicationHouses.GetAllByBookId(book.BookId);
+                var publicationHouses = new List<PublicationHouseGetBookViewItem>();
+                foreach (var bookPublicationHouse in bookPublicationHouses)
+                {
+                    if (bookPublicationHouse.PublicationHouse != null)
+                    {
+                        publicationHouses.Add(Mapper.Map<PublicationHouse, PublicationHouseGetBookViewItem>(bookPublicationHouse.PublicationHouse));
+                    }
+                }
+                book.Authors = authors;
+                book.PublicationHouses = publicationHouses;
+            }
+            allBooksAuthorsPublicationHousesViewModel.Books = allBooksViewModel;
+            allBooksAuthorsPublicationHousesViewModel.AllAuthors = allAuthorsViewModel;
+            allBooksAuthorsPublicationHousesViewModel.AllPublicationHouses = allPublicationHousesViewModel;
+
+            return allBooksAuthorsPublicationHousesViewModel;
+        }
+
+        public void Post(PostBookView book)
+        {
+            var bookModel = Mapper.Map<PostBookView, Book>(book);
             var bookAuthorsModel = new List<BookAuthor>();
             var bookPublicationHousesModel = new List<BookPublicationHouse>();
 
@@ -44,49 +86,7 @@ namespace Library.Core.BysinessLogicLayer.Services
             _unitOfWork.BookPublicationHouses.Insert(bookPublicationHousesModel);
         }
 
-        public BooksAuthorsPublicationHousesViewModel GetAll()
-        {
-            var allBooksAuthorsPublicationHousesViewModel = new BooksAuthorsPublicationHousesViewModel();
-
-            List<Book> allBooksModel = _unitOfWork.Books.GetAll();
-            List<BookViewModel> allBooksViewModel = Mapper.Map<List<Book>, List<BookViewModel>>(allBooksModel);
-
-            List<Author> allAuthorsModel = _unitOfWork.Authors.GetAll();
-            List<AuthorViewModel> allAuthorsViewModel = Mapper.Map<List<Author>, List<AuthorViewModel>>(allAuthorsModel);
-
-            List<PublicationHouse> allPublicationHousesModel = _unitOfWork.PublicationHouses.GetAll();
-            List<PublicationHouseViewModel> allPublicationHousesViewModel = Mapper.Map<List<PublicationHouse>, List<PublicationHouseViewModel>>(allPublicationHousesModel);
-            foreach (var book in allBooksViewModel)
-            {
-                List<BookAuthor> bookAuthors = _unitOfWork.BookAuthors.GetAllByBookId(book.BookId);
-                var authors = new List<AuthorViewModel>();
-                foreach (var bookAuthor in bookAuthors)
-                {
-                    if (bookAuthor.Author != null)
-                    {
-                        authors.Add(Mapper.Map<Author, AuthorViewModel>(bookAuthor.Author));
-                    }
-                }
-                List<BookPublicationHouse> bookPublicationHouses = _unitOfWork.BookPublicationHouses.GetAllByBookId(book.BookId);
-                var publicationHouses = new List<PublicationHouseViewModel>();
-                foreach (var bookPublicationHouse in bookPublicationHouses)
-                {
-                    if (bookPublicationHouse.PublicationHouse != null)
-                    {
-                        publicationHouses.Add(Mapper.Map<PublicationHouse, PublicationHouseViewModel>(bookPublicationHouse.PublicationHouse));
-                    }
-                }
-                book.Authors = authors;
-                book.PublicationHouses = publicationHouses;
-            }
-            allBooksAuthorsPublicationHousesViewModel.Books = allBooksViewModel;
-            allBooksAuthorsPublicationHousesViewModel.AllAuthors = allAuthorsViewModel;
-            allBooksAuthorsPublicationHousesViewModel.AllPublicationHouses = allPublicationHousesViewModel;
-
-            return allBooksAuthorsPublicationHousesViewModel;
-        }
-
-        public void Update(BookViewModel book)
+        public void Put(PutBookView book)
         {
             Book bookModel = _unitOfWork.Books.Get(book.BookId);
             bookModel.Name = book.Name;

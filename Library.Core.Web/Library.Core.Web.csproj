@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="src\app\book\book.module.ts" />
     <None Remove="src\app\entities\author.ts" />
     <None Remove="src\app\entities\AuthorsBooksViewModel.ts" />
     <None Remove="src\app\entities\book.ts" />
@@ -36,6 +37,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <TypeScriptCompile Include="src\app\book\book.module.ts" />
     <TypeScriptCompile Include="src\app\entities\author.ts" />
     <TypeScriptCompile Include="src\app\entities\AuthorsBooksViewModel.ts" />
     <TypeScriptCompile Include="src\app\entities\book.ts" />

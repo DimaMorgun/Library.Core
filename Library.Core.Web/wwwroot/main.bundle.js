@@ -128,24 +128,16 @@ var AppModule = /** @class */ (function () {
             imports: [
                 __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__["a" /* BrowserModule */],
                 __WEBPACK_IMPORTED_MODULE_2__angular_platform_browser_animations__["a" /* BrowserAnimationsModule */],
-                __WEBPACK_IMPORTED_MODULE_4__angular_forms__["c" /* FormsModule */],
                 __WEBPACK_IMPORTED_MODULE_3__angular_common_http__["c" /* HttpClientModule */],
                 __WEBPACK_IMPORTED_MODULE_3__angular_common_http__["b" /* HttpClientJsonpModule */],
+                __WEBPACK_IMPORTED_MODULE_4__angular_forms__["c" /* FormsModule */],
                 __WEBPACK_IMPORTED_MODULE_5__angular_router__["a" /* RouterModule */].forRoot(routes, { useHash: true }),
                 __WEBPACK_IMPORTED_MODULE_6__progress_kendo_angular_grid__["a" /* GridModule */],
                 __WEBPACK_IMPORTED_MODULE_7__progress_kendo_angular_dropdowns__["c" /* DropDownsModule */]
             ],
             providers: [
-                {
-                    deps: [__WEBPACK_IMPORTED_MODULE_3__angular_common_http__["a" /* HttpClient */]],
-                    provide: __WEBPACK_IMPORTED_MODULE_13__services_book_service__["a" /* BookService */],
-                    useFactory: function (jsonp) { return function () { return new __WEBPACK_IMPORTED_MODULE_13__services_book_service__["a" /* BookService */](jsonp); }; }
-                },
-                {
-                    deps: [__WEBPACK_IMPORTED_MODULE_3__angular_common_http__["a" /* HttpClient */]],
-                    provide: __WEBPACK_IMPORTED_MODULE_14__services_author_service__["a" /* AuthorService */],
-                    useFactory: function (jsonp) { return function () { return new __WEBPACK_IMPORTED_MODULE_14__services_author_service__["a" /* AuthorService */](jsonp); }; }
-                }
+                __WEBPACK_IMPORTED_MODULE_13__services_book_service__["a" /* BookService */],
+                __WEBPACK_IMPORTED_MODULE_14__services_author_service__["a" /* AuthorService */]
             ],
             bootstrap: [__WEBPACK_IMPORTED_MODULE_8__app_component__["a" /* AppComponent */]]
         })
@@ -307,14 +299,12 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var __param = (this && this.__param) || function (paramIndex, decorator) {
-    return function (target, key) { decorator(target, key, paramIndex); }
-};
 
 
 
 var BookComponent = /** @class */ (function () {
-    function BookComponent(editServiceFactory) {
+    function BookComponent(bookService) {
+        this.bookService = bookService;
         this.books = [];
         this.allAuthors = [];
         this.allPublicationHouses = [];
@@ -323,7 +313,6 @@ var BookComponent = /** @class */ (function () {
             skip: 0,
             take: 10
         };
-        this.bookService = editServiceFactory();
     }
     BookComponent.prototype.ngOnInit = function () {
         this.refresh();
@@ -387,8 +376,7 @@ var BookComponent = /** @class */ (function () {
             template: __webpack_require__("./src/app/book/book.component.html"),
             styles: [__webpack_require__("./src/app/book/book.component.css")]
         }),
-        __param(0, Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Inject */])(__WEBPACK_IMPORTED_MODULE_1__services_book_service__["a" /* BookService */])),
-        __metadata("design:paramtypes", [Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__services_book_service__["a" /* BookService */]])
     ], BookComponent);
     return BookComponent;
 }());

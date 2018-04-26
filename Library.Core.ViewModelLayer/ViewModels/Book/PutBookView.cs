@@ -1,0 +1,35 @@
+﻿using System.Collections.Generic;
+
+namespace Library.Core.ViewModelLayer.ViewModels.Book
+{
+    public class PutBookView
+    {
+        public int BookId { get; set; }
+        public string Name { get; set; }
+        public int YearOfPublishing { get; set; }
+
+        public ICollection<AuthorPutBookViewItem> Authors { get; set; }
+        public ICollection<PublicationHousePutBookViewItem> PublicationHouses { get; set; }
+
+        public PutBookView()
+        {
+            Authors = new List<AuthorPutBookViewItem>();
+            PublicationHouses = new List<PublicationHousePutBookViewItem>();
+        }
+    }
+
+    public class AuthorPutBookViewItem
+    {
+        public int AuthorId { get; set; }
+        public string Name { get; set; }
+        public int Birthday { get; set; }
+        public int Deathday { get; set; }
+    }
+
+    public class PublicationHousePutBookViewItem
+    {
+        public int PublicationHouseId { get; set; }
+        public string Name { get; set; }
+        public string Adress { get; set; }
+    }
+}

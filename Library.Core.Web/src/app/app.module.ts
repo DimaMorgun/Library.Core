@@ -33,24 +33,16 @@ const routes: Routes = [
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    FormsModule,
     HttpClientModule,
     HttpClientJsonpModule,
+    FormsModule,
     RouterModule.forRoot(routes, { useHash: true }),
     GridModule,
     DropDownsModule
   ],
   providers: [
-    {
-      deps: [HttpClient],
-      provide: BookService,
-      useFactory: (jsonp: HttpClient) => () => new BookService(jsonp)
-    },
-    {
-      deps: [HttpClient],
-      provide: AuthorService,
-      useFactory: (jsonp: HttpClient) => () => new AuthorService(jsonp)
-    }
+    BookService,
+    AuthorService
   ],
   bootstrap: [AppComponent]
 })

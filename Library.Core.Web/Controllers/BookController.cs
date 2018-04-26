@@ -1,5 +1,5 @@
 using Library.Core.BysinessLogicLayer.Services;
-using Library.Core.ViewModelLayer.ViewModels;
+using Library.Core.ViewModelLayer.ViewModels.Book;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Library.Core.Web.Controllers
@@ -16,31 +16,30 @@ namespace Library.Core.Web.Controllers
     }
 
     [HttpGet]
-    public BooksAuthorsPublicationHousesViewModel Get()
+    public GetBookView Get()
     {
-      BooksAuthorsPublicationHousesViewModel booksAuthorsPublicationHousesViewModel = _bookService.GetAll();
+      GetBookView booksAuthorsPublicationHousesViewModel = _bookService.GetAll();
 
       return booksAuthorsPublicationHousesViewModel;
     }
 
     [HttpPost]
-    public IActionResult Post([FromBody]BookViewModel book)
+    public IActionResult Post([FromBody]PostBookView book)
     {
       if (ModelState.IsValid)
       {
-        _bookService.Insert(book);
+        _bookService.Post(book);
         return Ok(book);
       }
       return BadRequest(ModelState);
     }
 
-
     [HttpPut("{id}")]
-    public IActionResult Put(int id, [FromBody]BookViewModel book)
+    public IActionResult Put(int id, [FromBody]PutBookView book)
     {
       if (ModelState.IsValid)
       {
-        _bookService.Update(book);
+        _bookService.Put(book);
         return Ok(book);
       }
       return BadRequest(ModelState);

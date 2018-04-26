@@ -16,7 +16,6 @@ import { PublicationHouse } from '../entities/publicationHouse';
   styleUrls: ['./book.component.css']
 })
 export class BookComponent implements OnInit {
-  private bookService: BookService;
   private editedRowIndex: number;
   private editedBook: Book;
 
@@ -30,8 +29,7 @@ export class BookComponent implements OnInit {
     take: 10
   };
 
-  constructor( @Inject(BookService) editServiceFactory: any) {
-    this.bookService = editServiceFactory();
+  constructor(private bookService: BookService) {
   }
 
   public ngOnInit(): void {
