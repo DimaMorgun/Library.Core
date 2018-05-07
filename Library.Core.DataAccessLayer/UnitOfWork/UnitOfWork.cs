@@ -19,8 +19,8 @@ namespace Library.Core.DataAccessLayer.UnitOfWork
         private BookAuthorRepository _bookAuthorRepository;
         private PublicationHouseRepository _publicationHouseRepository;
         private BookPublicationHouseRepository _bookPublicationHouseRepository;
-        //private MagazineRepository _magazineRepository;
-        //private BrochureRepository _brochureRepository;
+        private MagazineRepository _magazineRepository;
+        private BrochureRepository _brochureRepository;
 
         public UnitOfWork(string connection)
         {
@@ -97,24 +97,24 @@ namespace Library.Core.DataAccessLayer.UnitOfWork
                 return _bookPublicationHouseRepository;
             }
         }
-        //public MagazineRepository Magazines
-        //{
-        //    get
-        //    {
-        //        if (_magazineRepository == null)
-        //            _magazineRepository = new MagazineRepository(_connection);
-        //        return _magazineRepository;
-        //    }
-        //}
-        //public BrochureRepository Brochures
-        //{
-        //    get
-        //    {
-        //        if (_brochureRepository == null)
-        //            _brochureRepository = new BrochureRepository(_connection);
-        //        return _brochureRepository;
-        //    }
-        //}
+        public MagazineRepository Magazines
+        {
+            get
+            {
+                if (_magazineRepository == null)
+                    _magazineRepository = new MagazineRepository(_connection);
+                return _magazineRepository;
+            }
+        }
+        public BrochureRepository Brochures
+        {
+            get
+            {
+                if (_brochureRepository == null)
+                    _brochureRepository = new BrochureRepository(_connection);
+                return _brochureRepository;
+            }
+        }
 
         private bool disposed = false;
 

@@ -6,9 +6,9 @@ import { GridModule } from '@progress/kendo-angular-grid';
 import { DropDownsModule } from '@progress/kendo-angular-dropdowns';
 
 import { BookService } from '../services/book.service';
-import { BookComponent } from '../book/book.component';
+import { BookComponent } from './book.component';
 
-import { routing } from './book-routing.module';
+import { routing } from './book.routing';
 
 @NgModule({
   declarations: [
