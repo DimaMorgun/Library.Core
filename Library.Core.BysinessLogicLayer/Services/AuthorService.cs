@@ -2,11 +2,11 @@
 using Library.Core.DataAccessLayer.Connection;
 using Library.Core.DataAccessLayer.UnitOfWork;
 using Library.Core.EntityModelLayer.Models;
-using Library.Core.ViewModelLayer.ViewModels;
+using Library.Core.ViewModelLayer.ViewModels.Author;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Library.BusinessLogicLayer.Services
+namespace Library.Core.BusinessLogicLayer.Services
 {
     public class AuthorService
     {
@@ -17,47 +17,51 @@ namespace Library.BusinessLogicLayer.Services
             _unitOfWork = new UnitOfWork(MSSQLConnection.ConnectionString);
         }
 
-        public List<AuthorViewModel> GetAll()
+        public GetAuthorView GetAll()
         {
-            List<Author> allAuthorsModel = _unitOfWork.Authors.GetAll();
+            var allAuthorsBooksViewModel = new GetAuthorView();
 
-            var allAuthorsViewModel = Mapper.Map<List<Author>, List<AuthorViewModel>>(allAuthorsModel);
+            List<Author> allAuthorsModel = _unitOfWork.Authors.GetAll();
+            List<AuthorGetAuthorViewItem> allAuthorsViewModel = Mapper.Map<List<Author>, List<AuthorGetAuthorViewItem>>(allAuthorsModel);
+
+            List<Book> allBooksModel = _unitOfWork.Books.GetAll();
+            List<BookGetAuthorViewItem> allBooksViewModel = Mapper.Map<List<Book>, List<BookGetAuthorViewItem>>(allBooksModel);
+
             foreach (var author in allAuthorsViewModel)
             {
-                List<BookAuthor> bookAuthors = _unitOfWork.BookAuthors.GetAllByAuthorId(author.AuthorId);
-                var books = new List<BookViewModel>();
-                foreach (var bookAuthor in bookAuthors)
+                List<BookAuthor> authorBooks = _unitOfWork.BookAuthors.GetAllByAuthorId(author.AuthorId);
+                var books = new List<BookGetAuthorViewItem>();
+                foreach (var authorBook in authorBooks)
                 {
-                    if (bookAuthor.Book != null)
+                    if (authorBook.Book != null)
                     {
-                        books.Add(Mapper.Map<Book, BookViewModel>(bookAuthor.Book));
+                        books.Add(Mapper.Map<Book, BookGetAuthorViewItem>(authorBook.Book));
                     }
                 }
                 author.Books = books;
             }
+            allAuthorsBooksViewModel.Authors = allAuthorsViewModel;
+            allAuthorsBooksViewModel.AllBooks = allBooksViewModel;
 
-            return allAuthorsViewModel;
+            return allAuthorsBooksViewModel;
         }
 
-        public void Post(AuthorViewModel author)
+        public void Post(PostAuthorView author)
         {
-            var authorModel = Mapper.Map<AuthorViewModel, Author>(author);
-            var bookAuthorsModel = new List<BookAuthor>();
+            var authorModel = Mapper.Map<PostAuthorView, Author>(author);
+            var authorBooksModel = new List<BookAuthor>();
 
             var authorId = _unitOfWork.Authors.Insert(authorModel);
 
-            if (author.SelectedBooks != null)
+            foreach (var book in author.Books)
             {
-                foreach (var bookId in author.SelectedBooks)
-                {
-                    bookAuthorsModel.Add(new BookAuthor() { BookId = bookId, AuthorId = authorId });
-                }
+                authorBooksModel.Add(new BookAuthor() { AuthorId = authorId, BookId = book.BookId });
             }
 
-            _unitOfWork.BookAuthors.Insert(bookAuthorsModel);
+            _unitOfWork.BookAuthors.Insert(authorBooksModel);
         }
 
-        public void Put(AuthorViewModel author)
+        public void Put(PutAuthorView author)
         {
             Author authorModel = _unitOfWork.Authors.Get(author.AuthorId);
             authorModel.Name = author.Name;
@@ -65,29 +69,27 @@ namespace Library.BusinessLogicLayer.Services
             authorModel.Deathday = author.Deathday;
             _unitOfWork.Authors.Update(authorModel);
 
-            List<BookAuthor> oldBookAuthors = _unitOfWork.BookAuthors.GetAllByAuthorId(author.AuthorId);
-            var oldBookAuthorsWithRelation = oldBookAuthors.Where(x => x.BookId != 0).ToList();
-            var BooksHas = oldBookAuthorsWithRelation.Where(x => author.SelectedBooks.Contains(x.BookId)).ToList();
-            var BooksNothas = oldBookAuthorsWithRelation.Where(x => !author.SelectedBooks.Contains(x.BookId)).ToList();
-            _unitOfWork.BookAuthors.Delete(BooksNothas);
-            if (author.SelectedBooks != null)
-            {
-                List<BookAuthor> currentBookAuthors = new List<BookAuthor>();
+            IEnumerable<int> SelectedBooks = author.Books.Select(id => id.BookId);
+            List<BookAuthor> oldAuthorBooks = _unitOfWork.BookAuthors.GetAllByAuthorId(author.AuthorId);
+            var oldAuthorBooksWithRelation = oldAuthorBooks.Where(x => x.BookId != 0).ToList();
+            var BooksHas = oldAuthorBooksWithRelation.Where(x => SelectedBooks.Contains(x.BookId)).ToList();
+            var BooksNotHas = oldAuthorBooksWithRelation.Where(x => !SelectedBooks.Contains(x.BookId)).ToList();
+            _unitOfWork.BookAuthors.Delete(BooksNotHas);
+            var currentAuthorBooks = new List<BookAuthor>();
 
-                foreach (var newBookId in author.SelectedBooks)
+            foreach (var newBookId in SelectedBooks)
+            {
+                if (BooksHas.FirstOrDefault(x => x.BookId == newBookId) == null)
                 {
-                    if (BooksHas.FirstOrDefault(x => x.BookId == newBookId) == null)
-                    {
-                        currentBookAuthors.Add(new BookAuthor() { BookId = newBookId, AuthorId = authorModel.AuthorId });
-                    }
+                    currentAuthorBooks.Add(new BookAuthor() { AuthorId = authorModel.AuthorId, BookId = newBookId});
                 }
-                _unitOfWork.BookAuthors.Insert(currentBookAuthors);
             }
+            _unitOfWork.BookAuthors.Insert(currentAuthorBooks);
         }
 
         public void Delete(int id)
         {
-            var authorModel = _unitOfWork.Authors.Get(id);
+            Author authorModel = _unitOfWork.Authors.Get(id);
             _unitOfWork.Authors.Delete(authorModel);
         }
     }

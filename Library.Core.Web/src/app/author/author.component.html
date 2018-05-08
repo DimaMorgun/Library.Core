@@ -1,3 +1,54 @@
-<p>
-  author works!
-</p>
+<form novalidate #myForm="ngForm">
+  <kendo-grid [kendoGridBinding]="authors"
+              [height]="533"
+              [pageSize]="gridState.take" [skip]="gridState.skip" [sort]="gridState.sort"
+              [pageable]="true" [sortable]="true"
+              (dataStateChange)="onStateChange($event)"
+              (edit)="editHandler($event)" (cancel)="cancelHandler($event)"
+              (save)="saveHandler($event)" (remove)="removeHandler($event)"
+              (add)="addHandler($event, myForm)"
+              [navigable]="true">
+    <ng-template kendoGridToolbarTemplate>
+      <button kendoGridAddCommand type="button">Add new</button>
+    </ng-template>
+    <kendo-grid-column field="name" title="Name">
+      <ng-template kendoGridEditTemplate let-dataItem="dataItem">
+        <input [(ngModel)]="dataItem.name" kendoGridFocusable name="name" class="k-textbox" required />
+      </ng-template>
+    </kendo-grid-column>
+    <kendo-grid-column field="birthday" title="Birthday">
+      <ng-template kendoGridEditTemplate let-dataItem="dataItem">
+        <input [(ngModel)]="dataItem.birthday" kendoGridFocusable name="birthday" class="k-textbox" type="number" required />
+      </ng-template>
+    </kendo-grid-column>
+    <kendo-grid-column field="deathday" title="Deathday">
+      <ng-template kendoGridEditTemplate let-dataItem="dataItem">
+        <input [(ngModel)]="dataItem.deathday" kendoGridFocusable name="deathday" class="k-textbox" type="number" required />
+      </ng-template>
+    </kendo-grid-column>
+    <kendo-grid-column title="Books">
+      <ng-template kendoGridCellTemplate let-dataItem="dataItem">
+        <span *ngFor="let book of dataItem.books">{{book.name}}. </span>
+      </ng-template>
+      <ng-template kendoGridEditTemplate let-dataItem="dataItem">
+        <kendo-multiselect name="dataItem.books"
+                           [data]="allBooks"
+                           textField="name"
+                           valueField="bookId"
+                           [(ngModel)]="dataItem.books">
+        </kendo-multiselect>
+      </ng-template>
+    </kendo-grid-column>
+    <kendo-grid-command-column title="">
+      <ng-template kendoGridCellTemplate let-isNew="isNew">
+        <button kendoGridEditCommand type="button" class="k-primary">Edit</button>
+        <button kendoGridRemoveCommand type="button">Remove</button>
+        <button kendoGridSaveCommand type="button"
+                [disabled]="myForm.invalid || myForm.pristine">
+          {{ isNew ? 'Add' : 'Update' }}
+        </button>
+        <button kendoGridCancelCommand type="button">{{ isNew ? 'Discard changes' : 'Cancel' }}</button>
+      </ng-template>
+    </kendo-grid-command-column>
+  </kendo-grid>
+</form>

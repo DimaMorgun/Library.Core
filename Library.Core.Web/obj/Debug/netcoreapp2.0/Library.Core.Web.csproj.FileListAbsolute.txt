@@ -16,8 +16,6 @@ C:\Users\Anuitex-52\source\repos\Library.Core\Library.Core.Web\obj\Debug\netcore
 C:\Users\Anuitex-52\source\repos\Library.Core\Library.Core.Web\obj\Debug\netcoreapp2.0\Library.Core.Web.csproj.CopyComplete
 C:\Users\Anuitex-52\source\repos\Library.Core\Library.Core.Web\bin\Debug\netcoreapp2.0\Library.Core.ViewModelLayer.dll
 C:\Users\Anuitex-52\source\repos\Library.Core\Library.Core.Web\bin\Debug\netcoreapp2.0\Library.Core.ViewModelLayer.pdb
-C:\Users\Anuitex-52\source\repos\Library.Core\Library.Core.Web\bin\Debug\netcoreapp2.0\Library.Core.BysinessLogicLayer.dll
-C:\Users\Anuitex-52\source\repos\Library.Core\Library.Core.Web\bin\Debug\netcoreapp2.0\Library.Core.BysinessLogicLayer.pdb
 C:\Users\Tom\Source\Repos\Library.Core\Library.Core.Web\bin\Debug\netcoreapp2.0\Library.Core.Web.deps.json
 C:\Users\Tom\Source\Repos\Library.Core\Library.Core.Web\bin\Debug\netcoreapp2.0\Library.Core.Web.runtimeconfig.json
 C:\Users\Tom\Source\Repos\Library.Core\Library.Core.Web\bin\Debug\netcoreapp2.0\Library.Core.Web.runtimeconfig.dev.json
@@ -37,3 +35,5 @@ C:\Users\Tom\Source\Repos\Library.Core\Library.Core.Web\obj\Debug\netcoreapp2.0\
 C:\Users\Tom\Source\Repos\Library.Core\Library.Core.Web\obj\Debug\netcoreapp2.0\Library.Core.Web.AssemblyInfo.cs
 C:\Users\Tom\Source\Repos\Library.Core\Library.Core.Web\obj\Debug\netcoreapp2.0\Library.Core.Web.dll
 C:\Users\Tom\Source\Repos\Library.Core\Library.Core.Web\obj\Debug\netcoreapp2.0\Library.Core.Web.pdb
+C:\Users\Anuitex-52\source\repos\Library.Core\Library.Core.Web\bin\Debug\netcoreapp2.0\Library.Core.BusinessLogicLayer.dll
+C:\Users\Anuitex-52\source\repos\Library.Core\Library.Core.Web\bin\Debug\netcoreapp2.0\Library.Core.BusinessLogicLayer.pdb

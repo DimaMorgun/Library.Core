@@ -11,7 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Library.Core.EntityModelLay
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Library.Core.ViewModelLayer", "Library.Core.ViewModelLayer\Library.Core.ViewModelLayer.csproj", "{FD92C064-E736-4167-884A-A9400F7864F5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Library.Core.BysinessLogicLayer", "Library.Core.BysinessLogicLayer\Library.Core.BysinessLogicLayer.csproj", "{8844EE8B-7AB9-4E2C-AEBD-FEB6DD22ED26}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Library.Core.BusinessLogicLayer", "Library.Core.BysinessLogicLayer\Library.Core.BusinessLogicLayer.csproj", "{8844EE8B-7AB9-4E2C-AEBD-FEB6DD22ED26}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -4564,9 +4564,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Anuitex-52\\source\\repos\\Library.Core\\Library.Core.BysinessLogicLayer\\Library.Core.BysinessLogicLayer.csproj",
-      "projectName": "Library.Core.BysinessLogicLayer",
-      "projectPath": "C:\\Users\\Anuitex-52\\source\\repos\\Library.Core\\Library.Core.BysinessLogicLayer\\Library.Core.BysinessLogicLayer.csproj",
+      "projectUniqueName": "C:\\Users\\Anuitex-52\\source\\repos\\Library.Core\\Library.Core.BysinessLogicLayer\\Library.Core.BusinessLogicLayer.csproj",
+      "projectName": "Library.Core.BusinessLogicLayer",
+      "projectPath": "C:\\Users\\Anuitex-52\\source\\repos\\Library.Core\\Library.Core.BysinessLogicLayer\\Library.Core.BusinessLogicLayer.csproj",
       "packagesPath": "C:\\Users\\Anuitex-52\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\Anuitex-52\\source\\repos\\Library.Core\\Library.Core.BysinessLogicLayer\\obj\\",
       "projectStyle": "PackageReference",

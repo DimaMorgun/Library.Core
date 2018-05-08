@@ -5031,7 +5031,7 @@
           "lib/netstandard1.3/Microsoft.WindowsAzure.Storage.dll": {}
         }
       },
-      "Library.Core.BysinessLogicLayer/1.0.0": {
+      "Library.Core.BusinessLogicLayer/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v2.0",
         "dependencies": {
@@ -5041,10 +5041,10 @@
           "Library.Core.ViewModelLayer": "1.0.0"
         },
         "compile": {
-          "bin/placeholder/Library.Core.BysinessLogicLayer.dll": {}
+          "bin/placeholder/Library.Core.BusinessLogicLayer.dll": {}
         },
         "runtime": {
-          "bin/placeholder/Library.Core.BysinessLogicLayer.dll": {}
+          "bin/placeholder/Library.Core.BusinessLogicLayer.dll": {}
         }
       },
       "Library.Core.DataAccessLayer/1.0.0": {
@@ -13205,10 +13205,10 @@
         "windowsazure.storage.nuspec"
       ]
     },
-    "Library.Core.BysinessLogicLayer/1.0.0": {
+    "Library.Core.BusinessLogicLayer/1.0.0": {
       "type": "project",
-      "path": "../Library.Core.BysinessLogicLayer/Library.Core.BysinessLogicLayer.csproj",
-      "msbuildProject": "../Library.Core.BysinessLogicLayer/Library.Core.BysinessLogicLayer.csproj"
+      "path": "../Library.Core.BysinessLogicLayer/Library.Core.BusinessLogicLayer.csproj",
+      "msbuildProject": "../Library.Core.BysinessLogicLayer/Library.Core.BusinessLogicLayer.csproj"
     },
     "Library.Core.DataAccessLayer/1.0.0": {
       "type": "project",
@@ -13228,7 +13228,7 @@
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.0": [
-      "Library.Core.BysinessLogicLayer >= 1.0.0",
+      "Library.Core.BusinessLogicLayer >= 1.0.0",
       "Library.Core.DataAccessLayer >= 1.0.0",
       "Library.Core.ViewModelLayer >= 1.0.0",
       "Microsoft.AspNetCore.All >= 2.0.6",
@@ -13272,8 +13272,8 @@
       "frameworks": {
         "netcoreapp2.0": {
           "projectReferences": {
-            "C:\\Users\\Anuitex-52\\source\\repos\\Library.Core\\Library.Core.BysinessLogicLayer\\Library.Core.BysinessLogicLayer.csproj": {
-              "projectPath": "C:\\Users\\Anuitex-52\\source\\repos\\Library.Core\\Library.Core.BysinessLogicLayer\\Library.Core.BysinessLogicLayer.csproj"
+            "C:\\Users\\Anuitex-52\\source\\repos\\Library.Core\\Library.Core.BysinessLogicLayer\\Library.Core.BusinessLogicLayer.csproj": {
+              "projectPath": "C:\\Users\\Anuitex-52\\source\\repos\\Library.Core\\Library.Core.BysinessLogicLayer\\Library.Core.BusinessLogicLayer.csproj"
             },
             "C:\\Users\\Anuitex-52\\source\\repos\\Library.Core\\Library.Core.DataAccessLayer\\Library.Core.DataAccessLayer.csproj": {
               "projectPath": "C:\\Users\\Anuitex-52\\source\\repos\\Library.Core\\Library.Core.DataAccessLayer\\Library.Core.DataAccessLayer.csproj"

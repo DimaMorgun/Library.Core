@@ -8,13 +8,14 @@ import { BookService } from '../services/book.service';
 
 import { Book } from '../entities/book';
 import { Author } from '../entities/author';
-import { PublicationHouse } from '../entities/publicationHouse';
+import { PublicationHouse } from '../entities/publication-house';
 
 @Component({
   selector: 'app-book',
   templateUrl: './book.component.html',
   styleUrls: ['./book.component.css']
 })
+
 export class BookComponent implements OnInit {
   private editedRowIndex: number;
   private editedBook: Book;

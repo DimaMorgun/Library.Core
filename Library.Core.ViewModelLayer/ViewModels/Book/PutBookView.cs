@@ -24,6 +24,11 @@ namespace Library.Core.ViewModelLayer.ViewModels.Book
         public string Name { get; set; }
         public int Birthday { get; set; }
         public int Deathday { get; set; }
+
+        public AuthorPutBookViewItem()
+        {
+
+        }
     }
 
     public class PublicationHousePutBookViewItem
@@ -31,5 +36,10 @@ namespace Library.Core.ViewModelLayer.ViewModels.Book
         public int PublicationHouseId { get; set; }
         public string Name { get; set; }
         public string Adress { get; set; }
+
+        public PublicationHousePutBookViewItem()
+        {
+
+        }
     }
 }

@@ -6,7 +6,7 @@ using Library.Core.ViewModelLayer.ViewModels.Book;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Library.Core.BysinessLogicLayer.Services
+namespace Library.Core.BusinessLogicLayer.Services
 {
     public class BookService
     {
@@ -67,19 +67,13 @@ namespace Library.Core.BysinessLogicLayer.Services
 
             var bookId = _unitOfWork.Books.Insert(bookModel);
 
-            if (book.Authors != null)
+            foreach (var author in book.Authors)
             {
-                foreach (var author in book.Authors)
-                {
-                    bookAuthorsModel.Add(new BookAuthor() { BookId = bookId, AuthorId = author.AuthorId });
-                }
+                bookAuthorsModel.Add(new BookAuthor() { BookId = bookId, AuthorId = author.AuthorId });
             }
-            if (book.PublicationHouses != null)
+            foreach (var publicationHouse in book.PublicationHouses)
             {
-                foreach (var publicationHouse in book.PublicationHouses)
-                {
-                    bookPublicationHousesModel.Add(new BookPublicationHouse() { BookId = bookId, PublicationHouseId = publicationHouse.PublicationHouseId });
-                }
+                bookPublicationHousesModel.Add(new BookPublicationHouse() { BookId = bookId, PublicationHouseId = publicationHouse.PublicationHouseId });
             }
 
             _unitOfWork.BookAuthors.Insert(bookAuthorsModel);
@@ -94,51 +88,43 @@ namespace Library.Core.BysinessLogicLayer.Services
             _unitOfWork.Books.Update(bookModel);
 
             IEnumerable<int> SelectedAuthors = book.Authors.Select(id => id.AuthorId);
-
             List<BookAuthor> oldBookAuthors = _unitOfWork.BookAuthors.GetAllByBookId(book.BookId);
             var oldBookAuthorsWithRelation = oldBookAuthors.Where(x => x.AuthorId != 0).ToList();
             var AuthorsHas = oldBookAuthorsWithRelation.Where(x => SelectedAuthors.Contains(x.AuthorId)).ToList();
-            var AuthorsNothas = oldBookAuthorsWithRelation.Where(x => !SelectedAuthors.Contains(x.AuthorId)).ToList();
-            _unitOfWork.BookAuthors.Delete(AuthorsNothas);
-            if (SelectedAuthors != null)
-            {
-                List<BookAuthor> currentBookAuthors = new List<BookAuthor>();
+            var AuthorsNotHas = oldBookAuthorsWithRelation.Where(x => !SelectedAuthors.Contains(x.AuthorId)).ToList();
+            _unitOfWork.BookAuthors.Delete(AuthorsNotHas);
+            var currentBookAuthors = new List<BookAuthor>();
 
-                foreach (var newAuthorId in SelectedAuthors)
+            foreach (var newAuthorId in SelectedAuthors)
+            {
+                if (AuthorsHas.FirstOrDefault(x => x.AuthorId == newAuthorId) == null)
                 {
-                    if (AuthorsHas.FirstOrDefault(x => x.AuthorId == newAuthorId) == null)
-                    {
-                        currentBookAuthors.Add(new BookAuthor() { BookId = bookModel.BookId, AuthorId = newAuthorId });
-                    }
+                    currentBookAuthors.Add(new BookAuthor() { BookId = bookModel.BookId, AuthorId = newAuthorId });
                 }
-                _unitOfWork.BookAuthors.Insert(currentBookAuthors);
             }
+            _unitOfWork.BookAuthors.Insert(currentBookAuthors);
 
             IEnumerable<int> SelectedPblicationHouses = book.PublicationHouses.Select(id => id.PublicationHouseId);
-
             List<BookPublicationHouse> oldPublicationHouses = _unitOfWork.BookPublicationHouses.GetAllByBookId(book.BookId);
             var oldBookPublicationHousesWithRelation = oldPublicationHouses.Where(x => x.PublicationHouseId != 0).ToList();
             var PublicationHousesHas = oldBookPublicationHousesWithRelation.Where(x => SelectedPblicationHouses.Contains(x.PublicationHouseId)).ToList();
             var PublicationHousesNothas = oldBookPublicationHousesWithRelation.Where(x => !SelectedPblicationHouses.Contains(x.PublicationHouseId)).ToList();
             _unitOfWork.BookPublicationHouses.Delete(PublicationHousesNothas);
-            if (SelectedPblicationHouses != null)
-            {
-                List<BookPublicationHouse> currentBookPublicationHouses = new List<BookPublicationHouse>();
+            var currentBookPublicationHouses = new List<BookPublicationHouse>();
 
-                foreach (var newPublicationHouseId in SelectedPblicationHouses)
+            foreach (var newPublicationHouseId in SelectedPblicationHouses)
+            {
+                if (PublicationHousesHas.FirstOrDefault(x => x.PublicationHouseId == newPublicationHouseId) == null)
                 {
-                    if (PublicationHousesHas.FirstOrDefault(x => x.PublicationHouseId == newPublicationHouseId) == null)
-                    {
-                        currentBookPublicationHouses.Add(new BookPublicationHouse() { BookId = bookModel.BookId, PublicationHouseId = newPublicationHouseId });
-                    }
+                    currentBookPublicationHouses.Add(new BookPublicationHouse() { BookId = bookModel.BookId, PublicationHouseId = newPublicationHouseId });
                 }
-                _unitOfWork.BookPublicationHouses.Insert(currentBookPublicationHouses);
             }
+            _unitOfWork.BookPublicationHouses.Insert(currentBookPublicationHouses);
         }
 
         public void Delete(int id)
         {
-            var bookModel = _unitOfWork.Books.Get(id);
+            Book bookModel = _unitOfWork.Books.Get(id);
             _unitOfWork.Books.Delete(bookModel);
         }
     }

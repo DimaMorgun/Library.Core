@@ -1,26 +1,27 @@
-//import { Injectable } from '@angular/core';
-//import { Observable } from 'rxjs/Observable';
-//import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs/Observable';
+import { HttpClient } from '@angular/common/http';
 
-//import { Author } from '../entities/author';
-//import { AuthorsBooksViewModel } from '../entities/AuthorsBooksViewModel';
+import { GetAuthorView } from '../view-models/Author/getAuthorView';
+import { PostAuthorView } from '../view-models/Author/postAuthorView';
+import { PutAuthorView } from '../view-models/Author/putAuthorView';
 
-//@Injectable()
-//export class AuthorService {
-//  url = "/api/author";
+@Injectable()
+export class AuthorService {
+  url = "/api/author";
 
-//  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) { }
 
-//  createAuthor(author: Author): Observable<Author> {
-//    return this.http.post<Author>(this.url, author);
-//  }
-//  getAuthors(): Observable<AuthorsBooksViewModel> {
-//    return this.http.get<AuthorsBooksViewModel>(this.url);
-//  }
-//  updateAuthor(author: Author): Observable<Author> {
-//    return this.http.put<Author>(`${this.url}/${author.authorId}`, author);
-//  }
-//  deleteAuthor(id: number): Observable<Author> {
-//    return this.http.delete<Author>(`${this.url}/${id}`);
-//  }
-//}
+  getAuthor(): Observable<GetAuthorView> {
+    return this.http.get<GetAuthorView>(this.url);
+  }
+  postAuthor(author: PostAuthorView): Observable<PostAuthorView> {
+    return this.http.post<PostAuthorView>(this.url, author);
+  }
+  putAuthor(author: PutAuthorView): Observable<PutAuthorView> {
+    return this.http.put<PutAuthorView>(`${this.url}/${author.authorId}`, author);
+  }
+  deleteAuthor(id: number) {
+    return this.http.delete(`${this.url}/${id}`);
+  }
+}

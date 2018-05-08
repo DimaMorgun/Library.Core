@@ -25,9 +25,9 @@ namespace Library.Core.DataAccessLayer.Migrations
                     b.Property<int>("AuthorId")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<int?>("Birthday");
+                    b.Property<int>("Birthday");
 
-                    b.Property<int?>("Deathday");
+                    b.Property<int>("Deathday");
 
                     b.Property<string>("Name");
 
@@ -84,6 +84,38 @@ namespace Library.Core.DataAccessLayer.Migrations
                     b.HasIndex("PublicationHouseId");
 
                     b.ToTable("BookPublicationHouses");
+                });
+
+            modelBuilder.Entity("Library.Core.EntityModelLayer.Models.Brochure", b =>
+                {
+                    b.Property<int>("BrochureId")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Name");
+
+                    b.Property<int?>("NumberOfPages");
+
+                    b.Property<string>("TypeOfCover");
+
+                    b.HasKey("BrochureId");
+
+                    b.ToTable("Brochures");
+                });
+
+            modelBuilder.Entity("Library.Core.EntityModelLayer.Models.Magazine", b =>
+                {
+                    b.Property<int>("MagazineId")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Name");
+
+                    b.Property<int?>("Number");
+
+                    b.Property<int?>("YearOfPublishing");
+
+                    b.HasKey("MagazineId");
+
+                    b.ToTable("Magazines");
                 });
 
             modelBuilder.Entity("Library.Core.EntityModelLayer.Models.PublicationHouse", b =>

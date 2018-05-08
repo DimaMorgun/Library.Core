@@ -15,4 +15,3 @@ C:\Users\Tom\Source\Repos\Library.Core\Library.Core.ViewModelLayer\obj\Debug\net
 C:\Users\Tom\Source\Repos\Library.Core\Library.Core.ViewModelLayer\obj\Debug\netcoreapp2.0\Library.Core.ViewModelLayer.AssemblyInfo.cs
 C:\Users\Tom\Source\Repos\Library.Core\Library.Core.ViewModelLayer\obj\Debug\netcoreapp2.0\Library.Core.ViewModelLayer.dll
 C:\Users\Tom\Source\Repos\Library.Core\Library.Core.ViewModelLayer\obj\Debug\netcoreapp2.0\Library.Core.ViewModelLayer.pdb
-C:\Users\Anuitex-52\source\repos\Library.Core\Library.Core.ViewModelLayer\obj\Debug\netcoreapp2.0\Library.Core.ViewModelLayer.csprojResolveAssemblyReference.cache

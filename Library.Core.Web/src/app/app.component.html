@@ -7,7 +7,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a href="#" class="navbar-brand">Amazing SUPER-DUPER Library</a>
+      <a [routerLink]="['/home']" class="navbar-brand">Amazing SUPER-DUPER Library</a>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav navbar-right">
@@ -20,6 +20,9 @@
   <div class="row">
     <div class="col-sm-3 col-md-2 sidebar">
       <ul class="nav nav-sidebar">
+        <li>
+          <a [routerLink]="['/all-publications']"><span class="glyphicon glyphicon-picture" aria-hidden="true"></span> All Publications</a>
+        </li>
         <li>
           <a [routerLink]="['/home']"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home</a>
         </li>
@@ -37,9 +40,6 @@
         </li>
         <li>
           <a [routerLink]="['/brochure']"><span class="glyphicon glyphicon-picture" aria-hidden="true"></span> Brochures</a>
-        </li>
-        <li>
-          <a [routerLink]="['/all-publications']"><span class="glyphicon glyphicon-picture" aria-hidden="true"></span> All publications</a>
         </li>
       </ul>
     </div>

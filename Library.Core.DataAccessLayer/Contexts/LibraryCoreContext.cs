@@ -10,6 +10,8 @@ namespace Library.Core.DataAccessLayer.Contexts
         public DbSet<BookAuthor> BookAuthors { get; set; }
         public DbSet<PublicationHouse> PublicationHouses { get; set; }
         public DbSet<BookPublicationHouse> BookPublicationHouses { get; set; }
+        public DbSet<Magazine> Magazines { get; set; }
+        public DbSet<Brochure> Brochures { get; set; }
 
         public LibraryCoreContext(DbContextOptions<LibraryCoreContext> options) : base(options)
         {

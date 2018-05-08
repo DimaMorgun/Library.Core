@@ -5,7 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { GridModule } from '@progress/kendo-angular-grid';
 import { DropDownsModule } from '@progress/kendo-angular-dropdowns';
 
-//import { BookService } from '../services/book.service';
+import { PublicationHouseService } from '../services/publication-house.service';
 import { PublicationHouseComponent } from './publication-house.component';
 
 import { routing } from './publication-house.routing';
@@ -21,7 +21,7 @@ import { routing } from './publication-house.routing';
     DropDownsModule,
     [routing]
   ],
-  //providers: [BookService],
+  providers: [PublicationHouseService],
   bootstrap: [PublicationHouseComponent]
 })
 export class PublicationHouseModule { }

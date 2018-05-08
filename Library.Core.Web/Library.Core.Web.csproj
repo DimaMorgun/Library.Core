@@ -15,20 +15,42 @@
     <None Remove="src\app\book\book.routing.ts" />
     <None Remove="src\app\brochure\brochure.module.ts" />
     <None Remove="src\app\brochure\brochure.routing.ts" />
+    <None Remove="src\app\entities\all-publications.ts" />
     <None Remove="src\app\entities\author.ts" />
     <None Remove="src\app\entities\book.ts" />
-    <None Remove="src\app\entities\publicationHouse.ts" />
+    <None Remove="src\app\entities\brochure.ts" />
+    <None Remove="src\app\entities\magazine.ts" />
+    <None Remove="src\app\entities\publication-house.ts" />
+    <None Remove="src\app\entities\publication.ts" />
     <None Remove="src\app\home\home.module.ts" />
     <None Remove="src\app\home\home.routing.ts" />
     <None Remove="src\app\magazine\magazine.module.ts" />
     <None Remove="src\app\magazine\magazine.routing.ts" />
     <None Remove="src\app\publication-house\publication-house.module.ts" />
     <None Remove="src\app\publication-house\publication-house.routing.ts" />
-    <None Remove="src\app\view-models\Book\postBookView.ts" />
-    <None Remove="src\app\view-models\Book\putBookView.ts" />
+    <None Remove="src\app\services\all-publications.ts" />
+    <None Remove="src\app\services\brochure.service.ts" />
+    <None Remove="src\app\services\magazine.service.ts" />
+    <None Remove="src\app\services\publication-house.service.ts" />
+    <None Remove="src\app\view-models\all-publications\deleteAll-publicationsView.ts" />
+    <None Remove="src\app\view-models\author\getAuthorView.ts" />
+    <None Remove="src\app\view-models\author\postAuthorView.ts" />
+    <None Remove="src\app\view-models\author\putAuthorView.ts" />
+    <None Remove="src\app\view-models\book\postBookView.ts" />
+    <None Remove="src\app\view-models\book\putBookView.ts" />
+    <None Remove="src\app\view-models\brochure\getBrochureView.ts" />
+    <None Remove="src\app\view-models\brochure\postBrochureView.ts" />
+    <None Remove="src\app\view-models\brochure\PutBrochureView.ts" />
+    <None Remove="src\app\view-models\getAllPublicationsView.ts" />
     <None Remove="src\app\view-models\getBookView.ts" />
     <None Remove="src\app\services\author.service.ts" />
     <None Remove="src\app\services\book.service.ts" />
+    <None Remove="src\app\view-models\magazine\getMagazineView.ts" />
+    <None Remove="src\app\view-models\magazine\PostMagazineView.ts" />
+    <None Remove="src\app\view-models\magazine\PutMagazineView.ts" />
+    <None Remove="src\app\view-models\publication-house\getPublication-houseView.ts" />
+    <None Remove="src\app\view-models\publication-house\postPublication-houseView.ts" />
+    <None Remove="src\app\view-models\publication-house\putPublication-houseView.ts" />
     <None Remove="src\products.ts" />
   </ItemGroup>
 
@@ -45,7 +67,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Library.Core.BysinessLogicLayer\Library.Core.BysinessLogicLayer.csproj" />
+    <ProjectReference Include="..\Library.Core.BysinessLogicLayer\Library.Core.BusinessLogicLayer.csproj" />
     <ProjectReference Include="..\Library.Core.DataAccessLayer\Library.Core.DataAccessLayer.csproj" />
     <ProjectReference Include="..\Library.Core.ViewModelLayer\Library.Core.ViewModelLayer.csproj" />
   </ItemGroup>
@@ -59,21 +81,43 @@
     <TypeScriptCompile Include="src\app\book\book.module.ts" />
     <TypeScriptCompile Include="src\app\brochure\brochure.module.ts" />
     <TypeScriptCompile Include="src\app\brochure\brochure.routing.ts" />
+    <TypeScriptCompile Include="src\app\entities\all-publications.ts" />
     <TypeScriptCompile Include="src\app\entities\author.ts" />
     <TypeScriptCompile Include="src\app\entities\book.ts" />
-    <TypeScriptCompile Include="src\app\entities\publicationHouse.ts" />
+    <TypeScriptCompile Include="src\app\entities\brochure.ts" />
+    <TypeScriptCompile Include="src\app\entities\magazine.ts" />
+    <TypeScriptCompile Include="src\app\entities\publication-house.ts" />
+    <TypeScriptCompile Include="src\app\entities\publication.ts" />
     <TypeScriptCompile Include="src\app\home\home.module.ts" />
     <TypeScriptCompile Include="src\app\home\home.routing.ts" />
     <TypeScriptCompile Include="src\app\magazine\magazine.module.ts" />
     <TypeScriptCompile Include="src\app\magazine\magazine.routing.ts" />
     <TypeScriptCompile Include="src\app\publication-house\publication-house.module.ts" />
     <TypeScriptCompile Include="src\app\publication-house\publication-house.routing.ts" />
-    <TypeScriptCompile Include="src\app\view-models\Book\getBookView.ts" />
+    <TypeScriptCompile Include="src\app\services\all-publications.ts" />
+    <TypeScriptCompile Include="src\app\services\brochure.service.ts" />
+    <TypeScriptCompile Include="src\app\services\magazine.service.ts" />
+    <TypeScriptCompile Include="src\app\services\publication-house.service.ts" />
+    <TypeScriptCompile Include="src\app\view-models\all-publications\deleteAll-publicationsView.ts" />
+    <TypeScriptCompile Include="src\app\view-models\author\getAuthorView.ts" />
+    <TypeScriptCompile Include="src\app\view-models\author\postAuthorView.ts" />
+    <TypeScriptCompile Include="src\app\view-models\author\putAuthorView.ts" />
+    <TypeScriptCompile Include="src\app\view-models\book\getBookView.ts" />
     <TypeScriptCompile Include="src\app\app.routing.ts" />
     <TypeScriptCompile Include="src\app\services\author.service.ts" />
     <TypeScriptCompile Include="src\app\services\book.service.ts" />
-    <TypeScriptCompile Include="src\app\view-models\Book\postBookView.ts" />
-    <TypeScriptCompile Include="src\app\view-models\Book\putBookView.ts" />
+    <TypeScriptCompile Include="src\app\view-models\book\postBookView.ts" />
+    <TypeScriptCompile Include="src\app\view-models\book\putBookView.ts" />
+    <TypeScriptCompile Include="src\app\view-models\brochure\getBrochureView.ts" />
+    <TypeScriptCompile Include="src\app\view-models\brochure\postBrochureView.ts" />
+    <TypeScriptCompile Include="src\app\view-models\brochure\PutBrochureView.ts" />
+    <TypeScriptCompile Include="src\app\view-models\all-publications\getAll-publicationsView.ts" />
+    <TypeScriptCompile Include="src\app\view-models\magazine\getMagazineView.ts" />
+    <TypeScriptCompile Include="src\app\view-models\magazine\PostMagazineView.ts" />
+    <TypeScriptCompile Include="src\app\view-models\magazine\PutMagazineView.ts" />
+    <TypeScriptCompile Include="src\app\view-models\publication-house\getPublication-houseView.ts" />
+    <TypeScriptCompile Include="src\app\view-models\publication-house\postPublication-houseView.ts" />
+    <TypeScriptCompile Include="src\app\view-models\publication-house\putPublication-houseView.ts" />
   </ItemGroup>
 
 </Project>

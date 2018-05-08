@@ -23,7 +23,7 @@
     ".NETCoreApp,Version=v2.0": {
       "Library.Core.Web/1.0.0": {
         "dependencies": {
-          "Library.Core.BysinessLogicLayer": "1.0.0",
+          "Library.Core.BusinessLogicLayer": "1.0.0",
           "Library.Core.DataAccessLayer": "1.0.0",
           "Library.Core.ViewModelLayer": "1.0.0",
           "Microsoft.AspNetCore.All": "2.0.6",
@@ -4064,7 +4064,7 @@
           "lib/netstandard1.3/Microsoft.WindowsAzure.Storage.dll": {}
         }
       },
-      "Library.Core.BysinessLogicLayer/1.0.0": {
+      "Library.Core.BusinessLogicLayer/1.0.0": {
         "dependencies": {
           "AutoMapper": "6.2.2",
           "Library.Core.DataAccessLayer": "1.0.0",
@@ -4072,10 +4072,10 @@
           "Library.Core.ViewModelLayer": "1.0.0"
         },
         "runtime": {
-          "Library.Core.BysinessLogicLayer.dll": {}
+          "Library.Core.BusinessLogicLayer.dll": {}
         },
         "compile": {
-          "Library.Core.BysinessLogicLayer.dll": {}
+          "Library.Core.BusinessLogicLayer.dll": {}
         }
       },
       "Library.Core.DataAccessLayer/1.0.0": {
@@ -6436,7 +6436,7 @@
       "path": "windowsazure.storage/8.1.4",
       "hashPath": "windowsazure.storage.8.1.4.nupkg.sha512"
     },
-    "Library.Core.BysinessLogicLayer/1.0.0": {
+    "Library.Core.BusinessLogicLayer/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
