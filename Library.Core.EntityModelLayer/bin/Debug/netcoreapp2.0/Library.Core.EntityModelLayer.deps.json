@@ -8,7 +8,9 @@
     ".NETCoreApp,Version=v2.0": {
       "Library.Core.EntityModelLayer/1.0.0": {
         "dependencies": {
-          "Dapper.Contrib": "1.50.4"
+          "Dapper.Contrib": "1.50.4",
+          "Microsoft.Extensions.Identity.Stores": "2.0.2.0",
+          "Microsoft.IdentityModel.Tokens": "5.1.4.0"
         },
         "runtime": {
           "Library.Core.EntityModelLayer.dll": {}
@@ -341,6 +343,16 @@
           "Microsoft.NETCore.Targets": "1.1.0",
           "System.Runtime": "4.3.0"
         }
+      },
+      "Microsoft.Extensions.Identity.Stores/2.0.2.0": {
+        "runtime": {
+          "Microsoft.Extensions.Identity.Stores.dll": {}
+        }
+      },
+      "Microsoft.IdentityModel.Tokens/5.1.4.0": {
+        "runtime": {
+          "Microsoft.IdentityModel.Tokens.dll": {}
+        }
       }
     }
   },
@@ -601,6 +613,16 @@
       "sha512": "sha512-hDrUgxkDGAk3hsKUEKlhxf806PyCq7welfJNtpwKzfSxLzEzEuWbPZsbj5VzjlSVRFJLoMSb+ywJiXWjDeT6DA==",
       "path": "system.threading.tasks/4.3.0",
       "hashPath": "system.threading.tasks.4.3.0.nupkg.sha512"
+    },
+    "Microsoft.Extensions.Identity.Stores/2.0.2.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Microsoft.IdentityModel.Tokens/5.1.4.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
     }
   }
 }

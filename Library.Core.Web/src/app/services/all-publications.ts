@@ -7,7 +7,7 @@ import { DeleteAllPublicationsView } from '../view-models/all-publications/delet
 
 @Injectable()
 export class AllPublicationsService {
-  url = "/api/allpublications";
+  url = "/api/publication";
 
   constructor(private http: HttpClient) { }
 
@@ -16,6 +16,5 @@ export class AllPublicationsService {
   }
   deleteAllPublications(publication: DeleteAllPublicationsView) {
     return this.http.request('delete', `${this.url}/${publication.publicationId}`, { body: publication });
-    //return this.http.delete(`${this.url}/${publication.publicationId}`, );
   }
 }

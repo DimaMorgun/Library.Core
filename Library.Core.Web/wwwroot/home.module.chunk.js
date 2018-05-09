@@ -1,17 +1,17 @@
 webpackJsonp(["home.module"],{
 
-/***/ "./src/app/home/home.module.ngfactory.js":
+/***/ "./src/app/modules/home/home.module.ngfactory.js":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HomeModuleNgFactory", function() { return HomeModuleNgFactory; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__home_module__ = __webpack_require__("./src/app/home/home.module.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__home_component__ = __webpack_require__("./src/app/home/home.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__home_module__ = __webpack_require__("./src/app/modules/home/home.module.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__home_component__ = __webpack_require__("./src/app/modules/home/home.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__node_modules_progress_kendo_angular_popup_dist_es2015_index_ngfactory__ = __webpack_require__("./node_modules/@progress/kendo-angular-popup/dist/es2015/index.ngfactory.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__node_modules_progress_kendo_angular_grid_dist_es2015_index_ngfactory__ = __webpack_require__("./node_modules/@progress/kendo-angular-grid/dist/es2015/index.ngfactory.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__home_component_ngfactory__ = __webpack_require__("./src/app/home/home.component.ngfactory.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__home_component_ngfactory__ = __webpack_require__("./src/app/modules/home/home.component.ngfactory.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__angular_common__ = __webpack_require__("./node_modules/@angular/common/esm5/common.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__angular_forms__ = __webpack_require__("./node_modules/@angular/forms/esm5/forms.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__progress_kendo_angular_intl__ = __webpack_require__("./node_modules/@progress/kendo-angular-intl/dist/es/index.js");

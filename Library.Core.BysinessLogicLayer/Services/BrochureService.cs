@@ -1,6 +1,5 @@
 ﻿using AutoMapper;
-using Library.Core.DataAccessLayer.Connection;
-using Library.Core.DataAccessLayer.UnitOfWork;
+using Library.Core.DataAccessLayer.Repositories;
 using Library.Core.EntityModelLayer.Models;
 using Library.Core.ViewModelLayer.ViewModels.Brochure;
 using System.Collections.Generic;
@@ -9,18 +8,20 @@ namespace Library.Core.BusinessLogicLayer.Services
 {
     public class BrochureService
     {
-        private UnitOfWork _unitOfWork;
+        private BrochureRepository _brochureRepository;
 
         public BrochureService()
         {
-            _unitOfWork = new UnitOfWork(MSSQLConnection.ConnectionString);
+            var connection = @"data source = (LocalDb)\MSSQLLocalDB; initial catalog = LibraryCore; integrated security = True; MultipleActiveResultSets = True; App = EntityFramework";
+
+            _brochureRepository = new BrochureRepository(connection);
         }
 
         public GetBrochureView GetAll()
         {
             var brochureViewModel = new GetBrochureView();
 
-            var allBrochuresModel = _unitOfWork.Brochures.GetAll();
+            var allBrochuresModel = _brochureRepository.GetAll();
             List<BrochureGetBrochureViewItem> allBrochuresViewModel = Mapper.Map<List<Brochure>, List<BrochureGetBrochureViewItem>>(allBrochuresModel);
 
             brochureViewModel.Brochures = allBrochuresViewModel;
@@ -32,22 +33,22 @@ namespace Library.Core.BusinessLogicLayer.Services
         {
             var brochureModel = Mapper.Map<PostBrochureView, Brochure>(brochure);
 
-            _unitOfWork.Brochures.Insert(brochureModel);
+            _brochureRepository.Insert(brochureModel);
         }
 
         public void Put(PutBrochureView brochure)
         {
-            Brochure BrochureModel = _unitOfWork.Brochures.Get(brochure.BrochureId);
+            Brochure BrochureModel = _brochureRepository.Get(brochure.BrochureId);
             BrochureModel.Name = brochure.Name;
             BrochureModel.NumberOfPages = brochure.NumberOfPages;
             BrochureModel.TypeOfCover = brochure.TypeOfCover;
-            _unitOfWork.Brochures.Update(BrochureModel);
+            _brochureRepository.Update(BrochureModel);
         }
 
         public void Delete(int id)
         {
-            Brochure brochureModel = _unitOfWork.Brochures.Get(id);
-            _unitOfWork.Brochures.Delete(brochureModel);
+            Brochure brochureModel = _brochureRepository.Get(id);
+            _brochureRepository.Delete(brochureModel);
         }
     }
 }

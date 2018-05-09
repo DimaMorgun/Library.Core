@@ -7,26 +7,14 @@ import { routing } from './app.routing';
 
 import { AppComponent } from './app.component';
 
-import { HomeModule } from './home/home.module';
-import { BookModule } from './book/book.module';
-import { AuthorModule } from './author/author.module';
-import { PublicationHouseModule } from './publication-house/publication-house.module';
-import { MagazineModule } from './magazine/magazine.module';
-import { BrochureModule } from './brochure/brochure.module';
-import { AllPublicationsModule } from './all-publications/all-publications.module';
+import { LibraryModule } from './modules/library.module';
 
 @NgModule({
   imports: [
     HttpClientModule,
     BrowserModule,
     BrowserAnimationsModule,
-    HomeModule,
-    BookModule,
-    AuthorModule,
-    PublicationHouseModule,
-    MagazineModule,
-    BrochureModule,
-    AllPublicationsModule,
+    LibraryModule,
     [routing]
   ],
   declarations: [

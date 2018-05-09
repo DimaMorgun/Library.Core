@@ -7,14 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="src\app\all-publications\all-publications.module.ts" />
-    <None Remove="src\app\all-publications\all-publications.routing.ts" />
-    <None Remove="src\app\author\author.module.ts" />
-    <None Remove="src\app\author\author.routing.ts" />
-    <None Remove="src\app\book\book.module.ts" />
-    <None Remove="src\app\book\book.routing.ts" />
-    <None Remove="src\app\brochure\brochure.module.ts" />
-    <None Remove="src\app\brochure\brochure.routing.ts" />
     <None Remove="src\app\entities\all-publications.ts" />
     <None Remove="src\app\entities\author.ts" />
     <None Remove="src\app\entities\book.ts" />
@@ -22,12 +14,11 @@
     <None Remove="src\app\entities\magazine.ts" />
     <None Remove="src\app\entities\publication-house.ts" />
     <None Remove="src\app\entities\publication.ts" />
-    <None Remove="src\app\home\home.module.ts" />
-    <None Remove="src\app\home\home.routing.ts" />
-    <None Remove="src\app\magazine\magazine.module.ts" />
-    <None Remove="src\app\magazine\magazine.routing.ts" />
-    <None Remove="src\app\publication-house\publication-house.module.ts" />
-    <None Remove="src\app\publication-house\publication-house.routing.ts" />
+    <None Remove="src\app\modules\home\home.module.ts" />
+    <None Remove="src\app\modules\home\home.routing.ts" />
+    <None Remove="src\app\modules\library.module.ts" />
+    <None Remove="src\app\modules\publication\publication.module.ts" />
+    <None Remove="src\app\modules\publication\publication.routing.ts" />
     <None Remove="src\app\services\all-publications.ts" />
     <None Remove="src\app\services\brochure.service.ts" />
     <None Remove="src\app\services\magazine.service.ts" />
@@ -73,14 +64,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <TypeScriptCompile Include="src\app\all-publications\all-publications.module.ts" />
-    <TypeScriptCompile Include="src\app\all-publications\all-publications.routing.ts" />
-    <TypeScriptCompile Include="src\app\author\author.module.ts" />
-    <TypeScriptCompile Include="src\app\author\author.routing.ts" />
-    <TypeScriptCompile Include="src\app\book\book.routing.ts" />
-    <TypeScriptCompile Include="src\app\book\book.module.ts" />
-    <TypeScriptCompile Include="src\app\brochure\brochure.module.ts" />
-    <TypeScriptCompile Include="src\app\brochure\brochure.routing.ts" />
     <TypeScriptCompile Include="src\app\entities\all-publications.ts" />
     <TypeScriptCompile Include="src\app\entities\author.ts" />
     <TypeScriptCompile Include="src\app\entities\book.ts" />
@@ -88,12 +71,11 @@
     <TypeScriptCompile Include="src\app\entities\magazine.ts" />
     <TypeScriptCompile Include="src\app\entities\publication-house.ts" />
     <TypeScriptCompile Include="src\app\entities\publication.ts" />
-    <TypeScriptCompile Include="src\app\home\home.module.ts" />
-    <TypeScriptCompile Include="src\app\home\home.routing.ts" />
-    <TypeScriptCompile Include="src\app\magazine\magazine.module.ts" />
-    <TypeScriptCompile Include="src\app\magazine\magazine.routing.ts" />
-    <TypeScriptCompile Include="src\app\publication-house\publication-house.module.ts" />
-    <TypeScriptCompile Include="src\app\publication-house\publication-house.routing.ts" />
+    <TypeScriptCompile Include="src\app\modules\home\home.module.ts" />
+    <TypeScriptCompile Include="src\app\modules\home\home.routing.ts" />
+    <TypeScriptCompile Include="src\app\modules\library.module.ts" />
+    <TypeScriptCompile Include="src\app\modules\publication\publication.module.ts" />
+    <TypeScriptCompile Include="src\app\modules\publication\publication.routing.ts" />
     <TypeScriptCompile Include="src\app\services\all-publications.ts" />
     <TypeScriptCompile Include="src\app\services\brochure.service.ts" />
     <TypeScriptCompile Include="src\app\services\magazine.service.ts" />

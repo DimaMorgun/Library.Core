@@ -1,6 +1,5 @@
 ﻿using AutoMapper;
-using Library.Core.DataAccessLayer.Connection;
-using Library.Core.DataAccessLayer.UnitOfWork;
+using Library.Core.DataAccessLayer.Repositories;
 using Library.Core.EntityModelLayer.Models;
 using Library.Core.ViewModelLayer.ViewModels.Magazine;
 using System.Collections.Generic;
@@ -9,18 +8,20 @@ namespace Library.Core.BusinessLogicLayer.Services
 {
     public class MagazineService
     {
-        private UnitOfWork _unitOfWork;
+        private MagazineRepository _magazineRepository;
 
         public MagazineService()
         {
-            _unitOfWork = new UnitOfWork(MSSQLConnection.ConnectionString);
+            var connection = @"data source = (LocalDb)\MSSQLLocalDB; initial catalog = LibraryCore; integrated security = True; MultipleActiveResultSets = True; App = EntityFramework";
+
+            _magazineRepository = new MagazineRepository(connection);
         }
 
         public GetMagazineView GetAll()
         {
             var magazineViewModel = new GetMagazineView();
 
-            var allMagazinesModel = _unitOfWork.Magazines.GetAll();
+            var allMagazinesModel = _magazineRepository.GetAll();
             List<MagazineGetMagazineViewItem> allMagazinesViewModel = Mapper.Map<List<Magazine>, List<MagazineGetMagazineViewItem>>(allMagazinesModel);
 
             magazineViewModel.Magazines = allMagazinesViewModel;
@@ -32,22 +33,22 @@ namespace Library.Core.BusinessLogicLayer.Services
         {
             var magazineModel = Mapper.Map<PostMagazineView, Magazine>(magazine);
 
-            _unitOfWork.Magazines.Insert(magazineModel);
+            _magazineRepository.Insert(magazineModel);
         }
 
         public void Put(PutMagazineView magazine)
         {
-            Magazine magazineModel = _unitOfWork.Magazines.Get(magazine.MagazineId);
+            Magazine magazineModel = _magazineRepository.Get(magazine.MagazineId);
             magazineModel.Name = magazine.Name;
             magazineModel.Number = magazine.Number;
             magazineModel.YearOfPublishing = magazine.YearOfPublishing;
-            _unitOfWork.Magazines.Update(magazineModel);
+            _magazineRepository.Update(magazineModel);
         }
 
         public void Delete(int id)
         {
-            Magazine magazineModel = _unitOfWork.Magazines.Get(id);
-            _unitOfWork.Magazines.Delete(magazineModel);
+            Magazine magazineModel = _magazineRepository.Get(id);
+            _magazineRepository.Delete(magazineModel);
         }
     }
 }

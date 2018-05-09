@@ -16,3 +16,8 @@ C:\Users\Tom\Source\Repos\Library.Core\Library.Core.EntityModelLayer\obj\Debug\n
 C:\Users\Tom\Source\Repos\Library.Core\Library.Core.EntityModelLayer\obj\Debug\netcoreapp2.0\Library.Core.EntityModelLayer.AssemblyInfo.cs
 C:\Users\Tom\Source\Repos\Library.Core\Library.Core.EntityModelLayer\obj\Debug\netcoreapp2.0\Library.Core.EntityModelLayer.dll
 C:\Users\Tom\Source\Repos\Library.Core\Library.Core.EntityModelLayer\obj\Debug\netcoreapp2.0\Library.Core.EntityModelLayer.pdb
+C:\Users\Anuitex-52\source\repos\Library.Core\Library.Core.EntityModelLayer\bin\Debug\netcoreapp2.0\Microsoft.Extensions.Identity.Stores.dll
+C:\Users\Anuitex-52\source\repos\Library.Core\Library.Core.EntityModelLayer\bin\Debug\netcoreapp2.0\Microsoft.Extensions.Identity.Stores.xml
+C:\Users\Anuitex-52\source\repos\Library.Core\Library.Core.EntityModelLayer\obj\Debug\netcoreapp2.0\Library.Core.EntityModelLayer.csproj.CopyComplete
+C:\Users\Anuitex-52\source\repos\Library.Core\Library.Core.EntityModelLayer\bin\Debug\netcoreapp2.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\Anuitex-52\source\repos\Library.Core\Library.Core.EntityModelLayer\bin\Debug\netcoreapp2.0\Microsoft.IdentityModel.Tokens.xml

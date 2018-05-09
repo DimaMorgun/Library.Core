@@ -1,6 +1,5 @@
 ﻿using AutoMapper;
-using Library.Core.DataAccessLayer.Connection;
-using Library.Core.DataAccessLayer.UnitOfWork;
+using Library.Core.DataAccessLayer.Repositories;
 using Library.Core.EntityModelLayer.Models;
 using Library.Core.ViewModelLayer.ViewModels.Book;
 using System.Collections.Generic;
@@ -10,28 +9,38 @@ namespace Library.Core.BusinessLogicLayer.Services
 {
     public class BookService
     {
-        private UnitOfWork _unitOfWork;
+        private BookRepository _bookRepository;
+        private PublicationHouseRepository _publicationHouseRepository;
+        private BookInPublicationHouseRepository _bookInPublicationHouseRepository;
+        private AuthorRepository _authorRepository;
+        private BookInAuthorRepository _bookInAuthorRepository;
 
         public BookService()
         {
-            _unitOfWork = new UnitOfWork(MSSQLConnection.ConnectionString);
+            var connection = @"data source = (LocalDb)\MSSQLLocalDB; initial catalog = LibraryCore; integrated security = True; MultipleActiveResultSets = True; App = EntityFramework";
+
+            _bookRepository = new BookRepository(connection);
+            _publicationHouseRepository = new PublicationHouseRepository(connection);
+            _bookInPublicationHouseRepository = new BookInPublicationHouseRepository(connection);
+            _authorRepository = new AuthorRepository(connection);
+            _bookInAuthorRepository = new BookInAuthorRepository(connection);
         }
 
         public GetBookView GetAll()
         {
             var allBooksAuthorsPublicationHousesViewModel = new GetBookView();
 
-            List<Book> allBooksModel = _unitOfWork.Books.GetAll();
+            List<Book> allBooksModel = _bookRepository.GetAll();
             List<BookGetBookViewItem> allBooksViewModel = Mapper.Map<List<Book>, List<BookGetBookViewItem>>(allBooksModel);
 
-            List<Author> allAuthorsModel = _unitOfWork.Authors.GetAll();
+            List<Author> allAuthorsModel = _authorRepository.GetAll();
             List<AuthorGetBookViewItem> allAuthorsViewModel = Mapper.Map<List<Author>, List<AuthorGetBookViewItem>>(allAuthorsModel);
 
-            List<PublicationHouse> allPublicationHousesModel = _unitOfWork.PublicationHouses.GetAll();
+            List<PublicationHouse> allPublicationHousesModel = _publicationHouseRepository.GetAll();
             List<PublicationHouseGetBookViewItem> allPublicationHousesViewModel = Mapper.Map<List<PublicationHouse>, List<PublicationHouseGetBookViewItem>>(allPublicationHousesModel);
             foreach (var book in allBooksViewModel)
             {
-                List<BookAuthor> bookAuthors = _unitOfWork.BookAuthors.GetAllByBookId(book.BookId);
+                List<BookAuthor> bookAuthors = _bookInAuthorRepository.GetAllByBookId(book.BookId);
                 var authors = new List<AuthorGetBookViewItem>();
                 foreach (var bookAuthor in bookAuthors)
                 {
@@ -40,7 +49,7 @@ namespace Library.Core.BusinessLogicLayer.Services
                         authors.Add(Mapper.Map<Author, AuthorGetBookViewItem>(bookAuthor.Author));
                     }
                 }
-                List<BookPublicationHouse> bookPublicationHouses = _unitOfWork.BookPublicationHouses.GetAllByBookId(book.BookId);
+                List<BookPublicationHouse> bookPublicationHouses = _bookInPublicationHouseRepository.GetAllByBookId(book.BookId);
                 var publicationHouses = new List<PublicationHouseGetBookViewItem>();
                 foreach (var bookPublicationHouse in bookPublicationHouses)
                 {
@@ -65,7 +74,7 @@ namespace Library.Core.BusinessLogicLayer.Services
             var bookAuthorsModel = new List<BookAuthor>();
             var bookPublicationHousesModel = new List<BookPublicationHouse>();
 
-            var bookId = _unitOfWork.Books.Insert(bookModel);
+            var bookId = _bookRepository.Insert(bookModel);
 
             foreach (var author in book.Authors)
             {
@@ -76,23 +85,23 @@ namespace Library.Core.BusinessLogicLayer.Services
                 bookPublicationHousesModel.Add(new BookPublicationHouse() { BookId = bookId, PublicationHouseId = publicationHouse.PublicationHouseId });
             }
 
-            _unitOfWork.BookAuthors.Insert(bookAuthorsModel);
-            _unitOfWork.BookPublicationHouses.Insert(bookPublicationHousesModel);
+            _bookInAuthorRepository.Insert(bookAuthorsModel);
+            _bookInPublicationHouseRepository.Insert(bookPublicationHousesModel);
         }
 
         public void Put(PutBookView book)
         {
-            Book bookModel = _unitOfWork.Books.Get(book.BookId);
+            Book bookModel = _bookRepository.Get(book.BookId);
             bookModel.Name = book.Name;
             bookModel.YearOfPublishing = book.YearOfPublishing;
-            _unitOfWork.Books.Update(bookModel);
+            _bookRepository.Update(bookModel);
 
             IEnumerable<int> SelectedAuthors = book.Authors.Select(id => id.AuthorId);
-            List<BookAuthor> oldBookAuthors = _unitOfWork.BookAuthors.GetAllByBookId(book.BookId);
+            List<BookAuthor> oldBookAuthors = _bookInAuthorRepository.GetAllByBookId(book.BookId);
             var oldBookAuthorsWithRelation = oldBookAuthors.Where(x => x.AuthorId != 0).ToList();
             var AuthorsHas = oldBookAuthorsWithRelation.Where(x => SelectedAuthors.Contains(x.AuthorId)).ToList();
             var AuthorsNotHas = oldBookAuthorsWithRelation.Where(x => !SelectedAuthors.Contains(x.AuthorId)).ToList();
-            _unitOfWork.BookAuthors.Delete(AuthorsNotHas);
+            _bookInAuthorRepository.Delete(AuthorsNotHas);
             var currentBookAuthors = new List<BookAuthor>();
 
             foreach (var newAuthorId in SelectedAuthors)
@@ -102,14 +111,14 @@ namespace Library.Core.BusinessLogicLayer.Services
                     currentBookAuthors.Add(new BookAuthor() { BookId = bookModel.BookId, AuthorId = newAuthorId });
                 }
             }
-            _unitOfWork.BookAuthors.Insert(currentBookAuthors);
+            _bookInAuthorRepository.Insert(currentBookAuthors);
 
             IEnumerable<int> SelectedPblicationHouses = book.PublicationHouses.Select(id => id.PublicationHouseId);
-            List<BookPublicationHouse> oldPublicationHouses = _unitOfWork.BookPublicationHouses.GetAllByBookId(book.BookId);
+            List<BookPublicationHouse> oldPublicationHouses = _bookInPublicationHouseRepository.GetAllByBookId(book.BookId);
             var oldBookPublicationHousesWithRelation = oldPublicationHouses.Where(x => x.PublicationHouseId != 0).ToList();
             var PublicationHousesHas = oldBookPublicationHousesWithRelation.Where(x => SelectedPblicationHouses.Contains(x.PublicationHouseId)).ToList();
             var PublicationHousesNothas = oldBookPublicationHousesWithRelation.Where(x => !SelectedPblicationHouses.Contains(x.PublicationHouseId)).ToList();
-            _unitOfWork.BookPublicationHouses.Delete(PublicationHousesNothas);
+            _bookInPublicationHouseRepository.Delete(PublicationHousesNothas);
             var currentBookPublicationHouses = new List<BookPublicationHouse>();
 
             foreach (var newPublicationHouseId in SelectedPblicationHouses)
@@ -119,13 +128,13 @@ namespace Library.Core.BusinessLogicLayer.Services
                     currentBookPublicationHouses.Add(new BookPublicationHouse() { BookId = bookModel.BookId, PublicationHouseId = newPublicationHouseId });
                 }
             }
-            _unitOfWork.BookPublicationHouses.Insert(currentBookPublicationHouses);
+            _bookInPublicationHouseRepository.Insert(currentBookPublicationHouses);
         }
 
         public void Delete(int id)
         {
-            Book bookModel = _unitOfWork.Books.Get(id);
-            _unitOfWork.Books.Delete(bookModel);
+            Book bookModel = _bookRepository.Get(id);
+            _bookRepository.Delete(bookModel);
         }
     }
 }

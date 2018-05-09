@@ -21,3 +21,5 @@ C:\Users\Tom\Source\Repos\Library.Core\Library.Core.DataAccessLayer\obj\Debug\ne
 C:\Users\Tom\Source\Repos\Library.Core\Library.Core.DataAccessLayer\obj\Debug\netcoreapp2.0\Library.Core.DataAccessLayer.AssemblyInfo.cs
 C:\Users\Tom\Source\Repos\Library.Core\Library.Core.DataAccessLayer\obj\Debug\netcoreapp2.0\Library.Core.DataAccessLayer.dll
 C:\Users\Tom\Source\Repos\Library.Core\Library.Core.DataAccessLayer\obj\Debug\netcoreapp2.0\Library.Core.DataAccessLayer.pdb
+C:\Users\Anuitex-52\source\repos\Library.Core\Library.Core.DataAccessLayer\bin\Debug\netcoreapp2.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+C:\Users\Anuitex-52\source\repos\Library.Core\Library.Core.DataAccessLayer\bin\Debug\netcoreapp2.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.xml
