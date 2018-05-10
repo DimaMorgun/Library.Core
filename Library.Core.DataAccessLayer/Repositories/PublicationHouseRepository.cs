@@ -1,14 +1,12 @@
 ﻿using Library.Core.EntityModelLayer.Models;
+using Microsoft.Extensions.Configuration;
 
 namespace Library.Core.DataAccessLayer.Repositories
 {
     public class PublicationHouseRepository : GenericRepository<PublicationHouse>
     {
-        private string _connection;
-
-        public PublicationHouseRepository(string connection) : base(connection)
+        public PublicationHouseRepository(/*IConfiguration configuration*/)/* : base(configuration)*/
         {
-            _connection = connection;
         }
     }
 }

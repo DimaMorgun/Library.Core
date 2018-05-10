@@ -1,7 +1,6 @@
 using Library.Core.BusinessLogicLayer.Services;
 using Library.Core.ViewModelLayer.ViewModels.AllPublications;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Configuration;
 
 namespace Library.Core.Web.Controllers
 {
@@ -11,11 +10,9 @@ namespace Library.Core.Web.Controllers
   {
     private PublicationService _allPublication;
 
-    public PublicationController(IConfiguration configuration)
+    public PublicationController(PublicationService publicationService)
     {
-      var connection = configuration.GetValue<string>("ConnectionStrings:DefaultConnection");
-
-      _allPublication = new PublicationService(connection);
+      _allPublication = publicationService;
     }
 
     [HttpGet]

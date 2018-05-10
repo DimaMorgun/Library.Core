@@ -13,11 +13,11 @@ namespace Library.Core.BusinessLogicLayer.Services
         private BookRepository _bookRepository;
         private BookInAuthorRepository _bookInAuthorRepository;
 
-        public AuthorService(string connection)
+        public AuthorService(AuthorRepository authorRepository, BookRepository bookRepository, BookInAuthorRepository bookInAuthorRepository)
         {
-            _authorRepository = new AuthorRepository(connection);
-            _bookRepository = new BookRepository(connection);
-            _bookInAuthorRepository = new BookInAuthorRepository(connection);
+            _authorRepository = authorRepository;
+            _bookRepository = bookRepository;
+            _bookInAuthorRepository = bookInAuthorRepository;
         }
 
         public GetAuthorView GetAll()

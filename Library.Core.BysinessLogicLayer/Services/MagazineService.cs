@@ -10,9 +10,9 @@ namespace Library.Core.BusinessLogicLayer.Services
     {
         private MagazineRepository _magazineRepository;
 
-        public MagazineService(string connection)
+        public MagazineService(MagazineRepository magazineRepository)
         {
-            _magazineRepository = new MagazineRepository(connection);
+            _magazineRepository = magazineRepository;
         }
 
         public GetMagazineView GetAll()

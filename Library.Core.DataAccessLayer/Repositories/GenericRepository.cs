@@ -1,4 +1,5 @@
 ﻿using Dapper.Contrib.Extensions;
+using Microsoft.Extensions.Configuration;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
@@ -7,12 +8,12 @@ namespace Library.Core.DataAccessLayer.Repositories
 {
     public class GenericRepository<TEntity> where TEntity : class
     {
-        private SqlConnection _connection;
+        private SqlConnection _connection = new SqlConnection("Server=(localdb)\\MSSQLLocalDB;Database=LibraryCore;Trusted_Connection=True");
 
-        public GenericRepository(string connection)
-        {
-            _connection = new SqlConnection(connection);
-        }
+        //public GenericRepository(IConfiguration configuration)
+        //{
+        //    _connection = new SqlConnection(configuration["ConnectionStrings:DefaultConnection"]);
+        //}
         public int Insert(TEntity item)
         {
             var id = (int)_connection.Insert(item);

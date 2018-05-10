@@ -1,7 +1,6 @@
 using Library.Core.BusinessLogicLayer.Services;
 using Library.Core.ViewModelLayer.ViewModels.PublicationHouse;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Configuration;
 
 namespace Library.Core.Web.Controllers
 {
@@ -11,11 +10,9 @@ namespace Library.Core.Web.Controllers
   {
     private PublicationHouseService _publicationHouseService;
 
-    public PublicationHouseController(IConfiguration configuration)
+    public PublicationHouseController(PublicationHouseService publicationHouseService)
     {
-      var connection = configuration.GetValue<string>("ConnectionStrings:DefaultConnection");
-
-      _publicationHouseService = new PublicationHouseService(connection);
+      _publicationHouseService = publicationHouseService;
     }
 
     [HttpGet]

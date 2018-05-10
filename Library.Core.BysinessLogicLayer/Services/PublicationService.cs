@@ -10,15 +10,12 @@ namespace Library.Core.BusinessLogicLayer.Services
         private BookRepository _bookRepository;
         private MagazineRepository _magazineRepository;
         private BrochureRepository _brochureRepository;
-        private string _connection;
 
-        public PublicationService(string connection)
+        public PublicationService(BookRepository bookRepository, MagazineRepository magazineRepository, BrochureRepository brochureRepository)
         {
-            _connection = connection;
-
-            _bookRepository = new BookRepository(connection);
-            _magazineRepository = new MagazineRepository(connection);
-            _brochureRepository = new BrochureRepository(connection);
+            _bookRepository = bookRepository;
+            _magazineRepository = magazineRepository;
+            _brochureRepository = brochureRepository;
         }
 
         public GetAllPublicationView GetAll()
@@ -56,15 +53,15 @@ namespace Library.Core.BusinessLogicLayer.Services
         {
             if (publication.Type == nameof(Book))
             {
-                new BookService(_connection).Delete(publication.PublicationId);
+                //new BookService(_bookRepository).Delete(publication.PublicationId);
             }
             if (publication.Type == nameof(Magazine))
             {
-                new MagazineService(_connection).Delete(publication.PublicationId);
+                new MagazineService(_magazineRepository).Delete(publication.PublicationId);
             }
             if (publication.Type == nameof(Brochure))
             {
-                new BrochureService(_connection).Delete(publication.PublicationId);
+                new BrochureService(_brochureRepository).Delete(publication.PublicationId);
             }
         }
     }

@@ -1,14 +1,12 @@
 ﻿using Library.Core.EntityModelLayer.Models;
+using Microsoft.Extensions.Configuration;
 
 namespace Library.Core.DataAccessLayer.Repositories
 {
     public class BrochureRepository : GenericRepository<Brochure>
     {
-        private string _connection;
-
-        public BrochureRepository(string connection) : base(connection)
+        public BrochureRepository(/*IConfiguration configuration*/)/* : base(configuration)*/
         {
-            _connection = connection;
         }
     }
 }

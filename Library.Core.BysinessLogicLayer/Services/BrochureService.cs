@@ -10,9 +10,9 @@ namespace Library.Core.BusinessLogicLayer.Services
     {
         private BrochureRepository _brochureRepository;
 
-        public BrochureService(string connection)
+        public BrochureService(BrochureRepository brochureRepository)
         {
-            _brochureRepository = new BrochureRepository(connection);
+            _brochureRepository = brochureRepository;
         }
 
         public GetBrochureView GetAll()

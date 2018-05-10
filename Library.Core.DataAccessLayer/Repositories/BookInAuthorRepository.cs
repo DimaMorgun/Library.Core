@@ -1,5 +1,6 @@
 ﻿using Dapper;
 using Library.Core.EntityModelLayer.Models;
+using Microsoft.Extensions.Configuration;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
@@ -10,9 +11,10 @@ namespace Library.Core.DataAccessLayer.Repositories
     {
         private string _connection;
 
-        public BookInAuthorRepository(string connection) : base(connection)
+        public BookInAuthorRepository(/*IConfiguration configuration*/)/* : base(configuration)*/
         {
-            _connection = connection;
+            //_connection = configuration["ConnectionStrings:DefaultConnection"];
+            _connection = "Server=(localdb)\\MSSQLLocalDB;Database=LibraryCore;Trusted_Connection=True";
         }
 
         public List<BookAuthor> GetAllByBookId(int id)

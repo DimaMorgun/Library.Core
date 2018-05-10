@@ -1,14 +1,12 @@
 ﻿using Library.Core.EntityModelLayer.Models;
+using Microsoft.Extensions.Configuration;
 
 namespace Library.Core.DataAccessLayer.Repositories
 {
     public class MagazineRepository : GenericRepository<Magazine>
     {
-        private string _connection;
-
-        public MagazineRepository(string connection) : base(connection)
+        public MagazineRepository(/*IConfiguration configuration*/)/* : base(configuration)*/
         {
-            _connection = connection;
         }
     }
 }

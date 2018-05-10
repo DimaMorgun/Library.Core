@@ -1,7 +1,6 @@
 using Library.Core.BusinessLogicLayer.Services;
 using Library.Core.ViewModelLayer.ViewModels.Magazine;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Configuration;
 
 namespace Library.Core.Web.Controllers
 {
@@ -11,11 +10,9 @@ namespace Library.Core.Web.Controllers
   {
     private MagazineService _magazineService;
 
-    public MagazineController(IConfiguration configuration)
+    public MagazineController(MagazineService magazineService)
     {
-      var connection = configuration.GetValue<string>("ConnectionStrings:DefaultConnection");
-
-      _magazineService = new MagazineService(connection);
+      _magazineService = magazineService;
     }
 
     [HttpGet]

@@ -13,11 +13,11 @@ namespace Library.Core.BusinessLogicLayer.Services
         private BookRepository _bookRepository;
         private BookInPublicationHouseRepository _bookInPublicationHouseRepository;
 
-        public PublicationHouseService(string connection)
+        public PublicationHouseService(PublicationHouseRepository publicationHouseRepository, BookRepository bookRepository, BookInPublicationHouseRepository bookInPublicationHouseRepository)
         {
-            _bookRepository = new BookRepository(connection);
-            _publicationHouseRepository = new PublicationHouseRepository(connection);
-            _bookInPublicationHouseRepository = new BookInPublicationHouseRepository(connection);
+            _publicationHouseRepository = publicationHouseRepository;
+            _bookRepository = bookRepository;
+            _bookInPublicationHouseRepository = bookInPublicationHouseRepository;
         }
 
         public GetPublicationHouseView GetAll()
