@@ -2,7 +2,6 @@
 using Library.Core.DataAccessLayer.Repositories;
 using Library.Core.EntityModelLayer.Models;
 using Library.Core.ViewModelLayer.ViewModels.Author;
-using Microsoft.Extensions.Configuration;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -10,16 +9,12 @@ namespace Library.Core.BusinessLogicLayer.Services
 {
     public class AuthorService
     {
-        private IConfiguration configuration;
         private AuthorRepository _authorRepository;
         private BookRepository _bookRepository;
         private BookInAuthorRepository _bookInAuthorRepository;
 
-        public AuthorService()
+        public AuthorService(string connection)
         {
-            //TODO: Question below
-            var connection = @"data source = (LocalDb)\MSSQLLocalDB; initial catalog = LibraryCore; integrated security = True; MultipleActiveResultSets = True; App = EntityFramework";
-
             _authorRepository = new AuthorRepository(connection);
             _bookRepository = new BookRepository(connection);
             _bookInAuthorRepository = new BookInAuthorRepository(connection);

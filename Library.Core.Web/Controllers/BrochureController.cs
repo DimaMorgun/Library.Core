@@ -1,6 +1,7 @@
 using Library.Core.BusinessLogicLayer.Services;
 using Library.Core.ViewModelLayer.ViewModels.Brochure;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
 
 namespace Library.Core.Web.Controllers
 {
@@ -10,9 +11,11 @@ namespace Library.Core.Web.Controllers
   {
     private BrochureService _brochureService;
 
-    public BrochureController()
+    public BrochureController(IConfiguration configuration)
     {
-      _brochureService = new BrochureService();
+      var connection = configuration.GetValue<string>("ConnectionStrings:DefaultConnection");
+
+      _brochureService = new BrochureService(connection);
     }
 
     [HttpGet]

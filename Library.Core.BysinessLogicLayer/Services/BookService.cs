@@ -15,10 +15,8 @@ namespace Library.Core.BusinessLogicLayer.Services
         private AuthorRepository _authorRepository;
         private BookInAuthorRepository _bookInAuthorRepository;
 
-        public BookService()
+        public BookService(string connection)
         {
-            var connection = @"data source = (LocalDb)\MSSQLLocalDB; initial catalog = LibraryCore; integrated security = True; MultipleActiveResultSets = True; App = EntityFramework";
-
             _bookRepository = new BookRepository(connection);
             _publicationHouseRepository = new PublicationHouseRepository(connection);
             _bookInPublicationHouseRepository = new BookInPublicationHouseRepository(connection);

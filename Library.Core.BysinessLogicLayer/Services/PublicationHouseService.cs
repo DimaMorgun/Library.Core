@@ -13,10 +13,8 @@ namespace Library.Core.BusinessLogicLayer.Services
         private BookRepository _bookRepository;
         private BookInPublicationHouseRepository _bookInPublicationHouseRepository;
 
-        public PublicationHouseService()
+        public PublicationHouseService(string connection)
         {
-            var connection = @"data source = (LocalDb)\MSSQLLocalDB; initial catalog = LibraryCore; integrated security = True; MultipleActiveResultSets = True; App = EntityFramework";
-
             _bookRepository = new BookRepository(connection);
             _publicationHouseRepository = new PublicationHouseRepository(connection);
             _bookInPublicationHouseRepository = new BookInPublicationHouseRepository(connection);

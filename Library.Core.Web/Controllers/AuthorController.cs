@@ -1,6 +1,7 @@
 using Library.Core.BusinessLogicLayer.Services;
 using Library.Core.ViewModelLayer.ViewModels.Author;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
 
 namespace Library.Core.Web.Controllers
 {
@@ -10,9 +11,11 @@ namespace Library.Core.Web.Controllers
   {
     private AuthorService _authorService;
 
-    public AuthorController()
+    public AuthorController(IConfiguration configuration)
     {
-      _authorService = new AuthorService();
+      var connection = configuration.GetValue<string>("ConnectionStrings:DefaultConnection");
+
+      _authorService = new AuthorService(connection);
     }
 
     [HttpGet]

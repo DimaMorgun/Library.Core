@@ -10,10 +10,8 @@ namespace Library.Core.BusinessLogicLayer.Services
     {
         private BrochureRepository _brochureRepository;
 
-        public BrochureService()
+        public BrochureService(string connection)
         {
-            var connection = @"data source = (LocalDb)\MSSQLLocalDB; initial catalog = LibraryCore; integrated security = True; MultipleActiveResultSets = True; App = EntityFramework";
-
             _brochureRepository = new BrochureRepository(connection);
         }
 

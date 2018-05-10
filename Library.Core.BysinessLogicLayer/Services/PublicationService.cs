@@ -10,10 +10,11 @@ namespace Library.Core.BusinessLogicLayer.Services
         private BookRepository _bookRepository;
         private MagazineRepository _magazineRepository;
         private BrochureRepository _brochureRepository;
+        private string _connection;
 
-        public PublicationService()
+        public PublicationService(string connection)
         {
-            var connection = @"data source = (LocalDb)\MSSQLLocalDB; initial catalog = LibraryCore; integrated security = True; MultipleActiveResultSets = True; App = EntityFramework";
+            _connection = connection;
 
             _bookRepository = new BookRepository(connection);
             _magazineRepository = new MagazineRepository(connection);
@@ -55,15 +56,15 @@ namespace Library.Core.BusinessLogicLayer.Services
         {
             if (publication.Type == nameof(Book))
             {
-                new BookService().Delete(publication.PublicationId);
+                new BookService(_connection).Delete(publication.PublicationId);
             }
             if (publication.Type == nameof(Magazine))
             {
-                new MagazineService().Delete(publication.PublicationId);
+                new MagazineService(_connection).Delete(publication.PublicationId);
             }
             if (publication.Type == nameof(Brochure))
             {
-                new BrochureService().Delete(publication.PublicationId);
+                new BrochureService(_connection).Delete(publication.PublicationId);
             }
         }
     }

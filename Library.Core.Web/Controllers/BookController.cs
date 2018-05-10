@@ -1,6 +1,7 @@
 using Library.Core.BusinessLogicLayer.Services;
 using Library.Core.ViewModelLayer.ViewModels.Book;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
 
 namespace Library.Core.Web.Controllers
 {
@@ -10,9 +11,11 @@ namespace Library.Core.Web.Controllers
   {
     private BookService _bookService;
 
-    public BookController()
+    public BookController(IConfiguration configuration)
     {
-      _bookService = new BookService();
+      var connection = configuration.GetValue<string>("ConnectionStrings:DefaultConnection");
+
+      _bookService = new BookService(connection);
     }
 
     [HttpGet]

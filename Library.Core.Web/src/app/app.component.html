@@ -9,11 +9,6 @@
       </button>
       <a [routerLink]="['/home']" class="navbar-brand">Amazing SUPER-DUPER Library</a>
     </div>
-    <div id="navbar" class="navbar-collapse collapse">
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="#" class="nav-link">Log out</a></li>
-      </ul>
-    </div>
   </div>
 </nav>
 <div class="container-fluid">
@@ -21,25 +16,25 @@
     <div class="col-sm-3 col-md-2 sidebar">
       <ul class="nav nav-sidebar">
         <li>
-          <a [routerLink]="['/all-publications']"><span class="glyphicon glyphicon-picture" aria-hidden="true"></span> All Publications</a>
+          <a [routerLink]="['/publication/publication']"><span class="glyphicon glyphicon-picture" aria-hidden="true"></span> All Publications</a>
         </li>
         <li>
           <a [routerLink]="['/home']"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home</a>
         </li>
         <li>
-          <a [routerLink]="['/book']"><span class="glyphicon glyphicon-book" aria-hidden="true"></span> Books</a>
+          <a [routerLink]="['/publication/book']"><span class="glyphicon glyphicon-book" aria-hidden="true"></span> Books</a>
         </li>
         <li>
-          <a [routerLink]="['/author']"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Authors</a>
+          <a [routerLink]="['/publication/author']"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Authors</a>
         </li>
         <li>
-          <a [routerLink]="['/publication-house']"><span class="glyphicon glyphicon-print" aria-hidden="true"></span> Publication houses</a>
+          <a [routerLink]="['/publication/publication-house']"><span class="glyphicon glyphicon-print" aria-hidden="true"></span> Publication houses</a>
         </li>
         <li>
-          <a [routerLink]="['/magazine']"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> Magazines</a>
+          <a [routerLink]="['/publication/magazine']"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> Magazines</a>
         </li>
         <li>
-          <a [routerLink]="['/brochure']"><span class="glyphicon glyphicon-picture" aria-hidden="true"></span> Brochures</a>
+          <a [routerLink]="['/publication/brochure']"><span class="glyphicon glyphicon-picture" aria-hidden="true"></span> Brochures</a>
         </li>
       </ul>
     </div>

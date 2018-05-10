@@ -10,10 +10,8 @@ namespace Library.Core.BusinessLogicLayer.Services
     {
         private MagazineRepository _magazineRepository;
 
-        public MagazineService()
+        public MagazineService(string connection)
         {
-            var connection = @"data source = (LocalDb)\MSSQLLocalDB; initial catalog = LibraryCore; integrated security = True; MultipleActiveResultSets = True; App = EntityFramework";
-
             _magazineRepository = new MagazineRepository(connection);
         }
 
