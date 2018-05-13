@@ -5,7 +5,7 @@ namespace Library.Core.DataAccessLayer.Repositories
 {
     public class BookRepository : GenericRepository<Book>
     {
-        public BookRepository(/*IConfiguration configuration*/)/* : base(configuration)*/
+        public BookRepository(IConfiguration configuration) : base(configuration)
         {
         }
     }

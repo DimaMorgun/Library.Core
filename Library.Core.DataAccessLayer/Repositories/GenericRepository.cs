@@ -8,12 +8,12 @@ namespace Library.Core.DataAccessLayer.Repositories
 {
     public class GenericRepository<TEntity> where TEntity : class
     {
-        private SqlConnection _connection = new SqlConnection("Server=(localdb)\\MSSQLLocalDB;Database=LibraryCore;Trusted_Connection=True");
+        private SqlConnection _connection;
 
-        //public GenericRepository(IConfiguration configuration)
-        //{
-        //    _connection = new SqlConnection(configuration["ConnectionStrings:DefaultConnection"]);
-        //}
+        public GenericRepository(IConfiguration configuration)
+        {
+            _connection = new SqlConnection(configuration["ConnectionStrings:DefaultConnection"]);
+        }
         public int Insert(TEntity item)
         {
             var id = (int)_connection.Insert(item);

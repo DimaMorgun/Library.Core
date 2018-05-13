@@ -15,13 +15,13 @@ namespace Library.Core.BusinessLogicLayer.Services
         private AuthorRepository _authorRepository;
         private BookInAuthorRepository _bookInAuthorRepository;
 
-        public BookService(/*BookRepository bookRepository, PublicationHouseRepository publicationHouseRepository, BookInPublicationHouseRepository bookInPublicationHouseRepository, AuthorRepository authorRepository, BookInAuthorRepository bookInAuthorRepository*/string test)
+        public BookService(BookRepository bookRepository, PublicationHouseRepository publicationHouseRepository, BookInPublicationHouseRepository bookInPublicationHouseRepository, AuthorRepository authorRepository, BookInAuthorRepository bookInAuthorRepository)
         {
-            //_bookRepository = bookRepository;
-            //_publicationHouseRepository = publicationHouseRepository;
-            //_bookInPublicationHouseRepository = bookInPublicationHouseRepository;
-            //_authorRepository = authorRepository;
-            //_bookInAuthorRepository = bookInAuthorRepository;
+            _bookRepository = bookRepository;
+            _publicationHouseRepository = publicationHouseRepository;
+            _bookInPublicationHouseRepository = bookInPublicationHouseRepository;
+            _authorRepository = authorRepository;
+            _bookInAuthorRepository = bookInAuthorRepository;
         }
 
         public GetBookView GetAll()

@@ -5,7 +5,7 @@ namespace Library.Core.DataAccessLayer.Repositories
 {
     public class MagazineRepository : GenericRepository<Magazine>
     {
-        public MagazineRepository(/*IConfiguration configuration*/)/* : base(configuration)*/
+        public MagazineRepository(IConfiguration configuration) : base(configuration)
         {
         }
     }

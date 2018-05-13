@@ -23,3 +23,14 @@ C:\Users\Tom\Source\Repos\Library.Core\Library.Core.DataAccessLayer\obj\Debug\ne
 C:\Users\Tom\Source\Repos\Library.Core\Library.Core.DataAccessLayer\obj\Debug\netcoreapp2.0\Library.Core.DataAccessLayer.pdb
 C:\Users\Anuitex-52\source\repos\Library.Core\Library.Core.DataAccessLayer\bin\Debug\netcoreapp2.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
 C:\Users\Anuitex-52\source\repos\Library.Core\Library.Core.DataAccessLayer\bin\Debug\netcoreapp2.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.xml
+C:\Users\Public\Documents\repository\Library.Core\Library.Core.DataAccessLayer\bin\Debug\netcoreapp2.0\Library.Core.DataAccessLayer.deps.json
+C:\Users\Public\Documents\repository\Library.Core\Library.Core.DataAccessLayer\bin\Debug\netcoreapp2.0\Library.Core.DataAccessLayer.dll
+C:\Users\Public\Documents\repository\Library.Core\Library.Core.DataAccessLayer\bin\Debug\netcoreapp2.0\Library.Core.DataAccessLayer.pdb
+C:\Users\Public\Documents\repository\Library.Core\Library.Core.DataAccessLayer\bin\Debug\netcoreapp2.0\Library.Core.EntityModelLayer.dll
+C:\Users\Public\Documents\repository\Library.Core\Library.Core.DataAccessLayer\bin\Debug\netcoreapp2.0\Library.Core.EntityModelLayer.pdb
+C:\Users\Public\Documents\repository\Library.Core\Library.Core.DataAccessLayer\obj\Debug\netcoreapp2.0\Library.Core.DataAccessLayer.csprojResolveAssemblyReference.cache
+C:\Users\Public\Documents\repository\Library.Core\Library.Core.DataAccessLayer\obj\Debug\netcoreapp2.0\Library.Core.DataAccessLayer.csproj.CoreCompileInputs.cache
+C:\Users\Public\Documents\repository\Library.Core\Library.Core.DataAccessLayer\obj\Debug\netcoreapp2.0\Library.Core.DataAccessLayer.AssemblyInfoInputs.cache
+C:\Users\Public\Documents\repository\Library.Core\Library.Core.DataAccessLayer\obj\Debug\netcoreapp2.0\Library.Core.DataAccessLayer.AssemblyInfo.cs
+C:\Users\Public\Documents\repository\Library.Core\Library.Core.DataAccessLayer\obj\Debug\netcoreapp2.0\Library.Core.DataAccessLayer.dll
+C:\Users\Public\Documents\repository\Library.Core\Library.Core.DataAccessLayer\obj\Debug\netcoreapp2.0\Library.Core.DataAccessLayer.pdb

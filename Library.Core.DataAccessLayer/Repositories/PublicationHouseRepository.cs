@@ -5,7 +5,7 @@ namespace Library.Core.DataAccessLayer.Repositories
 {
     public class PublicationHouseRepository : GenericRepository<PublicationHouse>
     {
-        public PublicationHouseRepository(/*IConfiguration configuration*/)/* : base(configuration)*/
+        public PublicationHouseRepository(IConfiguration configuration) : base(configuration)
         {
         }
     }

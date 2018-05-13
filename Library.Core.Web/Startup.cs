@@ -3,7 +3,6 @@ using Library.Core.BusinessLogicLayer.Services;
 using Library.Core.BysinessLogicLayer.AutoMapperConfig;
 using Library.Core.DataAccessLayer.Contexts;
 using Library.Core.DataAccessLayer.Repositories;
-using Library.Core.Web.Controllers;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -24,21 +23,34 @@ namespace Library.Core.Web
 
       services.AddSingleton<BookRepository>();
       services.AddSingleton<AuthorRepository>();
+      services.AddSingleton<BookInAuthorRepository>();
       services.AddSingleton<PublicationHouseRepository>();
+      services.AddSingleton<BookInPublicationHouseRepository>();
       services.AddSingleton<MagazineRepository>();
       services.AddSingleton<BrochureRepository>();
 
-      //services.AddSingleton<BookService>();
-      services.AddSingleton(provider => new BookService("myPrettyLocalhost:6379"));
+      //BookRepository bookRepository = services.BuildServiceProvider().GetService<BookRepository>();
+      //AuthorRepository authorRepository = services.BuildServiceProvider().GetService<AuthorRepository>();
+      //BookInAuthorRepository bookInAuthorRepository = services.BuildServiceProvider().GetService<BookInAuthorRepository>();
+      //PublicationHouseRepository publicationHouseRepository = services.BuildServiceProvider().GetService<PublicationHouseRepository>();
+      //BookInPublicationHouseRepository bookInPublicationHouseRepository = services.BuildServiceProvider().GetService<BookInPublicationHouseRepository>();
+      //MagazineRepository magazineRepository = services.BuildServiceProvider().GetService<MagazineRepository>();
+      //BrochureRepository brochureRepository = services.BuildServiceProvider().GetService<BrochureRepository>();
+
+      //services.AddSingleton(provider => new PublicationService(bookRepository, magazineRepository, brochureRepository));
+      //services.AddSingleton(provider => new BookService(bookRepository, publicationHouseRepository, bookInPublicationHouseRepository, authorRepository, bookInAuthorRepository));
+      //services.AddSingleton(provider => new AuthorService(authorRepository, bookRepository, bookInAuthorRepository));
+      //services.AddSingleton(provider => new PublicationHouseService(publicationHouseRepository, bookRepository, bookInPublicationHouseRepository));
+      //services.AddSingleton(provider => new MagazineService(magazineRepository));
+      //services.AddSingleton(provider => new BrochureService(brochureRepository));
+      services.AddSingleton<PublicationService>();
+      services.AddSingleton<BookService>();
       services.AddSingleton<AuthorService>();
       services.AddSingleton<PublicationHouseService>();
       services.AddSingleton<MagazineService>();
       services.AddSingleton<BrochureService>();
 
       AutoMapperConfig.InitializeInstances();
-      
-      //services.AddTransient(ctx =>
-      //    new BookController(new BookService()));
     }
 
     // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

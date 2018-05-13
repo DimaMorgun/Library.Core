@@ -11,10 +11,9 @@ namespace Library.Core.DataAccessLayer.Repositories
     {
         private string _connection;
 
-        public BookInAuthorRepository(/*IConfiguration configuration*/)/* : base(configuration)*/
+        public BookInAuthorRepository(IConfiguration configuration) : base(configuration)
         {
-            //_connection = configuration["ConnectionStrings:DefaultConnection"];
-            _connection = "Server=(localdb)\\MSSQLLocalDB;Database=LibraryCore;Trusted_Connection=True";
+            _connection = configuration["ConnectionStrings:DefaultConnection"];
         }
 
         public List<BookAuthor> GetAllByBookId(int id)
