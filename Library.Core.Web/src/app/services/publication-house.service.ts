@@ -19,7 +19,7 @@ export class PublicationHouseService {
     return this.http.post<PostPublicationHouseView>(this.url, publicationHouse);
   }
   putPublicationHouse(publicationHouse: PutPublicationHouseView): Observable<PutPublicationHouseView> {
-    return this.http.put<PutPublicationHouseView>(`${this.url}/${publicationHouse.publicationHouseId}`, publicationHouse);
+    return this.http.put<PutPublicationHouseView>(`${this.url}/${publicationHouse.id}`, publicationHouse);
   }
   deletePublicationHouse(id: number) {
     return this.http.delete(`${this.url}/${id}`);

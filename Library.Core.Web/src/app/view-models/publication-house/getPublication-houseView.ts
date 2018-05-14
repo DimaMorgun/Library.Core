@@ -7,7 +7,7 @@ export class GetPublicationHouseView {
 
 export class PublicationHouseGetPublicationHouseViewItem {
   constructor(
-    public publicationHouseId: number = 0,
+    public id: number = 0,
     public name?: string,
     public adress?: string,
     public books?: BookGetPublicationHouseViewItem[]
@@ -16,7 +16,7 @@ export class PublicationHouseGetPublicationHouseViewItem {
 
 export class BookGetPublicationHouseViewItem {
   constructor(
-    public bookId: number = 0,
+    public id: number = 0,
     public name?: string,
     public yearOfPublishing: number = 0
   ) { }

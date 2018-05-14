@@ -74,7 +74,7 @@ export class AuthorComponent implements OnInit {
   }
 
   public removeHandler({ dataItem }) {
-    this.authorService.deleteAuthor(dataItem.authorId).subscribe(data => this.refresh());
+    this.authorService.deleteAuthor(dataItem.id).subscribe(data => this.refresh());
   }
 
   private closeEditor(grid, rowIndex = this.editedRowIndex) {

@@ -76,7 +76,7 @@ export class BookComponent implements OnInit {
   }
 
   public removeHandler({ dataItem }) {
-    this.bookService.deleteBook(dataItem.bookId).subscribe(data => this.refresh());
+    this.bookService.deleteBook(dataItem.id).subscribe(data => this.refresh());
   }
 
   private closeEditor(grid, rowIndex = this.editedRowIndex) {

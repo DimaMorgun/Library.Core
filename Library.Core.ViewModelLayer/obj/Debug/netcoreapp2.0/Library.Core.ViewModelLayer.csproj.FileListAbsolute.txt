@@ -24,3 +24,4 @@ C:\Users\Public\Documents\repository\Library.Core\Library.Core.ViewModelLayer\ob
 C:\Users\Public\Documents\repository\Library.Core\Library.Core.ViewModelLayer\obj\Debug\netcoreapp2.0\Library.Core.ViewModelLayer.dll
 C:\Users\Public\Documents\repository\Library.Core\Library.Core.ViewModelLayer\obj\Debug\netcoreapp2.0\Library.Core.ViewModelLayer.pdb
 C:\Users\Public\Documents\repository\Library.Core\Library.Core.ViewModelLayer\obj\Debug\netcoreapp2.0\Library.Core.ViewModelLayer.csprojResolveAssemblyReference.cache
+C:\Users\Anuitex-52\source\repos\Library.Core\Library.Core.ViewModelLayer\obj\Debug\netcoreapp2.0\Library.Core.ViewModelLayer.csprojResolveAssemblyReference.cache

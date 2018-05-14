@@ -19,7 +19,7 @@ export class MagazineService {
     return this.http.post<PostMagazineView>(this.url, magazine);
   }
   putMagazine(magazine: PutMagazineView): Observable<PutMagazineView> {
-    return this.http.put<PutMagazineView>(`${this.url}/${magazine.magazineId}`, magazine);
+    return this.http.put<PutMagazineView>(`${this.url}/${magazine.id}`, magazine);
   }
   deleteMagazine(id: number) {
     return this.http.delete(`${this.url}/${id}`);

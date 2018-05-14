@@ -1,11 +1,10 @@
-﻿using Dapper.Contrib.Extensions;
+﻿using Library.Core.EntityModelLayer.Code;
 
 namespace Library.Core.EntityModelLayer.Models
 {
-    public class Book
+    public class Book : Entity
     {
-        [Key]
-        public int BookId { get; set; }
+        public int Id { get; set; }
         public string Name { get; set; }
         public int YearOfPublishing { get; set; }
     }

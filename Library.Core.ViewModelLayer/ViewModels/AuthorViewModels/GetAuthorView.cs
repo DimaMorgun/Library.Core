@@ -16,7 +16,7 @@ namespace Library.Core.ViewModelLayer.ViewModels.Author
 
     public class AuthorGetAuthorViewItem
     {
-        public int AuthorId { get; set; }
+        public int Id { get; set; }
         public string Name { get; set; }
         public int Birthday { get; set; }
         public int Deathday { get; set; }
@@ -31,7 +31,7 @@ namespace Library.Core.ViewModelLayer.ViewModels.Author
 
     public class BookGetAuthorViewItem
     {
-        public int BookId { get; set; }
+        public int Id { get; set; }
         public string Name { get; set; }
         public int YearOfPublishing { get; set; }
 

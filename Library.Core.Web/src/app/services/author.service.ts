@@ -19,7 +19,7 @@ export class AuthorService {
     return this.http.post<PostAuthorView>(this.url, author);
   }
   putAuthor(author: PutAuthorView): Observable<PutAuthorView> {
-    return this.http.put<PutAuthorView>(`${this.url}/${author.authorId}`, author);
+    return this.http.put<PutAuthorView>(`${this.url}/${author.id}`, author);
   }
   deleteAuthor(id: number) {
     return this.http.delete(`${this.url}/${id}`);

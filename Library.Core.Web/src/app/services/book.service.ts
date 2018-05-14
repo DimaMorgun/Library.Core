@@ -19,7 +19,7 @@ export class BookService {
     return this.http.post<PostBookView>(this.url, book);
   }
   putBook(book: PutBookView): Observable<PutBookView> {
-    return this.http.put<PutBookView>(`${this.url}/${book.bookId}`, book);
+    return this.http.put<PutBookView>(`${this.url}/${book.id}`, book);
   }
   deleteBook(id: number) {
     return this.http.delete(`${this.url}/${id}`);

@@ -29,20 +29,6 @@ namespace Library.Core.Web
       services.AddSingleton<MagazineRepository>();
       services.AddSingleton<BrochureRepository>();
 
-      //BookRepository bookRepository = services.BuildServiceProvider().GetService<BookRepository>();
-      //AuthorRepository authorRepository = services.BuildServiceProvider().GetService<AuthorRepository>();
-      //BookInAuthorRepository bookInAuthorRepository = services.BuildServiceProvider().GetService<BookInAuthorRepository>();
-      //PublicationHouseRepository publicationHouseRepository = services.BuildServiceProvider().GetService<PublicationHouseRepository>();
-      //BookInPublicationHouseRepository bookInPublicationHouseRepository = services.BuildServiceProvider().GetService<BookInPublicationHouseRepository>();
-      //MagazineRepository magazineRepository = services.BuildServiceProvider().GetService<MagazineRepository>();
-      //BrochureRepository brochureRepository = services.BuildServiceProvider().GetService<BrochureRepository>();
-
-      //services.AddSingleton(provider => new PublicationService(bookRepository, magazineRepository, brochureRepository));
-      //services.AddSingleton(provider => new BookService(bookRepository, publicationHouseRepository, bookInPublicationHouseRepository, authorRepository, bookInAuthorRepository));
-      //services.AddSingleton(provider => new AuthorService(authorRepository, bookRepository, bookInAuthorRepository));
-      //services.AddSingleton(provider => new PublicationHouseService(publicationHouseRepository, bookRepository, bookInPublicationHouseRepository));
-      //services.AddSingleton(provider => new MagazineService(magazineRepository));
-      //services.AddSingleton(provider => new BrochureService(brochureRepository));
       services.AddSingleton<PublicationService>();
       services.AddSingleton<BookService>();
       services.AddSingleton<AuthorService>();

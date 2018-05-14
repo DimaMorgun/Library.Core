@@ -18,18 +18,18 @@ namespace Library.Core.DataAccessLayer.Repositories
 
         public List<BookPublicationHouse> GetAllByBookId(int id)
         {
-            var query = $"SELECT BookPublicationHouses.*, Books.*, PublicationHouses.* FROM Books LEFT JOIN BookPublicationHouses on BookPublicationHouses.BookId = Books.BookId LEFT JOIN PublicationHouses on PublicationHouses.PublicationHouseId = BookPublicationHouses.PublicationHouseId WHERE Books.BookId = {id};";
+            var query = $"SELECT BookPublicationHouses.*, Books.*, PublicationHouses.* FROM Books LEFT JOIN BookPublicationHouses on BookPublicationHouses.BookId = Books.Id LEFT JOIN PublicationHouses on PublicationHouses.Id = BookPublicationHouses.PublicationHouseId WHERE Books.Id = {id};";
             List<BookPublicationHouse> booksPublicationHouses;
             using (SqlConnection connection = new SqlConnection(_connection))
             {
                 booksPublicationHouses = connection.Query<BookPublicationHouse, Book, PublicationHouse, BookPublicationHouse>(query, (bph, book, ph) =>
                 {
                     bph.Book = book;
-                    bph.BookId = book.BookId;
+                    bph.BookId = book.Id;
                     bph.PublicationHouse = ph;
-                    bph.PublicationHouseId = ph != null ? ph.PublicationHouseId : 0;
+                    bph.PublicationHouseId = ph != null ? ph.Id : 0;
                     return bph;
-                }, splitOn: "PublicationHouseId").ToList();
+                }, splitOn: "Id").ToList();
 
             }
             return booksPublicationHouses.ToList();
@@ -37,18 +37,18 @@ namespace Library.Core.DataAccessLayer.Repositories
 
         public List<BookPublicationHouse> GetAllByPublicationHouseId(int id)
         {
-            var query = $"SELECT BookPublicationHouses.*, PublicationHouses.*, Books.* FROM PublicationHouses LEFT JOIN BookPublicationHouses on BookPublicationHouses.PublicationHouseId = PublicationHouses.PublicationHouseId LEFT JOIN Books on Books.BookId = BookPublicationHouses.BookId WHERE PublicationHouses.PublicationHouseId = {id};";
+            var query = $"SELECT BookPublicationHouses.*, PublicationHouses.*, Books.* FROM PublicationHouses LEFT JOIN BookPublicationHouses on BookPublicationHouses.PublicationHouseId = PublicationHouses.Id LEFT JOIN Books on Books.Id = BookPublicationHouses.BookId WHERE PublicationHouses.Id = {id};";
             List<BookPublicationHouse> booksPublicationHouses = new List<BookPublicationHouse>();
             using (SqlConnection connection = new SqlConnection(_connection))
             {
                 booksPublicationHouses = connection.Query<BookPublicationHouse, PublicationHouse, Book, BookPublicationHouse>(query, (bph, ph, book) =>
                 {
                     bph.Book = book;
-                    bph.BookId = book != null ? book.BookId : 0;
+                    bph.BookId = book != null ? book.Id : 0;
                     bph.PublicationHouse = ph;
-                    bph.PublicationHouseId = ph.PublicationHouseId;
+                    bph.PublicationHouseId = ph.Id;
                     return bph;
-                }, splitOn: "BookId").ToList();
+                }, splitOn: "Id").ToList();
             }
             return booksPublicationHouses.ToList();
         }

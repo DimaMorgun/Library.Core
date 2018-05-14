@@ -1,4 +1,5 @@
 ﻿using Dapper.Contrib.Extensions;
+using Library.Core.EntityModelLayer.Interfaces;
 using Microsoft.Extensions.Configuration;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -6,7 +7,7 @@ using System.Linq;
 
 namespace Library.Core.DataAccessLayer.Repositories
 {
-    public class GenericRepository<TEntity> where TEntity : class
+    public class GenericRepository<TEntity> where TEntity : Entity
     {
         private SqlConnection _connection;
 
@@ -41,11 +42,15 @@ namespace Library.Core.DataAccessLayer.Repositories
         {
             _connection.Update(items);
         }
+        public void Delete(int id)
+        {
+            var item = Get(id);
+            _connection.Delete(item);
+        }
         public void Delete(TEntity item)
         {
             _connection.Delete(item);
         }
-
         public void Delete(List<TEntity> items)
         {
             _connection.Delete(items);

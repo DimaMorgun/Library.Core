@@ -36,7 +36,7 @@ namespace Library.Core.BusinessLogicLayer.Services
 
         public void Put(PutMagazineView magazine)
         {
-            Magazine magazineModel = _magazineRepository.Get(magazine.MagazineId);
+            Magazine magazineModel = _magazineRepository.Get(magazine.Id);
             magazineModel.Name = magazine.Name;
             magazineModel.Number = magazine.Number;
             magazineModel.YearOfPublishing = magazine.YearOfPublishing;

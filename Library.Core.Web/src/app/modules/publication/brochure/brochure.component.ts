@@ -71,7 +71,7 @@ export class BrochureComponent implements OnInit {
   }
 
   public removeHandler({ dataItem }) {
-    this.brochureService.deleteBrochure(dataItem.brochureId).subscribe(data => this.refresh());
+    this.brochureService.deleteBrochure(dataItem.id).subscribe(data => this.refresh());
   }
 
   private closeEditor(grid, rowIndex = this.editedRowIndex) {

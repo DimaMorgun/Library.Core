@@ -1,10 +1,9 @@
-﻿using Dapper.Contrib.Extensions;
+﻿using Library.Core.EntityModelLayer.Code;
 
 namespace Library.Core.EntityModelLayer.Models
 {
-    public class Brochure
+    public class Brochure : Entity
     {
-        [Key]
         public int Id { get; set; }
         public string Name { get; set; }
         public string TypeOfCover { get; set; }

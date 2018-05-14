@@ -74,7 +74,7 @@ export class PublicationHouseComponent implements OnInit {
   }
 
   public removeHandler({ dataItem }) {
-    this.publicationHouseService.deletePublicationHouse(dataItem.publicationHouseId).subscribe(data => this.refresh());
+    this.publicationHouseService.deletePublicationHouse(dataItem.id).subscribe(data => this.refresh());
   }
 
   private closeEditor(grid, rowIndex = this.editedRowIndex) {

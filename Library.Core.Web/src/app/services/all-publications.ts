@@ -15,6 +15,6 @@ export class AllPublicationsService {
     return this.http.get<GetAllPublicationsView>(this.url);
   }
   deleteAllPublications(publication: DeleteAllPublicationsView) {
-    return this.http.request('delete', `${this.url}/${publication.publicationId}`, { body: publication });
+    return this.http.request('delete', `${this.url}/${publication.id}`, { body: publication });
   }
 }

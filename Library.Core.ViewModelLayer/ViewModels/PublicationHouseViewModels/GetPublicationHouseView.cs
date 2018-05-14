@@ -16,7 +16,7 @@ namespace Library.Core.ViewModelLayer.ViewModels.PublicationHouse
 
     public class PublicationHouseGetPublicationHouseViewItem
     {
-        public int PublicationHouseId { get; set; }
+        public int Id { get; set; }
         public string Name { get; set; }
         public string Adress { get; set; }
 
@@ -30,7 +30,7 @@ namespace Library.Core.ViewModelLayer.ViewModels.PublicationHouse
 
     public class BookGetPublicationHouseViewItem
     {
-        public int BookId { get; set; }
+        public int Id { get; set; }
         public string Name { get; set; }
         public int YearOfPublishing { get; set; }
 

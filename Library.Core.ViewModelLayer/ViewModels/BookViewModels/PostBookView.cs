@@ -4,7 +4,7 @@ namespace Library.Core.ViewModelLayer.ViewModels.Book
 {
     public class PostBookView
     {
-        public int BookId { get; set; }
+        public int Id { get; set; }
         public string Name { get; set; }
         public int YearOfPublishing { get; set; }
 
@@ -20,7 +20,7 @@ namespace Library.Core.ViewModelLayer.ViewModels.Book
 
     public class AuthorPostBookViewItem
     {
-        public int AuthorId { get; set; }
+        public int Id { get; set; }
         public string Name { get; set; }
         public int Birthday { get; set; }
         public int Deathday { get; set; }
@@ -33,7 +33,7 @@ namespace Library.Core.ViewModelLayer.ViewModels.Book
 
     public class PublicationHousePostBookViewItem
     {
-        public int PublicationHouseId { get; set; }
+        public int Id { get; set; }
         public string Name { get; set; }
         public string Adress { get; set; }
 

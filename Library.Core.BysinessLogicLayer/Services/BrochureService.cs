@@ -36,7 +36,7 @@ namespace Library.Core.BusinessLogicLayer.Services
 
         public void Put(PutBrochureView brochure)
         {
-            Brochure BrochureModel = _brochureRepository.Get(brochure.BrochureId);
+            Brochure BrochureModel = _brochureRepository.Get(brochure.Id);
             BrochureModel.Name = brochure.Name;
             BrochureModel.NumberOfPages = brochure.NumberOfPages;
             BrochureModel.TypeOfCover = brochure.TypeOfCover;

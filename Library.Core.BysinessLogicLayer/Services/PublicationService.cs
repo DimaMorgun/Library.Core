@@ -32,15 +32,15 @@ namespace Library.Core.BusinessLogicLayer.Services
             var allPublicationsModel  = new List<PublicationGetAllPublicationView>();
             foreach (var book in allBooks)
             {
-                allPublicationsModel.Add(new PublicationGetAllPublicationView() { PublicationId = book.BookId, Name = book.Name, Type = nameof(Book) });
+                allPublicationsModel.Add(new PublicationGetAllPublicationView() { Id = book.Id, Name = book.Name, Type = nameof(Book) });
             }
             foreach (var magazine in allMagazines)
             {
-                allPublicationsModel.Add(new PublicationGetAllPublicationView() { PublicationId = magazine.MagazineId, Name = magazine.Name, Type = nameof(Magazine) });
+                allPublicationsModel.Add(new PublicationGetAllPublicationView() { Id = magazine.Id, Name = magazine.Name, Type = nameof(Magazine) });
             }
             foreach (var brochure in allBrochures)
             {
-                allPublicationsModel.Add(new PublicationGetAllPublicationView() { PublicationId = brochure.Id, Name = brochure.Name, Type = nameof(Brochure) });
+                allPublicationsModel.Add(new PublicationGetAllPublicationView() { Id = brochure.Id, Name = brochure.Name, Type = nameof(Brochure) });
             }
 
             allPublicationsViewModel.Publications = allPublicationsModel;
@@ -48,20 +48,19 @@ namespace Library.Core.BusinessLogicLayer.Services
             return allPublicationsViewModel;
         }
 
-        //TODO: Question below
         public void Delete(DeleteAllPublicationView publication)
         {
             if (publication.Type == nameof(Book))
             {
-                //new BookService(_bookRepository).Delete(publication.PublicationId);
+                _bookRepository.Delete(publication.Id);
             }
             if (publication.Type == nameof(Magazine))
             {
-                new MagazineService(_magazineRepository).Delete(publication.PublicationId);
+                _magazineRepository.Delete(publication.Id);
             }
             if (publication.Type == nameof(Brochure))
             {
-                new BrochureService(_brochureRepository).Delete(publication.PublicationId);
+                _brochureRepository.Delete(publication.Id);
             }
         }
     }

@@ -20,7 +20,6 @@ C:\Users\Anuitex-52\source\repos\Library.Core\Library.Core.EntityModelLayer\bin\
 C:\Users\Anuitex-52\source\repos\Library.Core\Library.Core.EntityModelLayer\obj\Debug\netcoreapp2.0\Library.Core.EntityModelLayer.csproj.CopyComplete
 C:\Users\Anuitex-52\source\repos\Library.Core\Library.Core.EntityModelLayer\bin\Debug\netcoreapp2.0\Microsoft.IdentityModel.Tokens.dll
 C:\Users\Anuitex-52\source\repos\Library.Core\Library.Core.EntityModelLayer\bin\Debug\netcoreapp2.0\Microsoft.IdentityModel.Tokens.xml
-C:\Users\Anuitex-52\source\repos\Library.Core\Library.Core.EntityModelLayer\obj\Debug\netcoreapp2.0\Library.Core.EntityModelLayer.csprojResolveAssemblyReference.cache
 C:\Users\Public\Documents\repository\Library.Core\Library.Core.EntityModelLayer\bin\Debug\netcoreapp2.0\Library.Core.EntityModelLayer.deps.json
 C:\Users\Public\Documents\repository\Library.Core\Library.Core.EntityModelLayer\bin\Debug\netcoreapp2.0\Library.Core.EntityModelLayer.dll
 C:\Users\Public\Documents\repository\Library.Core\Library.Core.EntityModelLayer\bin\Debug\netcoreapp2.0\Library.Core.EntityModelLayer.pdb
@@ -32,3 +31,4 @@ C:\Users\Public\Documents\repository\Library.Core\Library.Core.EntityModelLayer\
 C:\Users\Public\Documents\repository\Library.Core\Library.Core.EntityModelLayer\obj\Debug\netcoreapp2.0\Library.Core.EntityModelLayer.AssemblyInfo.cs
 C:\Users\Public\Documents\repository\Library.Core\Library.Core.EntityModelLayer\obj\Debug\netcoreapp2.0\Library.Core.EntityModelLayer.dll
 C:\Users\Public\Documents\repository\Library.Core\Library.Core.EntityModelLayer\obj\Debug\netcoreapp2.0\Library.Core.EntityModelLayer.pdb
+C:\Users\Anuitex-52\source\repos\Library.Core\Library.Core.EntityModelLayer\obj\Debug\netcoreapp2.0\Library.Core.EntityModelLayer.csprojResolveAssemblyReference.cache

@@ -1,11 +1,10 @@
-﻿using Dapper.Contrib.Extensions;
+﻿using Library.Core.EntityModelLayer.Code;
 
 namespace Library.Core.EntityModelLayer.Models
 {
-    public class Author
+    public class Author : Entity
     {
-        [Key]
-        public int AuthorId { get; set; }
+        public int Id { get; set; }
         public string Name { get; set; }
         public int Birthday { get; set; }
         public int Deathday { get; set; }

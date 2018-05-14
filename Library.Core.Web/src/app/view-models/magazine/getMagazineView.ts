@@ -6,7 +6,7 @@ export class GetMagazineView {
 
 export class MagazineGetMagazineViewItem {
   constructor(
-    public magazineId: number = 0,
+    public id: number = 0,
     public name?: string,
     public number: number = 0,
     public yearOfPublishing: number = 0

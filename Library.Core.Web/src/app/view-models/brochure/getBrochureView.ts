@@ -6,7 +6,7 @@ export class GetBrochureView {
 
 export class BrochureGetBrochureViewItem {
   constructor(
-    public brochureId: number = 0,
+    public id: number = 0,
     public name?: string,
     public typeOfCover?: string,
     public numberOfPages: number = 0

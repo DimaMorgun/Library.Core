@@ -19,7 +19,7 @@ export class BrochureService {
     return this.http.post<PostBrochureView>(this.url, brochure);
   }
   putBrochure(brochure: PutBrochureView): Observable<PutBrochureView> {
-    return this.http.put<PutBrochureView>(`${this.url}/${brochure.brochureId}`, brochure);
+    return this.http.put<PutBrochureView>(`${this.url}/${brochure.id}`, brochure);
   }
   deleteBrochure(id: number) {
     return this.http.delete(`${this.url}/${id}`);

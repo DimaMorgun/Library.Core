@@ -664,28 +664,25 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Dmytro Morhun\\.nuget\\packages\\": {},
+    "C:\\Users\\Anuitex-52\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
-    "restoreSettings": {
-      "hideWarningsAndErrors": true
-    },
     "restore": {
-      "projectUniqueName": "C:\\Users\\Public\\Documents\\repository\\Library.Core\\Library.Core.ViewModelLayer\\Library.Core.ViewModelLayer.csproj",
+      "projectUniqueName": "C:\\Users\\Anuitex-52\\source\\repos\\Library.Core\\Library.Core.ViewModelLayer\\Library.Core.ViewModelLayer.csproj",
       "projectName": "Library.Core.ViewModelLayer",
-      "projectPath": "C:\\Users\\Public\\Documents\\repository\\Library.Core\\Library.Core.ViewModelLayer\\Library.Core.ViewModelLayer.csproj",
-      "packagesPath": "C:\\Users\\Dmytro Morhun\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Public\\Documents\\repository\\Library.Core\\Library.Core.ViewModelLayer\\obj\\",
+      "projectPath": "C:\\Users\\Anuitex-52\\source\\repos\\Library.Core\\Library.Core.ViewModelLayer\\Library.Core.ViewModelLayer.csproj",
+      "packagesPath": "C:\\Users\\Anuitex-52\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Anuitex-52\\source\\repos\\Library.Core\\Library.Core.ViewModelLayer\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback\\",
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\Dmytro Morhun\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Anuitex-52\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.Fallback.config"
       ],

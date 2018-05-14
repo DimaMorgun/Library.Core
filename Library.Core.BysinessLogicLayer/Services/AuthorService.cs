@@ -32,7 +32,7 @@ namespace Library.Core.BusinessLogicLayer.Services
 
             foreach (var author in allAuthorsViewModel)
             {
-                List<BookAuthor> authorBooks = _bookInAuthorRepository.GetAllByAuthorId(author.AuthorId);
+                List<BookAuthor> authorBooks = _bookInAuthorRepository.GetAllByAuthorId(author.Id);
                 var books = new List<BookGetAuthorViewItem>();
                 foreach (var authorBook in authorBooks)
                 {
@@ -58,7 +58,7 @@ namespace Library.Core.BusinessLogicLayer.Services
 
             foreach (var book in author.Books)
             {
-                authorBooksModel.Add(new BookAuthor() { AuthorId = authorId, BookId = book.BookId });
+                authorBooksModel.Add(new BookAuthor() { AuthorId = authorId, BookId = book.Id });
             }
 
             _bookInAuthorRepository.Insert(authorBooksModel);
@@ -66,25 +66,25 @@ namespace Library.Core.BusinessLogicLayer.Services
 
         public void Put(PutAuthorView author)
         {
-            Author authorModel = _authorRepository.Get(author.AuthorId);
+            Author authorModel = _authorRepository.Get(author.Id);
             authorModel.Name = author.Name;
             authorModel.Birthday = author.Birthday;
             authorModel.Deathday = author.Deathday;
             _authorRepository.Update(authorModel);
 
-            IEnumerable<int> SelectedBooks = author.Books.Select(id => id.BookId);
-            List<BookAuthor> oldAuthorBooks = _bookInAuthorRepository.GetAllByAuthorId(author.AuthorId);
+            IEnumerable<int> selectedBooks = author.Books.Select(id => id.Id);
+            List<BookAuthor> oldAuthorBooks = _bookInAuthorRepository.GetAllByAuthorId(author.Id);
             var oldAuthorBooksWithRelation = oldAuthorBooks.Where(x => x.BookId != 0).ToList();
-            var BooksHas = oldAuthorBooksWithRelation.Where(x => SelectedBooks.Contains(x.BookId)).ToList();
-            var BooksNotHas = oldAuthorBooksWithRelation.Where(x => !SelectedBooks.Contains(x.BookId)).ToList();
-            _bookInAuthorRepository.Delete(BooksNotHas);
-            var currentAuthorBooks = new List<BookAuthor>();
+            var intersectBooks = oldAuthorBooksWithRelation.Select(x => x.BookId).Intersect(selectedBooks).ToList();
+            var exceptBooks = oldAuthorBooksWithRelation.Select(x => x.BookId).Except(selectedBooks).ToList();
+            _bookInAuthorRepository.Delete(oldAuthorBooks.Where(x => exceptBooks.Contains(x.BookId)).ToList());
 
-            foreach (var newBookId in SelectedBooks)
+            var currentAuthorBooks = new List<BookAuthor>();
+            foreach (var newBookId in selectedBooks)
             {
-                if (BooksHas.FirstOrDefault(x => x.BookId == newBookId) == null)
+                if (intersectBooks.FirstOrDefault(x => x == newBookId) == 0)
                 {
-                    currentAuthorBooks.Add(new BookAuthor() { AuthorId = authorModel.AuthorId, BookId = newBookId});
+                    currentAuthorBooks.Add(new BookAuthor() { AuthorId = authorModel.Id, BookId = newBookId});
                 }
             }
             _bookInAuthorRepository.Insert(currentAuthorBooks);

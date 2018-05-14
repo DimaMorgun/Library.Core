@@ -1,11 +1,11 @@
 ﻿using Dapper.Contrib.Extensions;
+using Library.Core.EntityModelLayer.Code;
 
 namespace Library.Core.EntityModelLayer.Models
 {
-    public class BookPublicationHouse
+    public class BookPublicationHouse : Entity
     {
-        [Key]
-        public int BookPublicationHouseId { get; set; }
+        public int Id { get; set; }
         public int BookId { get; set; }
         [Write(false)]
         public virtual Book Book { get; set; }

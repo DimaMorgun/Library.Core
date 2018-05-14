@@ -18,36 +18,36 @@ namespace Library.Core.DataAccessLayer.Repositories
 
         public List<BookAuthor> GetAllByBookId(int id)
         {
-            var query = $"SELECT BookAuthors.*, Books.*, Authors.* FROM Books LEFT JOIN BookAuthors on BookAuthors.BookId = Books.BookId LEFT JOIN Authors on Authors.AuthorId = BookAuthors.AuthorId WHERE Books.BookId = {id};";
+            var query = $"SELECT BookAuthors.*, Books.*, Authors.* FROM Books LEFT JOIN BookAuthors on BookAuthors.BookId = Books.Id LEFT JOIN Authors on Authors.Id = BookAuthors.AuthorId WHERE Books.Id = {id};";
             List<BookAuthor> bookAuthors = new List<BookAuthor>();
             using (SqlConnection connection = new SqlConnection(_connection))
             {
                 bookAuthors = connection.Query<BookAuthor, Book, Author, BookAuthor>(query, (ba, book, author) =>
                 {
                     ba.Book = book;
-                    ba.BookId = book.BookId;
+                    ba.BookId = book.Id;
                     ba.Author = author;
-                    ba.AuthorId = author != null ? author.AuthorId : 0;
+                    ba.AuthorId = author != null ? author.Id : 0;
                     return ba;
-                }, splitOn: "AuthorId").ToList();
+                }, splitOn: "Id").ToList();
             }
             return bookAuthors.ToList();
         }
 
         public List<BookAuthor> GetAllByAuthorId(int id)
         {
-            var query = $"SELECT BookAuthors.*, Authors.*, Books.* FROM Authors LEFT JOIN BookAuthors on BookAuthors.AuthorId = Authors.AuthorId LEFT JOIN Books on Books.BookId = BookAuthors.BookId WHERE Authors.AuthorId = {id};";
+            var query = $"SELECT BookAuthors.*, Authors.*, Books.* FROM Authors LEFT JOIN BookAuthors on BookAuthors.AuthorId = Authors.Id LEFT JOIN Books on Books.Id = BookAuthors.BookId WHERE Authors.Id = {id};";
             List<BookAuthor> bookAuthors = new List<BookAuthor>();
             using (SqlConnection connection = new SqlConnection(_connection))
             {
                 bookAuthors = connection.Query<BookAuthor, Author, Book, BookAuthor>(query, (ba, author, book) =>
                 {
                     ba.Book = book;
-                    ba.BookId = book != null ? book.BookId : 0;
+                    ba.BookId = book != null ? book.Id : 0;
                     ba.Author = author;
-                    ba.AuthorId = author.AuthorId;
+                    ba.AuthorId = author.Id;
                     return ba;
-                }, splitOn: "BookId").ToList();
+                }, splitOn: "Id").ToList();
             }
             return bookAuthors.ToList();
         }
