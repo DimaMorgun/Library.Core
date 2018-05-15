@@ -21,20 +21,20 @@ namespace Library.Core.Web
 
       services.AddMvc();
 
-      services.AddSingleton<BookRepository>();
-      services.AddSingleton<AuthorRepository>();
-      services.AddSingleton<BookInAuthorRepository>();
-      services.AddSingleton<PublicationHouseRepository>();
-      services.AddSingleton<BookInPublicationHouseRepository>();
-      services.AddSingleton<MagazineRepository>();
-      services.AddSingleton<BrochureRepository>();
+      services.AddTransient<BookRepository>();
+      services.AddTransient<AuthorRepository>();
+      services.AddTransient<BookInAuthorRepository>();
+      services.AddTransient<PublicationHouseRepository>();
+      services.AddTransient<BookInPublicationHouseRepository>();
+      services.AddTransient<MagazineRepository>();
+      services.AddTransient<BrochureRepository>();
 
-      services.AddSingleton<PublicationService>();
-      services.AddSingleton<BookService>();
-      services.AddSingleton<AuthorService>();
-      services.AddSingleton<PublicationHouseService>();
-      services.AddSingleton<MagazineService>();
-      services.AddSingleton<BrochureService>();
+      services.AddTransient<PublicationService>();
+      services.AddTransient<BookService>();
+      services.AddTransient<AuthorService>();
+      services.AddTransient<PublicationHouseService>();
+      services.AddTransient<MagazineService>();
+      services.AddTransient<BrochureService>();
 
       AutoMapperConfig.InitializeInstances();
     }

@@ -1,5 +1,5 @@
 ﻿using Dapper.Contrib.Extensions;
-using Library.Core.EntityModelLayer.Interfaces;
+using Library.Core.EntityModelLayer.Code;
 using Microsoft.Extensions.Configuration;
 using System.Collections.Generic;
 using System.Data.SqlClient;

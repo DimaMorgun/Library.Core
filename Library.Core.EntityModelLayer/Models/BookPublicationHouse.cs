@@ -5,7 +5,6 @@ namespace Library.Core.EntityModelLayer.Models
 {
     public class BookPublicationHouse : Entity
     {
-        public int Id { get; set; }
         public int BookId { get; set; }
         [Write(false)]
         public virtual Book Book { get; set; }
